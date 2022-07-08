@@ -1,0 +1,27 @@
+header {
+	.language-switcher{
+	  list-style: none;
+	  display: flex;
+	  align-items: center;
+	  gap: 10px;
+	  svg{
+	    filter: brightness(0) invert(1);
+	  }
+
+	  span,select{
+	    background: none;
+	    color: $color-text-alt;
+	  }
+	  option{
+	    color: $color-text;
+	  }
+	}
+	.banner{
+	  background: $color-text;
+	  display: flex;
+	  justify-content: flex-end;
+	  height: 49px;
+	  align-items: center;
+	  padding: 0 20px;
+	}
+}

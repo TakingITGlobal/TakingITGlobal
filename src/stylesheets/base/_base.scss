@@ -1,0 +1,43 @@
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+*,
+html {
+  /* -webkit-font-smoothing: antialiased; */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+::selection {
+  background: $color-hl; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: $color-hl; /* Gecko Browsers */
+}
+
+body {
+  font-family: $font-primary;
+  letter-spacing: 0;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--auto-grid-min-size), 1fr)
+  );
+  grid-gap: 2rem;
+  max-width: inherit;
+}
+
+main,
+header,
+footer {
+  margin: 0 auto;
+}
+
