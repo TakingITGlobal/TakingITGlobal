@@ -10,8 +10,7 @@ const HomepageTemplate = ({ data }) => {
   if (!data) return null
 
   const homepage = data.prismicHomepage || {}
-  const topMenu = data.prismicTopMenu || {}
-  const bottomMenu = data.prismicBottomMenu || {}
+  const menu = data.prismicMenu || {}
 
   const { lang, type, url } = homepage || {}
   const alternateLanguages = homepage.alternate_languages || []
@@ -23,8 +22,10 @@ const HomepageTemplate = ({ data }) => {
   }
 
   return (
-    <Layout topMenu={topMenu.data} bottomMenu={bottomMenu.data} activeDocMeta={activeDoc}>
-      <SliceZone slices={homepage.data?.body} components={components} />
+    <Layout menu={menu.data} activeDocMeta={activeDoc}>
+      <div className="Homepage">
+        <SliceZone slices={homepage.data?.body} components={components} />
+      </div>
     </Layout>
   )
 }
@@ -41,11 +42,29 @@ export const query = graphql`
       lang
       url
       type
+      data {
+        body {
+          ... on PrismicSliceType {
+            id
+            slice_type
+            slice_label
+          }
+          ...HomepageDataBodyAcknowledgements
+          ...HomepageDataBodyDiscover
+          ...HomepageDataBodyEvent
+          ...HomepageDataBodyGallery
+          ...HomepageDataBodyHero
+          ...HomepageDataBodyProjects
+          ...HomepageDataBodySocialFeed
+          ...HomepageDataBodySupport
+          ...HomepageDataBodyTextImage
+          ...HomepageDataBodyYouthResources
+          ...HomepageDataBodyTeachers
+        }
+      }
     }
-    prismicTopMenu(lang: { eq: $lang }) {
+    prismicMenu(lang: { eq: $lang }) {
       ...TopMenuFragment
-    }
-    prismicBottomMenu(lang: { eq: $lang }) {
       ...BottomMenuFragment
     }
   }

@@ -8,6 +8,7 @@ html {
   padding: 0;
   border: 0;
   font-size: 100%;
+  box-sizing: border-box;
 }
 ::selection {
   background: $color-hl; /* WebKit/Blink Browsers */
@@ -17,14 +18,32 @@ html {
 }
 
 body {
-  font-family: $font-primary;
+  font-family: $font-secondary;
+  background: $color-bg;
   letter-spacing: 0;
+}
+section{
+  position: relative;
+  padding: 60px 0;
 }
 
 button:focus {
   outline: 0;
 }
 
+.Container {
+  max-width: $width;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: content-box;
+}
+.center-align{
+  text-align: center;
+  margin: 0 auto;
+}
+.center-align.max-content{
+  width: max-content;
+}
 .auto-grid {
   display: grid;
   grid-template-columns: repeat(
@@ -33,6 +52,63 @@ button:focus {
   );
   grid-gap: 2rem;
   max-width: inherit;
+}
+.btn-a,.btn-b, .btn-c{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 32px 9px;
+  gap: 10px;
+  box-sizing: border-box;
+  
+  position: relative;
+  width: max-content;
+  
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  @media screen and (max-width: $mobile){
+    font-size: 16px;
+  }
+}
+
+.btn-a {
+  background: #FFFFFF;
+  margin-bottom: 13px;
+  margin-right: 13px;
+  color: $color-pink;
+  border-top: 2px solid $color-pink;
+  border-left: 2px solid $color-pink;
+  border-bottom: 9px solid $color-pink;
+  border-right: 7px solid $color-pink;
+  border-radius: 100px;
+}
+.btn-b {
+  background: $color-yellow;
+  color: $color-text;
+  border-radius: 100px;
+}
+.btn-c {
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+.btn-arrow {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+
+  /* or 156% */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &:after {
+    content: url(./../images/rightArrow.svg);
+  }
 }
 
 main,

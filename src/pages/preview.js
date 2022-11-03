@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { withPrismicPreviewResolver } from 'gatsby-plugin-prismic-previews'
 
-const PreviewPage = ({ isPreview, ...props }) => {
-  if (isPreview === false) return 'Not a preview!'
-
-  return <p>Loading</p>
+const PreviewPage = () => {
+  return (
+    <div>
+      <h1>Loading preview…</h1>
+    </div>
+  )
 }
 
 export default withPrismicPreviewResolver(PreviewPage)

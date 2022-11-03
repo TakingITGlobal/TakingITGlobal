@@ -9,12 +9,12 @@ import { components } from '../slices'
 const PageTemplate = ({ data }) => {
   if (!data) return null
 
-  const page = data.prismicPage || {}
-  const topMenu = data.prismicTopMenu || {}
-  const bottomMenu = data.prismicBottomMenu || {}
+  const pageContent = data.prismicPage || {}
+  const page = pageContent.data || {}
+  const menu = data.prismicMenu || {}
 
-  const { lang, type, url } = page || {}
-  const alternateLanguages = page.alternate_languages || []
+  const { lang, type, url } = pageContent || {}
+  const alternateLanguages = pageContent.alternate_languages || []
   const activeDoc = {
     lang,
     type,
@@ -23,15 +23,15 @@ const PageTemplate = ({ data }) => {
   }
 
   return (
-    <Layout topMenu={topMenu.data} bottomMenu={bottomMenu.data} activeDocMeta={activeDoc}>
+    <Layout menu={menu.data} activeDocMeta={activeDoc}>
       <SliceZone slices={page.data?.body} components={components} />
     </Layout>
   )
 }
 
 export const query = graphql`
-  query pageQuery($lang: String) {
-    prismicPage(lang: { eq: $lang }) {
+  query pageQuery($id: String, $lang: String) {
+    prismicPage(id: { eq: $id },lang: { eq: $lang }) {
       _previewable
       alternate_languages {
         uid
@@ -40,13 +40,11 @@ export const query = graphql`
       }
       lang
       url
-      uid
       type
+      id
     }
-    prismicTopMenu(lang: { eq: $lang }) {
+    prismicMenu(lang: { eq: $lang }) {
       ...TopMenuFragment
-    }
-    prismicBottomMenu(lang: { eq: $lang }) {
       ...BottomMenuFragment
     }
   }

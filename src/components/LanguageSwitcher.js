@@ -2,7 +2,6 @@ import * as React from 'react'
 import { navigate } from 'gatsby'
 
 import { linkResolver } from '../utils/linkResolver'
-import { FaGlobeAmericas } from 'react-icons/fa'
 
 export const LanguageSwitcher = ({ activeDocMeta }) => {
   const currentLang = activeDocMeta.lang
@@ -26,17 +25,14 @@ export const LanguageSwitcher = ({ activeDocMeta }) => {
   }
 
   return (
-    <div className="banner">
-      <li className="language-switcher">
-        <FaGlobeAmericas/>
-        <div>
-          <span>Language: </span>
-          <select value={currentLang} onChange={handleLangChange}>
-            {currentLangOption}
-            {alternateLangOptions}
-          </select>
-        </div>
-      </li>
-    </div>
+    <li className="language-switcher">
+      <div className="select-wrap">
+        <span>Language: </span>
+        <select value={currentLang} onChange={handleLangChange}>
+          {currentLangOption}
+          {alternateLangOptions}
+        </select>
+      </div>
+    </li>
   )
 }

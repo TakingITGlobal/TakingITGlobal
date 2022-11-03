@@ -1,0 +1,36 @@
+.Gallery {
+	padding: 70px 0 130px;
+	.header-copy{
+		padding-bottom: 50px;
+	}
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		column-gap: 50px;
+		row-gap: 50px;
+		padding-bottom: 80px;
+
+		@media screen and (max-width: $tablet){
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	.grid-item{
+		position: relative;
+
+		&.gw-1{grid-column: auto/span 1;}
+		&.gw-2{grid-column: auto/span 2;}
+		&.gw-3{grid-column: auto/span 3;}
+		&.gw-4{grid-column: auto/span 4;}	
+	}
+	.grid-tag {
+		position: absolute;
+		left: 0;
+		top: 0;
+		background: $color-pink;
+		padding: 12px 11px 11px;
+		color: $color-text-alt;
+		text-align: center;
+		letter-spacing: 0.06em;
+		line-height: 1;
+	}
+}

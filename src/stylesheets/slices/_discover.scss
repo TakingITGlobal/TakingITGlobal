@@ -1,0 +1,51 @@
+.Discover {
+	padding-bottom: 120px;
+	.center-align{
+		margin-bottom: 38px;
+		max-width: 860px;
+	}
+	.card-row{
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		text-align: center;
+		padding-bottom: 60px;
+		@media screen and (max-width: $desktop){
+				gap: 20px;
+		}
+	}
+	.card{
+		max-width: 374px;
+		min-height: 421px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+
+		box-shadow: $box-shadow;
+		border-radius: 5px;
+		padding: 58px 23px 26px;
+
+		.btn-c{
+			width: 100%;
+		}
+		h3 {
+			line-height: 1.4;
+		}
+		@media screen and (max-width: $mobile){
+			padding: 58px 18px 26px;
+		}
+	}
+	.card:nth-of-type(3n-2){
+		background: $color-yellow;
+	}
+	.card:nth-of-type(3n-1){
+		background: $color-blue-light;
+		@media screen and (min-width: $desktop){
+			transform: translateY(60px);
+		}	
+	}
+	.card:nth-of-type(3n){
+		background: $color-purple;
+	}
+}

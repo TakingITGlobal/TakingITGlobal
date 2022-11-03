@@ -1,0 +1,84 @@
+.Projects {
+	padding: 160px 0 120px;
+	.image-wrap{
+		position: relative;
+	}
+	.flex-wrap{
+		gap: 40px;
+	}
+	.impact-bubble{
+		background: $color-yellow;
+		border: 5px solid $color-text;
+		border-radius: 300px;
+		aspect-ratio: 1/1;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+		padding: 40px 22px 22px;
+		position: absolute;
+		
+
+		&.left {
+			left: -20px;
+		}
+		&.right{
+			right: -20px;
+		}
+		.impact-copy{
+			max-width: 220px;
+		}
+		top: -65px;
+		z-index: 5;
+
+		p {
+			letter-spacing: 0.01em;
+
+		}
+	}
+	.image-wrap{
+		position: sticky;
+		top: 85px;
+	}
+	.image{
+		max-width: 720px;
+	}
+	.copy-wrap{
+		max-width: 600px;
+		p{
+			padding-bottom: 40px;
+		}
+		h4{
+			padding-bottom: 32px;
+		}
+	}
+	.card{
+		position: relative;
+		z-index: 1;
+		margin-bottom: 40px;
+	}
+	.card-copy {
+		background: #FFFFFF;
+		border: 3px solid $color-pink;
+		border-radius: 5px;
+		padding: 36px 42px 42px;
+		
+		position: relative;
+		z-index: 3;
+		margin-right: 9px;
+		margin-bottom: 9px;
+	}
+	.card:after{
+		background: $color-pink;
+		content: '';
+		position: absolute;
+		border-radius: 5px;
+		top: 9px;
+		left: 9px;
+		width: calc(100% - 9px);
+		height: 100%;
+		z-index: -1;
+	}
+}

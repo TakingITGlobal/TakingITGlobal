@@ -5,8 +5,8 @@ const prismicConfig = require('./prismic-configuration')
 
 module.exports = {
   siteMetadata: {
-    title: 'Basic HeyNova Prismic Build',
-    description: 'Barebones prismic starter with Prismic CMS & Gatsby.js for HeyNova Projects',
+    title: 'Taking IT Global',
+    description: 'At TakingITGlobal, we design and deliver youth engagement programs that empower youth to understand and act on local and global challenges.',
   },
   plugins: [
     {
@@ -14,20 +14,20 @@ module.exports = {
       options: {
         repositoryName: prismicConfig.prismicRepo,  
         customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
-        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
         linkResolver: require('./src/utils/linkResolver').linkResolver,
       },
     },
     {
       resolve: 'gatsby-plugin-prismic-previews',
       options: {
-        repositoryName: prismicConfig.prismicRepo,
+        repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
       },
     },
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-netlify',
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-manifest',
@@ -38,7 +38,15 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: path.resolve(__dirname, 'src', 'images', 'favicon-32x32.png'),
+        icon: path.resolve(__dirname, 'src', 'images', 'favicon.png'),
+      },
+    },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        // @risingyouthtig
+        instagram_id: `17841401539124196`,
+        access_token: process.env.INSTAGRAM_TOKEN,
       },
     },
     {

@@ -1,0 +1,132 @@
+.SocialFeed {
+	.headline{
+		text-align: center;
+	}
+	.carousel {
+		margin-right: calc(calc((100vw - 100%) - 40px) / -2);
+		max-width: calc(1400px + calc(calc(100vw - 1440px) / 2));
+		position: relative;
+	}
+	.card {
+		max-width: 385px;
+		background: #ffffff;
+		box-shadow: 6px 6px 12px rgba(2, 0, 103, 0.13);
+		border-radius: 5px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+	.copy{
+		padding: 13px 20px 20px;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		
+
+	}
+	.caption {
+		
+		display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
+    font-weight: 400;
+		font-size: 16px;
+		line-height: 150%;
+
+	}
+	.image-box{
+		width: 100%;
+		aspect-ratio: 1/1;
+		img {
+			width: 100%;
+			height: 100%;
+			object-position: center;
+			object-fit: cover;
+		}
+	}
+	.date {
+		text-transform: uppercase;
+		margin-top: auto;
+		padding-top: 1rem;
+	}
+	.slider-tray-wrap {
+		
+		
+	}
+	.slider-tray{
+		padding: 40px 0 20px;
+		
+	}
+	@media screen and (max-width: 600px){
+		.card{
+			margin: 0 auto 0 0;
+		}
+
+		.hidden-slide {
+			margin-left: 5px;
+		}
+		
+	}
+	@media screen and (min-width: 600px){
+		.slider-tray-wrap{
+			padding-right: 200px;
+
+		}
+	}
+
+	.btn-next{
+		margin-left: auto;
+		margin-right: 20px;
+		background: $color-pink;
+		color: white;
+		width: 53px;
+		height: 53px;
+		border-radius: 50%;
+		font-size: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.social {
+		padding: 60px 0 80px;
+		h3{
+			text-align: center;
+			margin: 0 auto;
+			font-weight: 700;
+			font-size: 30px;
+			line-height: 120%;
+			margin-bottom: 60px;
+		}
+		.social-links {
+			
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+			gap: 20px;
+			max-width: $tablet;
+			margin: 0 auto;
+			align-items: center;
+			a {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+			p{
+				line-height: 1.5;
+			}
+			svg {
+				width: 32px;
+				height: 32px;
+				height: auto;
+				color: $color-pink;
+			}
+		}
+	}
+	
+}

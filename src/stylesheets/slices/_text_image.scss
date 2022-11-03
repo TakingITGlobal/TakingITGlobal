@@ -1,0 +1,16 @@
+.TextImage {
+	.flex-wrap{
+		gap: 20px;
+	}
+	.text-wrap{
+		max-width: 600px;
+		flex: 1 1 400px;
+	}
+	.image-wrap{
+		max-width: 720px;
+		flex: 1 1 600px;
+	}
+	p {
+		margin-bottom: 30px;
+	}
+}

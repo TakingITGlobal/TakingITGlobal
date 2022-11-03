@@ -1,5 +1,6 @@
 a {
   text-decoration: none;
+  color: inherit;
 }
 h1,
 h2,
@@ -8,45 +9,83 @@ h4,
 h5,
 h6 {
   font-family: $font-primary;
-  margin: 1rem 0;
-  line-height: 1.5;
+  line-height: 1.2;
+}
+.lite {
+  font-family: $font-secondary;
+  font-weight: 500;
+}
+h1 {
+  font-size: 4.375rem; /*70px*/
   font-weight: 900;
 }
 
-h1 {
-  font-size: 3rem;
-  line-height: 4.75rem;
+h2 {
+  font-size: 3.75rem; /*60px*/
+  font-weight: 900;
+
+  margin-bottom: 0.9375rem;
+}
+@media screen and (max-width:  $mobile){
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2{
+    font-size: 1.875rem;
+  }
 }
 
-h2 {
-  font-size: 32px;
-  line-height: 45px;
-  font-weight: 600;
+h1,h2 {
+  word-break: break-word;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  -ms-word-break: break-word;
+  word-break: break-word;
+  display: inline-block;
+  z-index: 1;
+  strong{position: relative;z-index: 2;} 
+  strong:after {
+    position: absolute;
+    left: -5px;
+    bottom: 10%;
+    content: '';
+    height: 35%;
+    z-index: -1;
+    width: 100%;
+    display: inline-block;
+    background: $color-yellow; 
+    border-radius: 5px;
+    white-space: normal;
+    padding: 0 5px;
+
+  }
 }
 
 h3 {
-  font-size: 2.25rem;
-  line-height: 2.6875rem;
+  font-size: 2.5rem; /*40px*/
+  font-weight: 800;
+  margin-bottom: 1rem;
 }
 
 h4 {
-  line-height: 2rem;
-  font-size: 2.625rem;
+  font-size: 1.875rem; /*30px*/
+  font-weight: 700;
 }
 
 h5 {
-  line-height: 2.25rem;
-  font-size: 1.5rem;
+  font-size: 1.5625rem; /*25px*/
+  font-weight: 700;
 }
 
 h6 {
+  font-size: 1.25rem; /*20px*/
   line-height: 1.875rem;
-  font-size: 1.25rem;
 }
 
 p {
-  line-height: 1.875rem;
-  font-size: 1.25rem;
+  font-size: 1.125rem; /*18px*/
+  font-weight: 400;
+  line-height: 1.75rem;
 }
 
 pre {

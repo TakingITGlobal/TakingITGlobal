@@ -1,0 +1,21 @@
+.Support {
+	padding: 60px 0 80px;
+	.flex-wrap{
+		background: $color-blue-light;
+		position: relative;
+		align-items: center;
+
+		padding: 74px 10px;
+	}
+	.copy-wrap{
+		margin: 0 auto;
+	}
+	.btn-a {
+		margin-top: 30px;
+	}
+	.image-wrap{
+		margin-left: auto;
+		margin-top: auto;
+		margin-bottom: -74px;
+	}
+}

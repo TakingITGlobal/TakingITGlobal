@@ -1,0 +1,62 @@
+.Hero {
+	padding: 120px 0;
+	.mosaic-grid{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 60px;
+		grid-template-rows: auto 1fr;
+	}
+	.grid-item{
+		max-width: 100%;
+	}
+	.grid-image{
+		border-radius: 8px;
+		filter: drop-shadow(6px 6px 12px rgba(0, 50, 101, 0.33));
+		@media screen and (min-width: $tablet){
+			&.sub_1,&.sub_2{
+				margin-top: -20px;
+			}
+			&.top_1 {
+				max-width: 600px;
+			}
+			&.sub_1 {
+				margin-right: 10px;
+				transform: translateY(20px);
+				max-width: 500px;
+			}
+			&.sub_2 {
+				margin-left: 10px;
+				max-width: 500px;
+				transform: translateY(-20px);
+			}
+		}
+	}
+	.grid-text{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 20px 0;
+		h1 {
+			margin-bottom: 15px;
+		}
+		p{
+			padding-bottom: 35px;
+		}
+	}
+	.r-align{
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+	}
+	@media screen and (max-width: $tablet){
+		padding: 20px 0 60px;
+		.mosaic-grid{
+			grid-template-columns: 1fr;
+			row-gap: 60px;
+		}
+		.r-align, .grid-text{
+			justify-content: flex-start;
+			align-items: flex-start;
+		}
+	}
+}
