@@ -48,4 +48,17 @@ export const query = graphql`
       }
     }
   }
+  fragment PageDataBodyTextImage on PrismicPageDataBodyTextImage {
+    id
+    primary {
+      image_side
+      featured_image {
+        gatsbyImageData
+        alt 
+      }
+      copy_richtext {
+        richText
+      }
+    }
+  }
 `

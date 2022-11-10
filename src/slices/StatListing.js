@@ -1,0 +1,39 @@
+import * as React from 'react'
+import { graphql } from 'gatsby'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import { PrismicRichText,PrismicLink } from '@prismicio/react'
+
+export const StatListing = ({ slice }) => {
+  return (
+    <section className="StatListing">
+      <div className="Container">
+        <div className="text-wrap">
+          <PrismicRichText field={slice.primary.copy_richtext?.richText}/>
+        </div>
+        <div className="list-wrap">
+          {slice.items.map((item,index) => (
+            <div className="stat" key={`stat:${index}`}>
+              <span>{item.stat}</span>
+              <p>{item.stat_description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export const query = graphql`
+  fragment PageDataBodyStatListing on PrismicPageDataBodyStatListing {
+    id
+    primary {
+      copy_richtext {
+        richText
+      }
+    }
+    items {
+      stat 
+      stat_description
+    }
+  }
+`

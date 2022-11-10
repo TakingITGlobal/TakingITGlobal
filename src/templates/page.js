@@ -24,7 +24,7 @@ const PageTemplate = ({ data }) => {
 
   return (
     <Layout menu={menu.data} activeDocMeta={activeDoc}>
-      <SliceZone slices={page.data?.body} components={components} />
+      <SliceZone slices={page.body} components={components} />
     </Layout>
   )
 }
@@ -42,6 +42,22 @@ export const query = graphql`
       url
       type
       id
+      data {
+        body {
+          ... on PrismicSliceType {
+            id
+            slice_type
+            slice_label
+          }
+          ...PageDataBodyTextImage
+          ...PageDataBodyFeatureGrid
+          ...PageDataBodyFeatureSlider
+          ...PageDataBodyProgramCarousel
+          ...PageDataBodyQuote
+          ...PageDataBodyStatListing
+          ...PageDataBodyTextCards
+        }
+      }
     }
     prismicMenu(lang: { eq: $lang }) {
       ...TopMenuFragment
