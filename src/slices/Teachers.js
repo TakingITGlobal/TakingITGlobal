@@ -8,15 +8,15 @@ export const Teachers = ({ slice }) => {
     <section className="Teachers">
       <div className="Container">
         <div className='flex-wrap'>
-          <div className="image-wrap w-12">
+          <div className="image-wrap">
             <GatsbyImage
               image={slice.primary.featured_image?.gatsbyImageData}
               alt={slice.primary.featured_image?.alt || ""}
               className="image"
             />
           </div>
-          <div className="copy w-12">
-            <div className="richtext-wrap w-9">
+          <div className="copy-wrap">
+            <div className="richtext-wrap">
               <PrismicRichText field={slice.primary.copy_richtext?.richText}/>
             </div>
           </div>

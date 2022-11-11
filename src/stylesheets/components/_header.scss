@@ -67,11 +67,24 @@ header {
 		justify-content: space-between;
 		.menuLinks {
 			display: flex;
+			gap: 24px;
+			margin: 16px 0;
+			padding-right: 20px;
+			svg {
+				width: 16px;
+				height: auto;
 
+			}
+		}
+		.dropLabel b{
+			display: flex;
+			align-items: center;
+			gap: 5px;
 		}
 		.dropLabel:hover{
 			& ~ .dropWrap {
 				display: flex;
+
 			}
 			svg {
 				transform: rotate(180deg);
