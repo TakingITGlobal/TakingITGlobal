@@ -1,0 +1,58 @@
+.Quote {
+	.quote-box {
+		max-width: 993px;
+		text-align: center;
+		padding: 90px 43px 32px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 16px;
+
+		background: rgba(#FFFFFF, 0.4);
+		border: 1px solid rgba($color-purple, 0.4);
+		box-shadow: 6px 6px 12px rgba(2, 0, 103, 0.13);
+		border-radius: 5px;
+
+		position: relative;
+		h2 {
+			margin: 0;
+		}
+	}
+	.quote-box:before {
+		content: "“";
+		font-size: 300px;
+		position:absolute;
+		left:-40px;
+		top:-40px;
+		height: 70px;
+		line-height: 1;
+		font-family: 'Helvetica';
+		color: $color-purple;
+		opacity: 0.62;
+		transform: rotate(15deg);
+	}
+	.quote-box:after {
+		content: "”";
+		font-size: 300px;
+		position:absolute;
+		right:-60px;
+		bottom:60px;
+		height: 70px;
+		line-height: 1;
+		font-family: 'Helvetica';
+		color: $color-purple;
+		opacity: 0.62;
+		transform: rotate(15deg);
+	}
+	.quote-content{
+		padding: 0 60px;
+	}
+	.author-box {
+		display:flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		text-align: left;
+	}
+}

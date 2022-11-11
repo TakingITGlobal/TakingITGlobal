@@ -17,8 +17,8 @@ import useInstagramData from "../components/useInstagramData"
 
 export const ProgramCarousel = ({ slice }) => {
   const total_slides = slice.items.length;
-  const slide_width = 385;
-  const slide_height = 577;
+  const slide_width = 446;
+  const slide_height = 600;
   const {height, width} = useWindowDimensions();
 
   const l_margin = Math.max(((width - 1440) / 2), 0);
@@ -32,7 +32,7 @@ export const ProgramCarousel = ({ slice }) => {
         <div className="carousel">
           <CarouselProvider
             naturalSlideWidth={slide_width + 20}
-            naturalSlideHeight={slide_height}
+            
             totalSlides={total_slides}
             visibleSlides={slider_width}
             infinite={true}
@@ -45,13 +45,17 @@ export const ProgramCarousel = ({ slice }) => {
                 <Slide index={index} key={`carousel: ${index}`} tabIndex={-1} classNameHidden="hidden-slide">
                   <div className="card">
                     <PrismicLink className="image-box" href={item.card_link?.url} id={`child-${index}`} tabIndex={0} >
-                      <GatsbyImage
-                        image={item.card_image?.gatsbyImageData}
-                        alt={item.card_image?.alt || ""}
-                      />
+                      <div className="image-wrap">
+                        {!slice.primary.availability && <span className="featured-label">{slice.primary.closed_label}</span>}
+                        <GatsbyImage
+                          image={item.card_image?.gatsbyImageData}
+                          alt={item.card_image?.alt || ""}
+                          className="image"
+                        />
+                      </div>
                     </PrismicLink>
                     <div className="copy">
-                      <h3>{item.card_title}</h3>
+                      <h4>{item.card_title}</h4>
                       <p><b>{item.card_subtitle}</b></p>
                       <p>{item.card_description}</p>
                     </div>
@@ -60,6 +64,11 @@ export const ProgramCarousel = ({ slice }) => {
               ))}
             </Slider>   
           </CarouselProvider>
+        </div>
+        <div className="bottom-wrap">
+          <PrismicLink href={slice.primary.view_all_link?.url}  className="btn-b">
+            {slice.primary.view_all_label}
+          </PrismicLink>
         </div>
       </div>
     </section>

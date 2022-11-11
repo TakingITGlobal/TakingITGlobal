@@ -43,22 +43,36 @@ h1,h2 {
   word-break: break-word;
   display: inline-block;
   z-index: 1;
-  strong{position: relative;z-index: 2;} 
+  position:relative;
+  strong{
+    position:relative;
+    z-index: 2;
+    border-radius: 10px;
+    padding: 0 5px;
+    margin: 0 -5px;
+    background: linear-gradient(to bottom, transparent 50%, $color-yellow 50%);
+    background-position-y: 65%;
+    background-size: 100% 65%;
+    background-repeat: no-repeat;
+  } 
   strong:after {
-    position: absolute;
+   /* position: absolute;
     left: -5px;
-    bottom: 10%;
+    
     content: '';
     height: 35%;
     z-index: -1;
-    width: 100%;
     display: inline-block;
     background: $color-yellow; 
     border-radius: 5px;
     white-space: normal;
-    padding: 0 5px;
+    padding: 0 5px;*/
 
   }
+}
+h1 strong:after {
+  top: 30px;
+  height: 30px;
 }
 
 h3 {

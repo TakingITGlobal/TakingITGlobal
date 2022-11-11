@@ -6,17 +6,20 @@ import { PrismicRichText,PrismicLink } from '@prismicio/react'
 export const StatListing = ({ slice }) => {
   return (
     <section className="StatListing">
+      <div className="bg-blob"/>
       <div className="Container">
-        <div className="text-wrap">
-          <PrismicRichText field={slice.primary.copy_richtext?.richText}/>
-        </div>
-        <div className="list-wrap">
-          {slice.items.map((item,index) => (
-            <div className="stat" key={`stat:${index}`}>
-              <span>{item.stat}</span>
-              <p>{item.stat_description}</p>
-            </div>
-          ))}
+        <div className="flex-wrap">
+          <div className="text-wrap">
+            <PrismicRichText field={slice.primary.copy_richtext?.richText}/>
+          </div>
+          <div className="list-wrap">
+            {slice.items.map((item,index) => (
+              <div className="stat" key={`stat:${index}`}>
+                <span className="impact">{item.stat}</span>
+                <p>{item.stat_description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

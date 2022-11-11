@@ -75,7 +75,6 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
       </div>
       <div className="dropWrap">
         <div className="content">
-        mmhm bop
           <div className="copy">
             {copy && (<PrismicRichText field={copy.richText}/>)}
           </div>

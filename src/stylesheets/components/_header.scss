@@ -63,6 +63,12 @@ header {
 		}
 	}
 	.desktopMenu {
+		display:flex;
+		justify-content: space-between;
+		.menuLinks {
+			display: flex;
+
+		}
 		.dropLabel:hover{
 			& ~ .dropWrap {
 				display: flex;
@@ -76,7 +82,6 @@ header {
 			display: none;
 			bottom: 100%;
 			position: absolute;
-
 		}
 	}
 }

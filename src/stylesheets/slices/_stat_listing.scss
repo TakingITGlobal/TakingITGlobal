@@ -1,0 +1,41 @@
+.StatListing {
+	position: relative;
+	.bg-blob{
+		background: url(./../images/programs-blob.svg);
+		max-width: 100%;
+		width: 1300px;
+		aspect-ratio: 8/9;
+		position: absolute;
+		right: 0;
+		top: -100%;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position-x: 100%;
+		z-index: -1;
+	}
+	.text-wrap{
+		max-width: 587px;
+	}
+	.list-wrap{
+		flex: 1 1 500px;
+		max-width: 720px;
+		margin-top: -50px;
+	}
+	.stat {
+		border-bottom: 4px solid $color-black;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: 50px 0px 50px 40px;
+		.impact {
+			font-weight: 700;
+			font-size: 85px;
+			line-height: 1;
+			color: $color-pink;
+		}
+		p {
+			max-width: 365px;		
+		}
+	}
+}

@@ -11,23 +11,50 @@ export const FeatureGrid = ({ slice }) => {
           <PrismicRichText field={slice.primary.copy_richtext?.richText}/>
         </div>
         <div className="grid">
-          {slice.items.map((item,index) => (
-            <div className="card" key={`card:${index}`}>
-              <div className="image">
+          <div className="card featured-card">
+            <div className="card-copy">
+              <div className="image-wrap">
+                <span className="featured-label">{slice.primary.featured_label}</span>
                 <GatsbyImage
-                  image={item.card_image?.gatsbyImageData}
-                  alt={item.card_image?.alt || ""}
+                  image={slice.items[0].card_image?.gatsbyImageData}
+                  alt={slice.items[0].card_image?.alt || ""}
+                  className="image"
                 />
               </div>
-              <div className="card-copy">
-                <h3>{item.card_title}</h3>
-                <p>{item.card_description}</p>
-                <PrismicLink href={item.card_link?.url}>
-                  {item.card_link_label}
+              <div className="text">
+                <h3>{slice.items[0].card_title}</h3>
+                <p>{slice.items[0].card_description}</p>
+                <PrismicLink href={slice.items[0].card_link?.url} className="btn-arrow">
+                  {slice.items[0].card_link_label}
                 </PrismicLink>
               </div>
             </div>
+          </div>
+          {slice.items.slice(1).map((item,index) => (
+            <div className="card nonfeatured-card" key={`card:${index}`}>
+              <div className="card-copy">
+                <div className="image-wrap">
+                  <GatsbyImage
+                    image={item.card_image?.gatsbyImageData}
+                    alt={item.card_image?.alt || ""}
+                    className="image"
+                  />
+                </div>
+                <div className="text">
+                  <h3>{item.card_title}</h3>
+                  <p>{item.card_description}</p>
+                  <PrismicLink href={item.card_link?.url}  className="btn-arrow">
+                    {item.card_link_label}
+                  </PrismicLink>
+                </div>
+              </div>
+            </div>
           ))}
+        </div>
+        <div className="bottom-wrap">
+          <PrismicLink href={slice.primary.view_all_link?.url}  className="btn-a">
+            {slice.primary.view_all_label}
+          </PrismicLink>
         </div>
       </div>
     </section>

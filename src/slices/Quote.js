@@ -9,7 +9,7 @@ export const Quote = ({ slice }) => {
       <div className="Container">
         <div className="quote-box">
           <PrismicRichText field={slice.primary.quote_title?.richText}/>
-          <p>{slice.primary.quote}</p>
+          <p className="quote-content">{slice.primary.quote}</p>
           <div className="author-box">
             <div className="author-icon">
               <GatsbyImage
