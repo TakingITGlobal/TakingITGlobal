@@ -21,7 +21,9 @@ import Socials from './Socials'
 export const TopMenu = ({ menu, activeDocMeta }) => {
   const currentLang = activeDocMeta.lang.slice(0,2);
   const mobileWidth = 960;
-  const {height, width} = useWindowDimensions();
+  const {winHeight, winWidth} = useWindowDimensions();
+  const height = winHeight || 10000;
+  const width = winWidth || 1440;
   const isMobile = width > mobileWidth? false : true;
   
   const [shown, setShown] = React.useState(null);
