@@ -46,6 +46,7 @@ module.exports = {
       options: {
         // @risingyouthtig
         instagram_id: `17841401539124196`,
+        maxPosts: 20,
         access_token: process.env.INSTAGRAM_TOKEN,
       },
     },
