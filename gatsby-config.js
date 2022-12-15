@@ -5,7 +5,7 @@ const prismicConfig = require('./prismic-configuration')
 
 module.exports = {
   siteMetadata: {
-    title: 'Taking IT Global',
+    title: 'TakingITGlobal - Inspire. Inform. Involve.',
     description: 'At TakingITGlobal, we design and deliver youth engagement programs that empower youth to understand and act on local and global challenges.',
   },
   plugins: [

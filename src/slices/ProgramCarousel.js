@@ -67,8 +67,8 @@ export const ProgramCarousel = ({ slice }) => {
             </Slider>   
           </CarouselProvider>
         </div>
-        <div className="bottom-wrap">
-          <PrismicLink href={slice.primary.view_all_link?.url}  className="btn-b">
+        <div className="bottom-wrap btn-b">
+          <PrismicLink href={slice.primary.view_all_link?.url}>
             {slice.primary.view_all_label}
           </PrismicLink>
         </div>

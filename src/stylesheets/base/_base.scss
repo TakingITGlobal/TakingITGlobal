@@ -53,30 +53,30 @@ button:focus {
   grid-gap: 2rem;
   max-width: inherit;
 }
-.btn-a,.btn-b, .btn-c{
+.btn-a a,.btn-b a, .btn-c {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 13px 32px 9px;
   gap: 10px;
   box-sizing: border-box;
   
   position: relative;
   width: max-content;
   
-
   text-align: center;
   letter-spacing: 0.02em;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 20px;
   line-height: 1;
+  padding: 11px 32px 13px;
+
   @media screen and (max-width: $mobile){
     font-size: 16px;
   }
 }
 
-.btn-a {
+.btn-a a{
   background: #FFFFFF;
   margin-bottom: 13px;
   margin-right: 13px;
@@ -87,7 +87,7 @@ button:focus {
   border-right: 7px solid $color-pink;
   border-radius: 100px;
 }
-.btn-b {
+.btn-b a{
   background: $color-yellow;
   color: $color-text;
   border-radius: 100px;

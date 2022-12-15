@@ -13,21 +13,23 @@ export const Gallery = ({ slice }) => {
         <div className="gallery-grid">
           {slice.items.map((item,index) => (
             <div className={`grid-item gw-${item.image_width}`} key={`gallery: ${index}`}>
-              {item.item_image?.gatsbyImageData &&
-                <GatsbyImage
-                  image={item.item_image?.gatsbyImageData}
-                  alt={item.item_image?.alt || ""}
-                  className="grid-image"
-                />
-              }
-              <div className="grid-tag" >
-                {item.item_tag}
-              </div>
+              <PrismicLink href={item.gallery_link?.url}>
+                {item.item_image?.gatsbyImageData &&
+                  <GatsbyImage
+                    image={item.item_image?.gatsbyImageData}
+                    alt={item.item_image?.alt || ""}
+                    className="grid-image"
+                  />
+                }
+                <div className="grid-tag" >
+                  {item.item_tag}
+                </div>
+              </PrismicLink>
             </div>
           ))}
         </div>
-        <div className="center-align max-content">
-          <PrismicLink href={slice.primary.button_link?.url} className="btn-a">
+        <div className="center-align max-content btn-a">
+          <PrismicLink href={slice.primary.button_link?.url}>
             {slice.primary.button_label}
           </PrismicLink>
         </div>
@@ -55,6 +57,9 @@ export const query = graphql`
       }
       item_tag
       image_width
+      gallery_link {
+        url
+      }
     }
   }
 `

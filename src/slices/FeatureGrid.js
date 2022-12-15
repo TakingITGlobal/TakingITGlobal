@@ -51,8 +51,8 @@ export const FeatureGrid = ({ slice }) => {
             </div>
           ))}
         </div>
-        <div className="bottom-wrap">
-          <PrismicLink href={slice.primary.view_all_link?.url}  className="btn-a">
+        <div className="bottom-wrap btn-a">
+          <PrismicLink href={slice.primary.view_all_link?.url}>
             {slice.primary.view_all_label}
           </PrismicLink>
         </div>

@@ -17,16 +17,16 @@
 				margin-top: -20px;
 			}
 			&.top_1 {
-				max-width: 600px;
+				max-width: 676px;
 			}
 			&.sub_1 {
-				margin-right: 10px;
+				margin-right: 30px;
 				transform: translateY(20px);
-				max-width: 500px;
+				max-width: 598px;
 			}
 			&.sub_2 {
 				margin-left: 10px;
-				max-width: 500px;
+				max-width: 516px;
 				transform: translateY(-20px);
 			}
 		}
@@ -36,11 +36,15 @@
 		align-items: center;
 		justify-content: center;
 		padding: 20px 0;
+		margin-bottom: 50px;
+		max-width: 608px;
 		h1 {
 			margin-bottom: 15px;
 		}
 		p{
 			padding-bottom: 35px;
+			font-size: 24px;
+    	line-height: 150%;
 		}
 	}
 	.r-align{

@@ -42,9 +42,11 @@ export const Projects = ({ slice }) => {
           </div>
         </div>
       ))}
-      <PrismicLink className="btn-b" href={slice.primary.button_link?.url}>
-        {slice.primary.button_label}
-      </PrismicLink>
+      <div className="btn-b">
+        <PrismicLink href={slice.primary.button_link?.url}>
+          {slice.primary.button_label}
+        </PrismicLink>
+      </div>
     </div>
   )
   const styles = {
