@@ -1,58 +1,64 @@
+
 header {
+	position: relative;
+	z-index: 20;
+	.banner{
+		background: $color-yellow;
+		display: flex;
+		justify-content: space-between;
+		height: 58px;
+		align-items: center;
+		padding: 0 20px;
+		gap: 20px;
+		position: relative;
+	}
 	.language-switcher{
-	  list-style: none;
-	  display: flex;
-	  align-items: center;
-	  gap: 10px;
-	  width: max-content;
-	  svg{
-	    filter: brightness(0) invert(1);
-	  }
-	  & > div {
-	  	width: max-content;
-	  }
-	  span,select{
-	    background: none;
-	    color: $color-text;
-	    font-weight: 700;
-	    font-size: 16px;
-	    padding: 5px 0;
-	  }
-	  option{
-	    color: $color-text;
-	    font-weight: 700;
-	    font-size: 16px;
-	  }
-	  @media screen and (max-width: 960px){
-	  	background: $color-yellow;
-	  	box-shadow: 6px 6px 12px rgba(2, 0, 103, 0.13);
+		list-style: none;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		width: max-content;
+		svg{
+			filter: brightness(0) invert(1);
+		}
+		& > div {
+			width: max-content;
+		}
+		span,select{
+			background: none;
+			color: $color-text;
+			font-weight: 700;
+			font-size: 16px;
+			padding: 5px 0;
+		}
+		option{
+			color: $color-text;
+			font-weight: 700;
+			font-size: 16px;
+		}
+		@media screen and (max-width: 960px){
+			background: $color-yellow;
+			box-shadow: 6px 6px 12px rgba(2, 0, 103, 0.13);
 			border-radius: 100px;
 			padding: 6px 12px;
 			position: fixed;
 			bottom: 20px;
 			right: 20px;
 			z-index: 100;
-	  	span {
-	  		display: none;
-	  	}
+			span {
+				display: none;
+			}
+		}
 
-	  }
 	}
-	.banner{
-	  background: $color-yellow;
-	  display: flex;
-	  justify-content: space-between;
-	  height: 50px;
-	  align-items: center;
-	  padding: 0 20px;
-	  gap: 20px;
-	}
+
 	.social-links{
 		display: flex;
 		justify-content: space-between;
 		gap: 10px;
 		width: 232px;
 		max-width: 60%;
+		
 		a{
 			height: 28px;
 		}
@@ -62,39 +68,286 @@ header {
 			color: $color-pink;
 		}
 	}
-	.desktopMenu {
-		display:flex;
+	
+	.Nav {
+		display: flex;
 		justify-content: space-between;
-		.menuLinks {
-			display: flex;
-			gap: 24px;
-			margin: 16px 0;
-			padding-right: 20px;
-			svg {
-				width: 16px;
-				height: auto;
-
+		align-items: stretch;
+		padding: 0 20px;
+		background: white;
+		position: relative;
+	}
+	@media screen and (min-width: 960px){
+		
+		.nav-icon {
+			display:none;
+		}
+		.logo-wrap {
+			width: 271px;
+			max-width: 50%;
+			aspect-ratio: 9/2;
+			max-height: 70%;
+			height: 70%;
+			position: relative;
+			border-radius: 5px;
+			overflow: hidden;
+			margin: 20px 0;
+			.logo {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
 			}
 		}
-		.dropLabel b{
+		.menu-links {
+			display: flex;
+			justify-content: space-between;
+			gap: 20px;
+			align-items: stretch;
+		}
+		.drop-item {
 			display: flex;
 			align-items: center;
+		}
+		.drop-header {
+			display:flex;
+			align-items: center;
 			gap: 5px;
-		}
-		.dropLabel:hover{
-			& ~ .dropWrap {
-				display: flex;
-
-			}
+			font-weight: 700;
+			font-size: 18px;
 			svg {
-				transform: rotate(180deg);
-				transition: 0.2s all;
+				transition: all 0.2s ease-in-out;
+				line-height: 1.2;
 			}
 		}
-		.dropWrap{
-			display: none;
-			bottom: 100%;
+		.drop-box {
+			display: flex;
+			justify-content: center;
+
 			position: absolute;
+			top: -100%;
+			visibility: hidden;
+			transition: all 0.2s ease-in;
+			width: 100%;
+			overflow: hidden;
+			position: absolute;
+			left:0;
+			right: 0;
+			z-index: -10;
+			background: white;
+
+			padding: 50px 20px 70px;
+			box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
+			.copy {
+				width: 337px;
+				max-width: 100%;
+			}
+			.drop-links {
+				display: flex;
+				justify-content: space-between;
+				gap: 20px;
+				flex-wrap: wrap;
+				width: 100%;
+				max-width: 1440px;
+			}
+			.drop-image-wrap {
+				width: 337px;
+				max-width: 100%;
+				aspect-ratio: 3/2;
+				position: relative;
+				border-radius: 5px;
+				overflow: hidden;
+				.drop-image {
+					position: absolute;
+					width: 100%;
+					height: auto;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%,-50%);
+				}
+				.tag {
+					z-index: 2;
+					position: absolute;
+					bottom: 5px;
+					left: 0;
+					padding: 0 5px;
+					color: white;
+
+					font-weight: 700;
+					font-size: 25px;
+					line-height: 110%;
+				}
+			}
+		}
+	
+		.drop-item:hover {
+			.drop-label svg {
+				transform: rotate(180deg);
+			}
+			.drop-box {
+				visibility: visible;
+				height: auto;
+				top: 100%;
+				
+			}
+		}
+	}
+	@media screen and (max-width: 960px){
+		.logo-wrap {
+			aspect-ratio: 9/2;
+			max-height: 70%;
+			height: 70%;
+			position: relative;
+			border-radius: 5px;
+			overflow: hidden;
+			margin: 20px 0;
+			.logo {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+		}
+		.nav-icon {
+			display: block;
+			position: absolute;
+			top: 12px;
+			right: 20px;
+			z-index: 15;
+			font-size: 1.8rem;
+			cursor: pointer;
+			color: #ffdd40;
+			height: 35px;
+			width: 40px;
+			.ham{
+				height: 6px;
+				width: 100%;
+				background: $color-text;
+				position: absolute;
+				border-radius: 25px;
+				top: calc(50% - 2px);
+				transition: transform 300ms ease-out, opacity 200ms linear;
+				
+			}
+			.bar-1{ transform: translateY(12px);}
+			.bar-2{ transform: translateY(-2px); }
+			.bar-3{ transform: translateY(-15px);}
+		}
+		
+		.close{
+			position: fixed;
+			.bar-1{transform: rotate(-45deg);}
+			.bar-2{opacity: 0;}
+			.bar-3{transform: rotate(45deg);}
+		}
+		
+		.menu {
+			display: none;
+			background: white;
+			align-items: stretch;
+			flex-direction: column;
+			position: fixed;
+			top:0;
+			left:0;
+			width: 100%;
+			height: 100vh;
+			padding: 100px 40px 60px;
+		}
+		.close ~ .menu {
+			display: flex;
+		}
+		.hidden {
+			display: none;
+		}
+		.menu-links {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			gap: 40px;	
+		}
+		.back-btn {
+			position: absolute;
+			top: 12px;
+			left: 20px;
+			z-index: 25;
+			cursor: pointer;
+			svg {
+				font-size: 40px;
+			}
+		}
+		.drop-header {
+			font-weight: 700;
+			font-size: 25px;
+			line-height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			svg {
+				font-size: 20px;
+			}
+		}
+		
+		.drop-box {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: 20;
+			padding: 80px 20px;
+			background: white;
+		}
+		.drop-links {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+		.copy {
+			margin-bottom: 40px;
+		}
+		.drop-image-wrap {
+			width: 250px;
+			max-width: 100%;
+			flex: 1 1 168px;
+			aspect-ratio: 3/2;
+			position: relative;
+			border-radius: 5px;
+			overflow: hidden;
+			.drop-image {
+				position: absolute;
+				width: 100%;
+				height: auto;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+			.tag {
+				z-index: 2;
+				position: absolute;
+				bottom: 5px;
+				left: 0;
+				padding: 0 5px;
+				color: white;
+
+				font-weight: 700;
+				font-size: 25px;
+				line-height: 110%;
+			}
+		}
+		.social-links {
+			display: flex;
+			justify-content: space-evenly;
+			gap: 20px;
+			margin: auto auto 0;
+			svg {
+				color: $color-text;
+			}
 		}
 	}
 }

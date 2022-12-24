@@ -32,13 +32,12 @@ export const SocialFeed = ({ slice }) => {
   const total_slides = instaNodes.length;
   const slide_width = 385;
   const slide_height = 577;
-  const {height, width} = useWindowDimensions();
-
+  const width = useWindowDimensions();
   const [InstaLink, setInstaLink] = React.useState();
   const slides = [...instaNodes];
   const l_margin = Math.max(((width - 1440) / 2), 0);
   const slider_width = Math.min(Math.floor( (width - l_margin) / slide_width ), total_slides);
-
+  
   return (
     <section className="SocialFeed">
       <div className="Container">
