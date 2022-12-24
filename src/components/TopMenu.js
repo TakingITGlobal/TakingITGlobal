@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { Link, graphql } from 'gatsby'
+import * as React from 'react';
+import { Link, graphql } from 'gatsby';
 import { PrismicLink, PrismicText, PrismicRichText } from '@prismicio/react'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { linkResolver } from '../utils/linkResolver'
@@ -18,38 +18,13 @@ import {
 import Socials from './Socials'
 
 
-export const TopMenu = ({ menu, activeDocMeta }) => {
-  const currentLang = activeDocMeta.lang.slice(0,2);
-  const mobileWidth = 960;
-  const {winHeight, winWidth} = useWindowDimensions();
-  const height = winHeight || 10000;
-  const width = winWidth || 1440;
-  const isMobile = width > mobileWidth? false : true;
-  
-  const [shown, setShown] = React.useState(null);
-  const [click, setClick] = React.useState(false);
-  const handleClick = () => setClick(!click);
-  const Close = () => setClick(false);
-  
+const SocialLinks = ({}) => {
   const socials = Socials().data;
   function trim(social){
     var foo = social[0];
     return foo == "@" || foo == "/" ? social.slice(1) : social;
   }
-
-  const youth = {header: menu.youth_resources_label, copy: menu.youth_rt, items: menu.youth_resources}
-  const teacher = {header: menu.teacher_resources_label, copy: menu.teacher_rt, items: menu.teacher_resources}
-  const programs = {header: menu.program_areas_label, copy: menu.program_rt, items: menu.program_areas}
-
-  const homeLogo = (
-    <PrismicLink href={`/${currentLang}`}>
-      <GatsbyImage
-        image={menu.logo?.gatsbyImageData}
-        alt={menu.logo?.alt || ""}
-      />
-    </PrismicLink>
-  );  
-  const socialLinks = (
+  return (
     <div className="social-links">
       <a href={`https://ca.linkedin.com/company/${trim(socials.linked_in)}`} target="_blank" rel="noopener noreferrer">
         <FaLinkedin/>
@@ -65,79 +40,177 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
       </a>
     </div>
   );
-  const mobileItem = ({header, copy, items=null}) => (
-    <div className="menuItem" >
-      <p><b>{header}<FaChevronDown/></b></p>
-    </div>
-  );
-  const desktopItem = ({header, copy=null, items=null}) => (
-    <div className="menuItem">
-      <div className="dropLabel" >
-        <p><b>{header}<FaChevronDown/></b></p>
-      </div>
-      <div className="dropWrap">
-        <div className="content">
-          <div className="copy">
-            {copy && (<PrismicRichText field={copy.richText}/>)}
+}
+
+
+
+export const TopMenu = ({ menu, activeDocMeta }) => {
+  const [click, setClick] = React.useState(false);
+  const handleClick = () => setClick(!click);
+  const [subClick, setSubClick] = React.useState(0);
+  const width = useWindowDimensions();
+  const isMobile = width < 960;
+
+  const DropItem = ({header, copy, items}) => {
+    return (
+      <div className="drop-item">
+        <div className="drop-label">
+          <span className="drop-header">{header} <FaChevronDown/></span>
+        </div>
+        <div className="drop-box">
+          
+          <div className="drop-links">
+            <div className="copy">
+              <h3>{header}</h3>
+              {copy && (<PrismicRichText field={copy.richText}/>)}
+            </div>
+            {items && items.map((item,index) => (
+              <PrismicLink
+                href={item.link?.url}
+                key={`dropItem: ${index}`}
+                className="drop-image-wrap"
+              >
+                <GatsbyImage
+                  image={item.img?.gatsbyImageData}
+                  className="drop-image"
+                  alt=""
+                />
+                <span className="tag">{item.img?.alt}</span>
+              </PrismicLink>
+            ))}
           </div>
-          {items? items.map((item,index) => (
-            <PrismicLink
-              href={item.link?.url}
-              key={`dropItem: ${index}`}
-            >
-              <GatsbyImage
-                image={item.img?.gatsbyImageData}
-                alt=""
-              />
-              <p className="tag">{item.img?.alt}</p>
-            </PrismicLink>
-          )) : null}
         </div>
       </div>
-
-    </div>
-  ); 
-  
+    );
+  }
+  const MobileDropItem = ({header, copy, items, id}) => {
+    return (
+      <div className="drop-item">
+        <div className="drop-label" onClick={() => setSubClick(id)}>
+          <span className="drop-header">{header} <FaChevronRight/></span>
+        </div>
+        <div className={subClick === id ? "drop-box" : "hidden"}>
+          <div className="copy">
+            <h3>{header}</h3>
+            {copy && (<PrismicRichText field={copy.richText}/>)}
+          </div>
+          <div className="drop-links">
+            
+            {items && items.map((item,index) => (
+              <PrismicLink
+                href={item.link?.url}
+                key={`dropItem: ${index}`}
+                className="drop-image-wrap"
+              >
+                <GatsbyImage
+                  image={item.img?.gatsbyImageData}
+                  className="drop-image"
+                  alt=""
+                />
+                <span className="tag">{item.img?.alt}</span>
+              </PrismicLink>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <header>
-      <div className="banner">
-        {isMobile?
-          (
-            <>
-              {homeLogo}
-              <div className={click ? "nav-icon close" : "nav-icon"} onClick={handleClick} tabIndex="0">
-                <span className="ham bar-1"/>
-                <span className="ham bar-2"/>
-                <span className="ham bar-3"/>
-              </div>
-            </>
-          )
-         : socialLinks
-        }
-        <LanguageSwitcher activeDocMeta={activeDocMeta} />
-      </div>
       {isMobile ? 
-        (
-          <div className="mobileMenu">
-            {mobileItem(youth)}
-            {mobileItem(teacher)}
-            {mobileItem(programs)}
-            {socialLinks}
+      (<>
+        <div className="banner">
+          <PrismicLink
+            href={`/${activeDocMeta.lang.slice(0,2)}`}
+            className="logo-wrap"
+          >
+            <GatsbyImage
+              image={menu.logo?.gatsbyImageData}
+              alt={menu.logo?.alt || ""}
+              className="logo"
+            />
+          </PrismicLink>
+          <div className={click ? "nav-icon close" : "nav-icon"} onClick={handleClick} tabIndex="0">
+            <span className="ham bar-1"/>
+            <span className="ham bar-2"/>
+            <span className="ham bar-3"/>
           </div>
-        ) :
-        (
-          <div className="desktopMenu">
-            {homeLogo}
-            <div className="menuLinks">
-              {desktopItem(youth)}
-              {desktopItem(teacher)}
-              {desktopItem(programs)}
+          <div className="menu">
+            <span 
+              className={subClick != 0 ? "back-btn" : "back-btn  hidden"}
+              onClick={() => setSubClick(0)}
+            >
+              <FaArrowLeft/>
+            </span>
+            <div className="menu-links">
+              <MobileDropItem 
+                header={menu.youth_resources_label}
+                copy={menu.youth_rt}
+                items={menu.youth_resources}
+                id={1}
+              />
+              <MobileDropItem 
+                header={menu.teacher_resources_label}
+                copy={menu.teacher_rt}
+                items={menu.teacher_resources}
+                id={2}
+              />
+              <MobileDropItem 
+                header={menu.program_areas_label}
+                copy={menu.program_rt}
+                items={menu.program_areas}
+                id={3}
+              />
             </div>
+            <SocialLinks />
           </div>
-        )
-      }
+        </div>
+      </>)
+      :(
+        <>
+        <div className="banner">
+          <SocialLinks />
+          <LanguageSwitcher activeDocMeta={activeDocMeta} />
+        </div>
+        <div className="Nav">
+          <PrismicLink
+            href={`/${activeDocMeta.lang.slice(0,2)}`}
+            className="logo-wrap"
+          >
+            <GatsbyImage
+              image={menu.logo?.gatsbyImageData}
+              alt={menu.logo?.alt || ""}
+              className="logo"
+            />
+          </PrismicLink>
+          <div className={click ? "nav-icon close" : "nav-icon"} onClick={handleClick} tabIndex="0">
+            <span className="ham bar-1"/>
+            <span className="ham bar-2"/>
+            <span className="ham bar-3"/>
+          </div>
+          <div className="menu-links">
+            <DropItem 
+              header={menu.youth_resources_label}
+              copy={menu.youth_rt}
+              items={menu.youth_resources}
+            />
+            <DropItem 
+              header={menu.teacher_resources_label}
+              copy={menu.teacher_rt}
+              items={menu.teacher_resources}
+            />
+            <DropItem 
+              header={menu.program_areas_label}
+              copy={menu.program_rt}
+              items={menu.program_areas}
+            />
+          </div>
+          
+        </div>
+        </>
+      )}
     </header>
-  )
+  );
 }
 
 export const query = graphql`
@@ -147,7 +220,7 @@ export const query = graphql`
     lang
     data {
       logo {
-        gatsbyImageData(width: 271, imgixParams: {q: 100})
+        gatsbyImageData( imgixParams: {q: 100})
         alt
       }
       youth_resources_label

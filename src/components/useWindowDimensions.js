@@ -1,24 +1,28 @@
 import { useState, useEffect } from 'react';
 
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = typeof window !== 'undefined' ? window : [null, null];
-  return {
-    width,
-    height
-  };
-}
-
 export default function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+	const isWindowClient = typeof window === 'object';
 
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
+ 	const [windowSize, setWindowSize] = useState(
+ 		isWindowClient ? window.innerWidth : undefined
+ 	);
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
-  return windowDimensions;
+	useEffect(() => {
+		//a handler which will be called on change of the screen resize
+		function setSize() {
+			setWindowSize(window.innerWidth);
+		}
+
+		
+			//register the window resize listener
+			window.addEventListener('resize', setSize);
+
+			setSize();
+			//un-register the listener
+			return () => window.removeEventListener('resize', setSize);
+		
+	}, [isWindowClient, setWindowSize]);
+
+	return windowSize;
 }
