@@ -17,8 +17,12 @@ import {
 
 import Socials from './Socials'
 
+import { useCookies } from 'react-cookie';
 
 export const TopMenu = ({ menu, activeDocMeta }) => {
+
+  const [cookies, setCookie] = useCookies(['SESSION']);
+
   const currentLang = activeDocMeta.lang.slice(0,2);
   const mobileWidth = 960;
   const {winHeight, winWidth} = useWindowDimensions();
@@ -114,6 +118,7 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
           )
          : socialLinks
         }
+        <p>{cookies.SESSION}</p>
         <LanguageSwitcher activeDocMeta={activeDocMeta} />
       </div>
       {isMobile ? 
