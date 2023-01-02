@@ -1,11 +1,12 @@
-import * as React from 'react';
+import {useEffect, useState} from 'react';
+import * as React from 'react'
 import { Link, graphql } from 'gatsby';
 import { PrismicLink, PrismicText, PrismicRichText } from '@prismicio/react'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { linkResolver } from '../utils/linkResolver'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import useWindowDimensions from './useWindowDimensions'
-import { useCookies } from 'react-cookie';
+import { getCookie } from 'react-use-cookie';
 
 import { 
   FaLinkedin, 
@@ -52,11 +53,6 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
   const [subClick, setSubClick] = React.useState(0);
   const width = useWindowDimensions();
   const isMobile = width < 960;
-
-  const [cookies, setCookie] = getAll([]);
-
-  console.log({cookies.TIGUser});
-
 
 
   const DropItem = ({header, copy, items}) => {
@@ -123,9 +119,22 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
       </div>
     );
   }
+
+
+  const TIGUser = getCookie('TIGUser');
+
+  useEffect(() => {
+    if (TIGUser != undefined) {
+      console.log('User' + TIGUser);
+    }
+
+  });
+
+
   return (
     <header>
       {isMobile ? 
+
       (<>
         <div className="banner">
           <PrismicLink
