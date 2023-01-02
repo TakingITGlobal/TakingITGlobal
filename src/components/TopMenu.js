@@ -128,8 +128,18 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
     if (userToken > 0) {
       console.log('User' + TIGUser);
     }
-
   });
+
+  function getCookie(TIGUser) {
+    let cookie = {};
+    document.cookie.split(';').forEach(function(el) {
+      let [key,value] = el.split('=');
+      cookie[key.trim()] = value;
+    })
+    return cookie[TIGUser];
+
+    console.log(cookie);
+  }
 
 
   return (
