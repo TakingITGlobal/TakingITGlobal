@@ -6,7 +6,7 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { linkResolver } from '../utils/linkResolver'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import useWindowDimensions from './useWindowDimensions'
-import { getCookie } from 'react-use-cookie';
+import useCookie from 'react-use-cookie';
 
 import { 
   FaLinkedin, 
@@ -121,10 +121,11 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
   }
 
 
-  const TIGUser = getCookie('TIGUser');
+  const [userToken] = useCookie('TIGUser');
+
 
   useEffect(() => {
-    if (TIGUser != undefined) {
+    if (userToken > 0) {
       console.log('User' + TIGUser);
     }
 
