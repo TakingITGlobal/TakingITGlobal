@@ -14,7 +14,7 @@ import {
   Image
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import useWindowDimensions  from "../components/useWindowDimensions"
+import { useWindowWidth } from '@react-hook/window-size/throttled'
 import useInstagramData from "../components/useInstagramData"
 
 
@@ -32,11 +32,14 @@ export const SocialFeed = ({ slice }) => {
   const total_slides = instaNodes.length;
   const slide_width = 385;
   const slide_height = 577;
-  const width = useWindowDimensions();
+  const width = useWindowWidth();
   const [InstaLink, setInstaLink] = React.useState();
   const slides = [...instaNodes];
   const l_margin = Math.max(((width - 1440) / 2), 0);
-  const slider_width = Math.min(Math.floor( (width - l_margin) / slide_width ), total_slides);
+  const [sliderWidth, setSliderWidth] = React.useState();
+  React.useEffect(() => {
+    setSliderWidth(Math.min(Math.floor( (width - l_margin) / slide_width ), total_slides));
+  }, [width])
   
   return (
     <section className="SocialFeed">
@@ -49,7 +52,7 @@ export const SocialFeed = ({ slice }) => {
             naturalSlideWidth={slide_width + 20}
             naturalSlideHeight={slide_height}
             totalSlides={slides.length}
-            visibleSlides={slider_width}
+            visibleSlides={sliderWidth}
             infinite={true}
             step={1}
             isIntrinsicHeight={true}

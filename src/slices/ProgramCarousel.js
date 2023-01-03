@@ -12,14 +12,14 @@ import {
   Image
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import useWindowDimensions  from "../components/useWindowDimensions"
+import { useWindowWidth } from '@react-hook/window-size'
 import useInstagramData from "../components/useInstagramData"
 
 export const ProgramCarousel = ({ slice }) => {
   const total_slides = slice.items.length;
   const slide_width = 446;
   const slide_height = 600;
-  const width = useWindowDimensions();
+  const width = useWindowWidth();
   
 
   const l_margin = Math.max(((width - 1440) / 2), 0);
@@ -29,6 +29,7 @@ export const ProgramCarousel = ({ slice }) => {
       <div className="Container">
         <div className="copy-wrap">
           <PrismicRichText field={slice.primary.copy_richtext?.richText}/>
+          <p>{width}</p>
         </div>
         <div className="carousel">
           <CarouselProvider

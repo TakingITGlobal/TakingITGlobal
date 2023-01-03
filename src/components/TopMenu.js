@@ -5,7 +5,7 @@ import { PrismicLink, PrismicText, PrismicRichText } from '@prismicio/react'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { linkResolver } from '../utils/linkResolver'
 import { LanguageSwitcher } from './LanguageSwitcher'
-import useWindowDimensions from './useWindowDimensions'
+import { useWindowWidth } from '@react-hook/window-size/throttled'
 import useCookie from 'react-use-cookie';
 
 import { 
@@ -51,10 +51,12 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
   const [click, setClick] = React.useState(false);
   const handleClick = () => setClick(!click);
   const [subClick, setSubClick] = React.useState(0);
-  const width = useWindowDimensions();
-  const isMobile = width < 960;
-
-
+  const width = useWindowWidth({ fps: 60 });
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    setIsMobile(width <= 938);
+  }, [width])
+  
   const DropItem = ({header, copy, items}) => {
     return (
       <div className="drop-item">
@@ -146,7 +148,7 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
     <header>
       {isMobile ? 
 
-      (<>
+      (<div className="mobile">
         <div className="banner">
           <PrismicLink
             href={`/${activeDocMeta.lang.slice(0,2)}`}
@@ -193,9 +195,9 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
             <SocialLinks />
           </div>
         </div>
-      </>)
+      </div>)
       :(
-        <>
+        <div className="desktop">
         <div className="banner">
           <SocialLinks />
           <LanguageSwitcher activeDocMeta={activeDocMeta} />
@@ -235,7 +237,7 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
           </div>
           
         </div>
-        </>
+        </div>
       )}
     </header>
   );
