@@ -130,9 +130,9 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
     if (userToken > 0) {
       console.log('User' + TIGUser);
     }
+    console.log('cookies ' + document.cookie);
   });
 
-  console.log('cookies ' + document.cookie);
 
 
   return (
