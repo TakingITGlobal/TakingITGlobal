@@ -58,6 +58,10 @@
 		position: relative;
 		z-index: 1;
 		margin-bottom: 40px;
+		.gatsby-image-wrapper.gatsby-image-wrapper-constrained {
+	    max-width: 300px;
+	    margin-bottom: 25px;
+		}
 	}
 	.card-copy {
 		background: #FFFFFF;

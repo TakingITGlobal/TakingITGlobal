@@ -11,9 +11,9 @@
 	.app {
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		gap: 25px;
-		margin-top: auto;
+    justify-content: flex-start;
+    gap: 45px;
+    margin-top: 30px;
 		.app_images {
 			display: flex;
 			flex-direction: column;
