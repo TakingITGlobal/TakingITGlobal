@@ -1,4 +1,3 @@
-import {useEffect, useState} from 'react';
 import * as React from 'react'
 import { Link, graphql } from 'gatsby';
 import { PrismicLink, PrismicText, PrismicRichText } from '@prismicio/react'
@@ -6,7 +5,6 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { linkResolver } from '../utils/linkResolver'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { useWindowWidth } from '@react-hook/window-size/throttled'
-import useCookie from 'react-use-cookie';
 
 import { 
   FaLinkedin, 
@@ -123,15 +121,6 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
   }
 
 
-  const [userToken] = useCookie('TIGUser');
-
-
-  useEffect(() => {
-    if (userToken > 0) {
-      console.log('User' + TIGUser);
-    }
-    console.log('cookies ' + document.cookie);
-  });
 
 
 
