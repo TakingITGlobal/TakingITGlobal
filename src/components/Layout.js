@@ -43,7 +43,7 @@ export const Layout = ({ children, menu, activeDocMeta }) => {
       </Helmet>
       <TopMenu menu={menu} activeDocMeta={activeDocMeta} />
       <main>{children}</main>
-      <BottomMenu menu={menu}/>
+      <BottomMenu menu={menu} activeDocMeta={activeDocMeta}/>
     </>
   )
 }

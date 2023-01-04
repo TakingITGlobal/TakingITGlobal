@@ -11,7 +11,7 @@ export const Acknowledgements = ({ slice }) => {
           <div className=" copy-wrap w-12">
             <PrismicRichText field={slice.primary.copy_richtext?.richText}/>
           </div>
-          <div className="w-10">
+          <div className="app-col">
             <GatsbyImage
               image={slice.primary.image?.gatsbyImageData}
               alt={slice.primary.image?.alt || ""}

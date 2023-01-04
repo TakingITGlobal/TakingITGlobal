@@ -8,12 +8,18 @@
 			max-width: 100%;
 		}
 	}
+	.app-col {
+		@extend .w-10;
+		display: flex;
+		flex-direction: column;
+	}
 	.app {
 		display: flex;
 		align-items: center;
-    justify-content: flex-start;
-    gap: 45px;
-    margin-top: 30px;
+		justify-content: center;
+		gap: 25px;
+		margin-top: auto;
+		padding-top: 20px;
 		.app_images {
 			display: flex;
 			flex-direction: column;
