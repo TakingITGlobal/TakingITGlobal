@@ -1,13 +1,9 @@
 import * as React from 'react'
-import {useEffect, useState} from 'react';
-
 import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import { TopMenu } from './TopMenu'
 import { BottomMenu } from './BottomMenu'
-
-import useCookie from 'react-use-cookie';
 
 export const Layout = ({ children, menu, activeDocMeta }) => {
   const queryData = useStaticQuery(graphql`
@@ -20,16 +16,6 @@ export const Layout = ({ children, menu, activeDocMeta }) => {
       }
     }
   `)
-
-  const [userToken] = useCookie('TIGUser');
-
-
-  useEffect(() => {
-    if (userToken > 0) {
-      console.log('User' + TIGUser);
-    }
-    console.log('cookies ' + document.cookie);
-  });
 
   return (
     <>
@@ -57,7 +43,7 @@ export const Layout = ({ children, menu, activeDocMeta }) => {
       </Helmet>
       <TopMenu menu={menu} activeDocMeta={activeDocMeta} />
       <main>{children}</main>
-      <BottomMenu menu={menu} activeDocMeta={activeDocMeta}/>
+      <BottomMenu menu={menu}/>
     </>
   )
 }
