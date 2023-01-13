@@ -15,7 +15,8 @@ import {
   FaInstagram,
   FaChevronDown,
   FaChevronRight,
-  FaArrowLeft
+  FaArrowLeft,
+  FaUser
   } from 'react-icons/fa'
 
 import Socials from './Socials'
@@ -45,8 +46,6 @@ const SocialLinks = ({}) => {
   );
 }
 
-
-
 export const TopMenu = ({ menu, activeDocMeta }) => {
   const [click, setClick] = React.useState(false);
   const handleClick = () => setClick(!click);
@@ -56,6 +55,62 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
   React.useEffect(() => {
     setIsMobile(width <= 938);
   }, [width])
+
+  const AdminMenu = ({ items }) => {
+
+    const [userToken] = useCookie('TIGheader');
+    return (
+      <div className="admin-menu">
+        {(() => {
+          if (userToken == 'login' ) {
+            return (
+              <div className="admin-container">
+                <a href="#" className="hover">Admin <FaUser/></a>
+                <ul className="dropdown">
+                  
+                  {menu && menu.user_menu.map((item,index) => (
+                    <li>
+                      <PrismicLink href={item.link?.url} key={`yr: ${index}`}>
+                        {item.link_name}
+                      </PrismicLink>
+                    </li>
+                  ))}
+
+                  <li><a href="https://www.tigweb.org/members/login.html?logout=logout&pushpath=www.tigweb.org%2F">Logout</a></li>
+                </ul>
+              </div>
+            )
+          } else if (userToken == 'staff' ) {
+            return (
+              <div className="admin-container">
+                <a href="#" className="hover">Staff Admin <FaUser/></a>
+                <ul className="dropdown"> 
+                  {menu && menu.staff_menu.map((item,index) => (
+                    <li>
+                      <PrismicLink href={item.link?.url} key={`yr: ${index}`}>
+                        {item.link_name}
+                      </PrismicLink>
+                    </li>
+                  ))}
+                  <li><a href="https://www.tigweb.org/members/login.html?logout=logout&pushpath=www.tigweb.org%2F">Logout</a></li>
+                </ul>
+              </div>
+            )
+          } else {
+            return (
+              <div className="login-container">
+                <ul className="login-menu">
+                  <li><a href="https://www.tigweb.org/signup">Join</a></li>
+                  <li><a href="https://www.tigweb.org/members/login.html?pushpath=www.tigweb.org%2F">Log in</a></li>
+                </ul>
+                <FaUser/>
+              </div>
+            )
+          }
+        })()}
+      </div>
+    )
+  }
   
   const DropItem = ({header, copy, items}) => {
     return (
@@ -123,17 +178,6 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
   }
 
 
-  const [userToken] = useCookie('TIGheader');
-
-
-  useEffect(() => {
-    if (userToken == 'login' ) {
-      console.log('User logged in');
-    }
-    if (userToken == 'staff' ) {
-      console.log('User staff');
-    }
-  });
 
 
   return (
@@ -192,6 +236,7 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
         <div className="desktop">
         <div className="banner">
           <SocialLinks />
+          <AdminMenu />
           <LanguageSwitcher activeDocMeta={activeDocMeta} />
         </div>
         <div className="Nav">
@@ -294,6 +339,18 @@ export const query = graphql`
       donate_label
       donate_button_link {
         url 
+      }
+      staff_menu {
+        link_name
+        link {
+          url
+        }
+      }
+      user_menu {
+        link_name
+        link {
+          url
+        }
       }
     }
   }

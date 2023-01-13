@@ -68,7 +68,66 @@ header {
 			color: $color-pink;
 		}
 	}
+
+	.admin-menu {
+		margin: 0 18px 0 auto;
+		display: flex;
+		align-items: center;
+		.login-container {
+			display: flex;
+	    align-items: center;
+		}
+		.login-menu {
+			list-style: none;
+	    display: flex;
+	    gap: 17px;
+	    padding-top: 8px;
+	    font-size: 16px;
+	    padding-right: 12px;
+	    font-weight: 700;
+		}
+		.dropdown {
+			display: none;
+			list-style: none;
+			a:hover {
+				color: #EACF60;
+			}
+		}
+		.hover {
+			padding-right: 10px;
+			font-weight: 700;
+			svg {
+				margin-left: 5px;
+			}
+		}
+		.admin-container {
+			position: relative;
+		}
+		.admin-container:hover .dropdown{
+			display: block;
+			position: absolute;
+	    background: #000000;
+	    top: 40px;
+	    z-index: 1;
+	    color: #fff;
+	    padding: 20px;
+	    right: 0;
+	    margin: 0;
+	    border-radius: 0 0 4px 4px;
+	    min-width: 170px;
+	    text-align: right;
+	    box-shadow: rgb(0 0 0 / 15%) 0px 5px 15px 0px;
+		}
+		.admin-container:hover a.hover {
+	    background: #000;
+	    color: #fff;
+	    padding: 8px 10px 17px;
+	    border-radius: 4px 4px 0 0;
+		}
+	}
 	
+
+
 	.Nav {
 		display: flex;
 		justify-content: space-between;
