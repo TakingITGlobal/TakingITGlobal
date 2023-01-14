@@ -59,6 +59,11 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
   const AdminMenu = ({ items }) => {
 
     const [userToken] = useCookie('TIGheader');
+
+    useEffect(() => {
+
+    });
+
     return (
       <div className="admin-menu">
         {(() => {
@@ -67,7 +72,6 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
               <div className="admin-container">
                 <a href="#" className="hover">Admin <FaUser/></a>
                 <ul className="dropdown">
-                  
                   {menu && menu.user_menu.map((item,index) => (
                     <li>
                       <PrismicLink href={item.link?.url} key={`yr: ${index}`}>
@@ -75,7 +79,6 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
                       </PrismicLink>
                     </li>
                   ))}
-
                   <li><a href="https://www.tigweb.org/members/login.html?logout=logout&pushpath=www.tigweb.org%2F">Logout</a></li>
                 </ul>
               </div>
