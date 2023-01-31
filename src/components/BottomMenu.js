@@ -64,7 +64,7 @@ export const BottomMenu = ({ menu,activeDocMeta }) => {
             ))}
           </div>
           <div className="menu-col">
-            <span className="col-header">TakingItGlobal</span>
+            <span className="col-header">TakingITGlobal</span>
             <PrismicLink href={menu.about_link?.url}>
                 {menu.about_label}
             </PrismicLink>
