@@ -86,7 +86,7 @@ export const SocialFeed = ({ slice }) => {
             <a href={`https://twitter.com/${trim(socials.twitter)}`} target="_blank" rel="noopener noreferrer">
               <FaTwitter/><p>{socials.twitter}</p>
             </a>
-            <a href={`https://www.facebook.com${trim(socials.facebook)}`} target="_blank" rel="noopener noreferrer">
+            <a href={`https://www.facebook.com/${trim(socials.facebook)}`} target="_blank" rel="noopener noreferrer">
               <FaFacebookF/><p>{socials.facebook}</p>
             </a>
             <a href={`https://www.instagram.com/${trim(socials.instagram)}`} target="_blank" rel="noopener noreferrer">

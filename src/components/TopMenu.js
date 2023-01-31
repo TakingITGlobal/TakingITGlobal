@@ -36,7 +36,7 @@ const SocialLinks = ({}) => {
       <a href={`https://twitter.com/${trim(socials.twitter)}`} target="_blank" rel="noopener noreferrer">
         <FaTwitter/>
       </a>
-      <a href={`https://www.facebook.com${trim(socials.facebook)}`} target="_blank" rel="noopener noreferrer">
+      <a href={`https://www.facebook.com/${trim(socials.facebook)}`} target="_blank" rel="noopener noreferrer">
         <FaFacebookF/>
       </a>
       <a href={`https://www.instagram.com/${trim(socials.instagram.slice(1))}`} target="_blank" rel="noopener noreferrer">
