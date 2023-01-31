@@ -139,7 +139,7 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
                   className="drop-image"
                   alt=""
                 />
-                <span className="tag">{item.img?.alt}</span>
+                <span className="tag">{item.link_label}</span>
               </PrismicLink>
             ))}
           </div>
@@ -171,7 +171,7 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
                   className="drop-image"
                   alt=""
                 />
-                <span className="tag">{item.img?.alt}</span>
+                <span className="tag">{item.link_label}</span>
               </PrismicLink>
             ))}
           </div>
@@ -230,13 +230,21 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
                 items={menu.program_areas}
                 id={3}
               />
+              {menu.menu_links.map((item,index) => (
+                <PrismicLink 
+                  className="drop-header"
+                  href={item.link?.url}
+                  key={`link:${index}`}
+                >
+                  {item.link_label}
+                </PrismicLink>
+              ))}
             </div>
             <SocialLinks />
           </div>
         </div>
-      </div>)
-      :(
-        <div className="desktop">
+      </div>) : (
+      <div className="desktop">
         <div className="banner">
           <SocialLinks />
           <AdminMenu />
@@ -274,11 +282,20 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
               copy={menu.program_rt}
               items={menu.program_areas}
             />
+            {menu.menu_links.map((item,index) => (
+              <PrismicLink 
+                className="drop-header"
+                href={item.link?.url}
+                key={`link:${index}`}
+              >
+                {item.link_label}
+              </PrismicLink>
+            ))}
+            
           </div>
           
         </div>
-        </div>
-      )}
+      </div>)}
     </header>
   );
 }
@@ -342,6 +359,12 @@ export const query = graphql`
       donate_label
       donate_button_link {
         url 
+      }
+      menu_links {
+        link {
+          url
+        }
+        link_label
       }
       staff_menu {
         link_name
