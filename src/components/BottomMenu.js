@@ -65,12 +65,11 @@ export const BottomMenu = ({ menu,activeDocMeta }) => {
           </div>
           <div className="menu-col">
             <span className="col-header">TakingITGlobal</span>
-            <PrismicLink href={menu.about_link?.url}>
-                {menu.about_label}
-            </PrismicLink>
-            <PrismicLink href={menu.donate_link?.url}>
-              {menu.donate_label}
-            </PrismicLink>
+            {menu.menu_links.map((item,index) => (
+              <PrismicLink href={item.link?.url} key={`yr:${index}`}>
+                {item.link_label}
+              </PrismicLink>
+            ))}
           </div>
           <div className="menu-col">
             <span className="col-header">Follow us</span>
@@ -147,13 +146,11 @@ export const query = graphql`
         }
         link_label
       }
-      about_label
-      about_link {
-        url 
-      }
-      donate_label
-      donate_button_link {
-        url 
+      menu_links {
+        link {
+          url 
+        }
+        link_label
       }
     }
   }

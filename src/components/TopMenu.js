@@ -282,16 +282,16 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
               copy={menu.program_rt}
               items={menu.program_areas}
             />
-            {menu.menu_links.map((item,index) => (
-              <PrismicLink 
-                className="drop-header"
-                href={item.link?.url}
-                key={`link:${index}`}
-              >
-                {item.link_label}
+            <div className="drop-header">
+              <PrismicLink href={menu.about_link?.url}>
+                  {menu.about_label}
               </PrismicLink>
-            ))}
-            
+            </div>
+            <div className="drop-header">
+              <PrismicLink href={menu.donate_button_link?.url}>
+                {menu.donate_label}
+              </PrismicLink>
+            </div>  
           </div>
           
         </div>

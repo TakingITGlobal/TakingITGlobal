@@ -1,6 +1,10 @@
 header {
 	position: relative;
 	z-index: 20;
+	@media screen and (min-width: 960px){
+		position: sticky;
+	  top: 0;
+	}
 	.banner{
 		background: $color-yellow;
 		display: flex;
@@ -183,14 +187,14 @@ header {
 				line-height: 1.2;
 			}
 		}
-		a.drop-header:last-of-type {
+		div.drop-header:last-of-type a{
 	    background: #fff;
 	    border-color: #c6425f;
 	    border-style: solid;
 	    border-width: 2px 7px 9px 2px;
 	    color: #c6425f;
 	    margin-bottom: 13px;
-	    margin-left: 15px;
+	    margin-left: 8px;
 	    margin-top: 20px;
 	    padding: 12px 24px;
 	    border-radius: 100px;
@@ -377,7 +381,7 @@ header {
 				font-size: 20px;
 			}
 		}
-		a.drop-header:last-of-type {
+		div.drop-header:last-of-type a{
 	    background: #fff;
 	    border-color: #c6425f;
 	    border-style: solid;
