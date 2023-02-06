@@ -296,7 +296,7 @@ header {
 				}
 			}
 		}
-		.drop-item:focus,
+		.drop-item:focus-within,
 		.drop-item:hover {
 			.drop-label svg {
 				transform: rotate(180deg);

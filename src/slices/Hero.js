@@ -45,7 +45,7 @@ export const Hero = ({ slice }) => {
         </div>     
       </div>
       <div className="bg-shape blob-hero">
-        <img src={BgBlob}/>
+        <img src={BgBlob} alt="" role="presentation" />
       </div>
     </section>
   )
