@@ -66,7 +66,7 @@ export const SocialFeed = ({ slice }) => {
                       <Image alt="{item.caption}" src={item.localFile?.url}/>
                     </PrismicLink>
                     <div className="copy">
-                      <p><b>{item.likes} likes</b></p>
+                      <p><strong>{item.likes} likes</strong></p>
                       <p className="caption">{item.caption}</p>
                       <Moment fromNow unix className="date">{item.timestamp}</Moment>
                     </div>

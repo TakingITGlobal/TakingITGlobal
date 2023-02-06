@@ -22,6 +22,9 @@
 		&.gw-3{grid-column: auto/span 3;}
 		&.gw-4{grid-column: auto/span 4;}	
 	}
+	.gatsby-image-wrapper-constrained {
+		height: 100%;
+	}
 	.grid-tag {
 		position: absolute;
 		left: 0;

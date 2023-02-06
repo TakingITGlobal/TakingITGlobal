@@ -254,9 +254,12 @@ header {
 				display: flex;
 				justify-content: space-between;
 				gap: 20px;
-				flex-wrap: wrap;
+				
 				width: 100%;
 				max-width: 1440px;
+				@media screen and (max-width: 800px){
+					flex-wrap: wrap;
+				}
 			}
 			.drop-image-wrap {
 				width: 337px;
