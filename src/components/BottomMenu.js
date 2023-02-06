@@ -18,16 +18,16 @@ const SocialLinks = ({}) => {
   }
   return (
     <div className="social-links">
-      <a href={`https://ca.linkedin.com/company/${trim(socials.linked_in)}`} target="_blank" rel="noopener noreferrer">
+      <a aria-label="Linkedin" href={`https://ca.linkedin.com/company/${trim(socials.linked_in)}`} target="_blank" rel="noopener noreferrer">
         <FaLinkedin/>
       </a>
-      <a href={`https://twitter.com/${trim(socials.twitter)}`} target="_blank" rel="noopener noreferrer">
+      <a aria-label="Twitter" href={`https://twitter.com/${trim(socials.twitter)}`} target="_blank" rel="noopener noreferrer">
         <FaTwitter/>
       </a>
-      <a href={`https://www.facebook.com/${trim(socials.facebook)}`} target="_blank" rel="noopener noreferrer">
+      <a aria-label="Facebook" href={`https://www.facebook.com/${trim(socials.facebook)}`} target="_blank" rel="noopener noreferrer">
         <FaFacebookF/>
       </a>
-      <a href={`https://www.instagram.com/${trim(socials.instagram.slice(1))}`} target="_blank" rel="noopener noreferrer">
+      <a aria-label="Instagram" href={`https://www.instagram.com/${trim(socials.instagram.slice(1))}`} target="_blank" rel="noopener noreferrer">
         <FaInstagram/>
       </a>
     </div>

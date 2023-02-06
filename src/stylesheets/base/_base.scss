@@ -74,6 +74,10 @@ button:focus {
   @media screen and (max-width: $mobile){
     font-size: 16px;
   }
+  &:focus {
+    outline: 3px solid blue;
+  }
+  &:focus,
   &:hover {
     background: #000;
   }
@@ -95,6 +99,7 @@ button:focus {
   background: $color-yellow;
   color: $color-text;
   border-radius: 100px;
+  &:focus,
   &:hover {
     color: #fff;
   }
@@ -102,9 +107,17 @@ button:focus {
 .btn-c {
   background: #FFFFFF;
   border-radius: 5px;
+  &:focus,
   &:hover {
     color: #fff;
   }
+}
+select:focus,
+textarea:focus,
+input:focus,
+button:focus,
+a:focus {
+  outline: 2px solid blue;
 }
 .btn-arrow {
   font-weight: 700;
@@ -119,6 +132,10 @@ button:focus {
   &:after {
     content: url(./../images/rightArrow.svg);
   }
+  &:focus {
+    outline: 2px solid blue;
+  }
+  &:focus,
   &:hover {
     text-decoration: underline;
   }

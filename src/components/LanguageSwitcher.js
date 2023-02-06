@@ -25,14 +25,14 @@ export const LanguageSwitcher = ({ activeDocMeta }) => {
   }
 
   return (
-    <li className="language-switcher">
+    <div className="language-switcher">
       <div className="select-wrap">
-        <span>Language: </span>
-        <select value={currentLang} onChange={handleLangChange}>
+        <label htmlfor="language">Language: </label>
+        <select id="language" value={currentLang} onChange={handleLangChange}>
           {currentLangOption}
           {alternateLangOptions}
         </select>
       </div>
-    </li>
+    </div>
   )
 }

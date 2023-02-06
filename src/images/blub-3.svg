@@ -1,6 +1,5 @@
-<svg width="1600" height="1633" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="none">
+<svg role="presentation" width="1600" height="1633" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="none">
  <g>
-  <title>Layer 1</title>
   <path id="svg_1" fill="#EFF8FF" d="m1599.9,147.885c-276.99,-393.979 -776.453,147.301 -1599.89996,-57.5061l0,1542.6211l1599.89996,0c0,0 276.98,-1091.136 0,-1485.115z"/>
   <g id="svg_2" fill="white">
    <path id="svg_3" d="m-12.94499,1627.25773c281.92251,-287.07644 790.29901,107.33221 1628.43292,-41.90225l0,355.64454l-1766.04825,0c0,0 -144.30623,-26.66511 137.61533,-313.74229z" fill="white"/>

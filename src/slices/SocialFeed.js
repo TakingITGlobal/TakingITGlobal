@@ -57,13 +57,13 @@ export const SocialFeed = ({ slice }) => {
             step={1}
             isIntrinsicHeight={true}
           >
-            <ButtonNext className="btn-next" ><FaArrowRight aria-label="right arrow" /></ButtonNext>
-            <Slider classNameTray="slider-tray" classNameTrayWrap="slider-tray-wrap">
+            <ButtonNext className="btn-next" ><FaArrowRight aria-label="Next Button for Social Carousel" /></ButtonNext>
+            <Slider aria-label="Instagram Slider" classNameTray="slider-tray" classNameTrayWrap="slider-tray-wrap">
               {slides.map((item,index) => (
                 <Slide index={index} key={`carousel: ${index}`} tabIndex={-1} classNameHidden="hidden-slide">
                   <div className="card">
                     <PrismicLink className="image-box" href={item.permalink} id={`child-${index}`} tabIndex={0} >
-                      <Image src={item.localFile?.url}/>
+                      <Image alt="{item.caption}" src={item.localFile?.url}/>
                     </PrismicLink>
                     <div className="copy">
                       <p><b>{item.likes} likes</b></p>
@@ -80,16 +80,16 @@ export const SocialFeed = ({ slice }) => {
         <div className="social">
           <h3>{slice.primary.social_header}</h3>
           <div className="social-links">
-            <a href={`https://ca.linkedin.com/company/${trim(socials.linked_in)}`} target="_blank" rel="noopener noreferrer">
+            <a aria-label="LinkedIn" href={`https://ca.linkedin.com/company/${trim(socials.linked_in)}`} target="_blank" rel="noopener noreferrer">
               <FaLinkedin/><p>{socials.linked_in}</p>
             </a>
-            <a href={`https://twitter.com/${trim(socials.twitter)}`} target="_blank" rel="noopener noreferrer">
+            <a aria-label="Twitter" href={`https://twitter.com/${trim(socials.twitter)}`} target="_blank" rel="noopener noreferrer">
               <FaTwitter/><p>{socials.twitter}</p>
             </a>
-            <a href={`https://www.facebook.com/${trim(socials.facebook)}`} target="_blank" rel="noopener noreferrer">
+            <a aria-label="Facebook" href={`https://www.facebook.com/${trim(socials.facebook)}`} target="_blank" rel="noopener noreferrer">
               <FaFacebookF/><p>{socials.facebook}</p>
             </a>
-            <a href={`https://www.instagram.com/${trim(socials.instagram)}`} target="_blank" rel="noopener noreferrer">
+            <a aria-label="Instagram" href={`https://www.instagram.com/${trim(socials.instagram)}`} target="_blank" rel="noopener noreferrer">
               <FaInstagram/><p>{socials.instagram}</p>
             </a>
           </div>

@@ -19,7 +19,11 @@ export const Layout = ({ children, menu, activeDocMeta }) => {
 
   return (
     <>
-      <Helmet>
+      <Helmet
+        htmlAttributes={{
+          lang: activeDocMeta.lang
+        }}
+      >
         <meta charSet="utf-8" />
         <title>{queryData.site.siteMetadata.title}</title>
         <meta
@@ -42,7 +46,7 @@ export const Layout = ({ children, menu, activeDocMeta }) => {
         <link rel="stylesheet" href="https://use.typekit.net/qel7gqs.css"/> 
       </Helmet>
       <TopMenu menu={menu} activeDocMeta={activeDocMeta} />
-      <main>{children}</main>
+      <main id="main">{children}</main>
       <BottomMenu menu={menu} activeDocMeta={activeDocMeta}/>
     </>
   )

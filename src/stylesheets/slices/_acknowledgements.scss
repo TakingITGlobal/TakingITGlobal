@@ -1,6 +1,9 @@
 .Acknowledgements {
 	background: linear-gradient(to bottom, white 50%, $color-yellow 50%);
-	z-index: -1;
+	> div {
+		z-index: 1;
+		position: relative;
+	}
 	.copy-wrap{
 		max-width: 100%;
 
@@ -33,6 +36,7 @@
     width: 100%;
     overflow: hidden;
     line-height: 0;
+    z-index: 0;
     svg {
 	    position: relative;
 	    display: block;

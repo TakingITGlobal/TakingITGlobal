@@ -30,16 +30,16 @@ const SocialLinks = ({}) => {
   }
   return (
     <div className="social-links">
-      <a href={`https://ca.linkedin.com/company/${trim(socials.linked_in)}`} target="_blank" rel="noopener noreferrer">
+      <a aria-label="Linkedin" href={`https://ca.linkedin.com/company/${trim(socials.linked_in)}`} target="_blank" rel="noopener noreferrer">
         <FaLinkedin/>
       </a>
-      <a href={`https://twitter.com/${trim(socials.twitter)}`} target="_blank" rel="noopener noreferrer">
+      <a aria-label="Twitter" href={`https://twitter.com/${trim(socials.twitter)}`} target="_blank" rel="noopener noreferrer">
         <FaTwitter/>
       </a>
-      <a href={`https://www.facebook.com/${trim(socials.facebook)}`} target="_blank" rel="noopener noreferrer">
+      <a aria-label="Facebook" href={`https://www.facebook.com/${trim(socials.facebook)}`} target="_blank" rel="noopener noreferrer">
         <FaFacebookF/>
       </a>
-      <a href={`https://www.instagram.com/${trim(socials.instagram.slice(1))}`} target="_blank" rel="noopener noreferrer">
+      <a aria-label="Instagram" href={`https://www.instagram.com/${trim(socials.instagram.slice(1))}`} target="_blank" rel="noopener noreferrer">
         <FaInstagram/>
       </a>
     </div>
@@ -117,7 +117,7 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
   
   const DropItem = ({header, copy, items}) => {
     return (
-      <div className="drop-item">
+      <div className="drop-item" tabindex="0">
         <div className="drop-label">
           <span className="drop-header">{header} <FaChevronDown/></span>
         </div>
@@ -149,7 +149,7 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
   }
   const MobileDropItem = ({header, copy, items, id}) => {
     return (
-      <div className="drop-item">
+      <div className="drop-item" tabindex="0">
         <div className="drop-label" onClick={() => setSubClick(id)}>
           <span className="drop-header">{header} <FaChevronRight/></span>
         </div>
@@ -185,6 +185,11 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
 
   return (
     <header>
+
+      <a className="skip_button" href="#main">   
+        Skip to Content
+      </a>
+
       {isMobile ? 
 
       (<div className="mobile">

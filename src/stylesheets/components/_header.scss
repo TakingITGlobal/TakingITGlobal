@@ -1,3 +1,26 @@
+.skip_button {
+  border-radius: 3px;
+  width: 150px;
+  padding: 8px 8px 12px;
+  background-color: #c6425f;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  text-align: center;
+  color: #fff;
+  
+  text-decoration: none;
+  left: 50%;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  z-index: 3;
+
+  &:focus{
+    transform: translateY(0%);
+  }
+}
+
 header {
 	position: relative;
 	z-index: 20;
@@ -27,6 +50,7 @@ header {
 		& > div {
 			width: max-content;
 		}
+		label,
 		span,select{
 			background: none;
 			color: $color-text;
@@ -48,6 +72,7 @@ header {
 			bottom: 20px;
 			right: 20px;
 			z-index: 100;
+			label,
 			span {
 				display: none;
 			}
@@ -271,6 +296,7 @@ header {
 				}
 			}
 		}
+		.drop-item:focus,
 		.drop-item:hover {
 			.drop-label svg {
 				transform: rotate(180deg);
