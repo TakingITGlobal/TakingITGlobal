@@ -29,7 +29,6 @@ export const ProgramCarousel = ({ slice }) => {
       <div className="Container">
         <div className="copy-wrap">
           <PrismicRichText field={slice.primary.copy_richtext?.richText}/>
-          <p>{width}</p>
         </div>
         <div className="carousel">
           <CarouselProvider
