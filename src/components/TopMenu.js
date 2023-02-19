@@ -67,10 +67,10 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
     return (
       <div className="admin-menu">
         {(() => {
-          if (userToken == 'login' ) {
+          if (userToken != 'staff' ) {
             return (
               <div className="admin-container">
-                <a href="#" className="hover">Admin <FaUser/></a>
+                <a href="#" className="hover">{userToken} <FaUser/></a>
                 <ul className="dropdown">
                   {menu && menu.user_menu.map((item,index) => (
                     <li>
@@ -79,14 +79,15 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
                       </PrismicLink>
                     </li>
                   ))}
-                  <li><a href="https://www.tigweb.org/members/login.html?logout=logout&pushpath=www.tigweb.org%2F">Logout</a></li>
+                  <li><a href="https://my.tigweb.org/edit/settings/">Account Settings</a></li>
+                  <li><a href="https://www.tigweb.org/members/login.html?logout=logout&pushpath=welcome.tigweb.org">Logout</a></li>
                 </ul>
               </div>
             )
           } else if (userToken == 'staff' ) {
             return (
               <div className="admin-container">
-                <a href="#" className="hover">Staff Admin <FaUser/></a>
+                <a href="#" className="hover">{userToken} <FaUser/></a>
                 <ul className="dropdown"> 
                   {menu && menu.staff_menu.map((item,index) => (
                     <li>
