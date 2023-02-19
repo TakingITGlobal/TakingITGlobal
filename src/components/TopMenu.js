@@ -58,7 +58,8 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
 
   const AdminMenu = ({ items }) => {
 
-    const [userToken] = useCookie('TIGheader');
+    const [userTypeToken] = useCookie('TIGheader');
+    const [userNameToken] = useCookie('TIGusername');
 
     useEffect(() => {
 
@@ -67,10 +68,10 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
     return (
       <div className="admin-menu">
         {(() => {
-          if (userToken != 'staff' ) {
+          if (userTypeToken != 'staff' ) {
             return (
               <div className="admin-container">
-                <a href="#" className="hover">{userToken} <FaUser/></a>
+                <a href="#" className="hover">{userNameToken} <FaUser/></a>
                 <ul className="dropdown">
                   {menu && menu.user_menu.map((item,index) => (
                     <li>
@@ -84,10 +85,10 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
                 </ul>
               </div>
             )
-          } else if (userToken == 'staff' ) {
+          } else if (userTypeToken == 'staff' ) {
             return (
               <div className="admin-container">
-                <a href="#" className="hover">{userToken} <FaUser/></a>
+                <a href="#" className="hover">{userNameToken} <FaUser/></a>
                 <ul className="dropdown"> 
                   {menu && menu.staff_menu.map((item,index) => (
                     <li>
