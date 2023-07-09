@@ -20,8 +20,6 @@ export const ProgramCarousel = ({ slice }) => {
   const slide_width = 446;
   const slide_height = 600;
   const width = useWindowWidth();
-  
-
   const l_margin = Math.max(((width - 1440) / 2), 0);
   const slider_width = Math.min(Math.floor( (width - l_margin) / slide_width ), total_slides);
   return (
@@ -47,7 +45,6 @@ export const ProgramCarousel = ({ slice }) => {
                   <div className="card">
                     <PrismicLink className="image-box" href={item.card_link?.url} id={`child-${index}`} tabIndex={0} >
                       <div className="image-wrap">
-                        {!slice.primary.availability && <span className="featured-label">{slice.primary.closed_label}</span>}
                         <GatsbyImage
                           image={item.card_image?.gatsbyImageData}
                           alt={item.card_image?.alt || ""}
