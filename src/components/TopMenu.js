@@ -68,7 +68,7 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
     return (
       <div className="admin-menu">
         {(() => {
-          if (userTypeToken != 'staff' ) {
+          if (userTypeToken == 'login' ) {
             return (
               <div className="admin-container">
                 <a href="#" className="hover">{userNameToken} <FaUser/></a>
