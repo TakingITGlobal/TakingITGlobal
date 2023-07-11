@@ -17,9 +17,10 @@ import useInstagramData from "../components/useInstagramData"
 
 export const ProgramCarousel = ({ slice }) => {
   const total_slides = slice.items.length;
-  const slide_width = 446;
-  const slide_height = 600;
+  
+  
   const width = useWindowWidth();
+  const slide_width = Math.min(446, width);
   const l_margin = Math.max(((width - 1440) / 2), 0);
   const slider_width = Math.min(Math.floor( (width - l_margin) / slide_width ), total_slides);
   return (
@@ -44,13 +45,14 @@ export const ProgramCarousel = ({ slice }) => {
                 <Slide index={index} key={`carousel: ${index}`} tabIndex={-1} classNameHidden="hidden-slide">
                   <div className="card">
                     <PrismicLink className="image-box" href={item.card_link?.url} id={`child-${index}`} tabIndex={0} >
-                      <div className="image-wrap">
+              
                         <GatsbyImage
                           image={item.card_image?.gatsbyImageData}
                           alt={item.card_image?.alt || ""}
-                          className="image"
+                          className="image-wrap"
+                          imgClassName='image'
                         />
-                      </div>
+       
                     </PrismicLink>
                     <div className="copy">
                       <h4>{item.card_title}</h4>

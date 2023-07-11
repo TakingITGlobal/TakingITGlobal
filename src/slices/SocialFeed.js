@@ -17,10 +17,11 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 import { useWindowWidth } from '@react-hook/window-size/throttled'
 import useInstagramData from "../components/useInstagramData"
 
-
 export const SocialFeed = ({ slice }) => {
-  const instaNodes = useInstagramData();
+  const instaNodes = useInstagramData() || [];
   const socials = Socials().data;
+  const [loading,setLoading] = React.useState(true)
+  
   function trim(social){
     var foo = social[0];
     return foo == "@" || foo == "/" ? social.slice(1) : social;
@@ -29,7 +30,7 @@ export const SocialFeed = ({ slice }) => {
     var dots = string.length > 130 ? "...." : ""; 
     return string.slice(0,130)+dots;
   }
-  const total_slides = instaNodes.length;
+  const total_slides = instaNodes.length || 0;
   const slide_width = 385;
   const slide_height = 577;
   const width = useWindowWidth();

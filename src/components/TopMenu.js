@@ -108,7 +108,7 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
                   <li><a href="https://www.tigweb.org/signup">Join</a></li>
                   <li><a href="https://www.tigweb.org/members/login.html?pushpath=www.tigweb.org%2F">Log in</a></li>
                 </ul>
-                <FaUser/>
+                {!isMobile && <FaUser/>}
               </div>
             )
           }
@@ -246,10 +246,12 @@ export const TopMenu = ({ menu, activeDocMeta }) => {
                   {item.link_label}
                 </PrismicLink>
               ))}
+              <AdminMenu />
             </div>
             <SocialLinks />
           </div>
         </div>
+        <LanguageSwitcher activeDocMeta={activeDocMeta} />
       </div>) : (
       <div className="desktop">
         <div className="banner">

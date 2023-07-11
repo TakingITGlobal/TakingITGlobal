@@ -487,5 +487,14 @@ header {
 				color: $color-text;
 			}
 		}
+		.admin-menu {
+			margin: 20px 0;
+		}
+		.admin-container, .login-menu {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			margin: 0;
+		}	
 	}
 }

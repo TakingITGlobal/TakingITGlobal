@@ -13,6 +13,14 @@
 		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 		gap: 40px;
 	}
+	@media screen and (max-width: 600px){
+		.grid {
+			grid-template-columns: 1fr;
+		}
+		.featured-card .card-copy {
+			flex-wrap: wrap;
+		}
+	}
 	.featured-card{
 		grid-column: 1/-1;
 		.card-copy{

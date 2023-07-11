@@ -24,6 +24,14 @@
 			aspect-ratio: 9/4;
 		}
 	}
+	@media screen and (max-width: 600px){
+		.card-grid {
+			grid-template-columns: 1fr;
+		}
+		.featured-card {
+			grid-column: 1/span 1;
+		}
+	}
 	.nonfeatured-card{
 		.card-copy{
 			padding: 8px 8px 20px;
