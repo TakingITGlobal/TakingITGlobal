@@ -13,7 +13,7 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { useWindowWidth } from '@react-hook/window-size'
-import useInstagramData from "../components/useInstagramData"
+
 
 export const ProgramCarousel = ({ slice }) => {
   const total_slides = slice.items.length;

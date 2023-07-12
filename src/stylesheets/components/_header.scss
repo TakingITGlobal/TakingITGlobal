@@ -134,7 +134,7 @@ header {
 		.admin-container {
 			position: relative;
 		}
-		.admin-container:hover .dropdown{
+		.admin-container:hover .dropdown, .admin-container:focus-within .dropdown{
 			display: block;
 			position: absolute;
 	    background: #000000;
@@ -142,14 +142,31 @@ header {
 	    z-index: 1;
 	    color: #fff;
 	    padding: 20px;
-	    right: 0;
+
 	    margin: 0;
 	    border-radius: 0 0 4px 4px;
 	    min-width: 170px;
 	    text-align: right;
 	    box-shadow: rgb(0 0 0 / 15%) 0px 5px 15px 0px;
+			@media screen and (min-width: 960px){ 
+				right: 0;
+			}
+			@media screen and (max-width: 960px){ 
+				left: 0px;
+				top: 40px;
+				display: flex;
+				min-width: 300px;
+				gap: 20px;
+				flex-wrap: wrap;
+				align-items: flex-start;
+				text-align: left;
+				& > li {
+					flex: 1 1 40px;
+				}
+			}
+
 		}
-		.admin-container:hover a.hover {
+		.admin-container:hover a.hover, .admin-container:focus-within {
 	    background: #000;
 	    color: #fff;
 	    padding: 8px 10px 17px;
@@ -488,7 +505,7 @@ header {
 			}
 		}
 		.admin-menu {
-			margin: 20px 0;
+			margin: 0px 0 20px;
 		}
 		.admin-container, .login-menu {
 			display: flex;
