@@ -32,11 +32,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
-        start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        name: 'TakingITGlobal',
+        short_name: 'TIG',
+        start_url: '/en',
+        background_color: '#EACF60',
+        theme_color: '#EACF60',
         display: 'minimal-ui',
         icon: path.resolve(__dirname, 'src', 'images', 'favicon.png'),
       },
@@ -50,6 +50,24 @@ module.exports = {
         maxPosts: 20,
         access_token:process.env.INSTAGRAM_TOKEN,
       },
+    },
+    {
+      resolve: `gatsby-source-medium`,
+      options: {
+        username: `@TakingITGlobal`
+      }
+    },
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://stories.tigweb.org/feed`,
+        name: `TakingITGlobal`,
+        parserOption: {
+          customFields: {
+            item: ['title', 'link', 'content:encoded']
+          }
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-google-gtag`,
