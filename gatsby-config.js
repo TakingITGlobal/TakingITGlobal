@@ -47,9 +47,15 @@ module.exports = {
         // @risingyouthtig
         username: `17841401539124196`,
         instagram_id: `17841401539124196`,
-        maxPosts: 8,
+        maxPosts: 20,
         access_token:process.env.INSTAGRAM_TOKEN,
       },
+    },
+    {
+      resolve: `gatsby-source-medium`,
+      options: {
+        username: `@TakingITGlobal`
+      }
     },
     {
       resolve: `gatsby-source-rss-feed`,
