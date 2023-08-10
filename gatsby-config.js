@@ -52,12 +52,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-medium`,
-      options: {
-        username: `@TakingITGlobal`
-      }
-    },
-    {
       resolve: `gatsby-source-rss-feed`,
       options: {
         url: `https://stories.tigweb.org/feed`,
