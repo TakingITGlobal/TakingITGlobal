@@ -57,7 +57,7 @@ export const SocialFeed = ({ slice, context }) => {
       <div className="Container">
         <h4>{slice.primary.subheader}</h4>
         <div className="instagram-feed">
-          <h2>{slice.primary.header}</h2>
+          {/* <h2>{slice.primary.header}</h2>
           <PrismicRichText field={slice.primary.medium_header?.richText}/>
           <CarouselProvider
             naturalSlideWidth={slide_width + 20}
@@ -78,7 +78,7 @@ export const SocialFeed = ({ slice, context }) => {
                       <Image alt="" src={getImageUrl(item.content?.encoded)}/>
                     </PrismicLink>
                     <div className="copy">
-                      {/* <p><strong>{item.likes} likes</strong></p> */}
+                      
                       <p className="caption">{item.title}</p>
                       <Moment className="date" format='MMMM Do, YYYY'>{item.isoDate}</Moment>
                     </div>
@@ -87,7 +87,7 @@ export const SocialFeed = ({ slice, context }) => {
               )})}
             </Slider>
             
-          </CarouselProvider>
+          </CarouselProvider> */}
 
           <PrismicRichText field={slice.primary.instagram_header?.richText}/>
           <CarouselProvider
