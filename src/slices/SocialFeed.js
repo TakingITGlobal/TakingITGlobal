@@ -57,7 +57,7 @@ export const SocialFeed = ({ slice, context }) => {
       <div className="Container">
         <h4>{slice.primary.subheader}</h4>
         <div className="instagram-feed">
-          {/* <h2>{slice.primary.header}</h2>
+          <h2>{slice.primary.header}</h2>
           <PrismicRichText field={slice.primary.medium_header?.richText}/>
           <CarouselProvider
             naturalSlideWidth={slide_width + 20}
@@ -87,7 +87,7 @@ export const SocialFeed = ({ slice, context }) => {
               )})}
             </Slider>
             
-          </CarouselProvider> */}
+          </CarouselProvider>
 
           <PrismicRichText field={slice.primary.instagram_header?.richText}/>
           <CarouselProvider
