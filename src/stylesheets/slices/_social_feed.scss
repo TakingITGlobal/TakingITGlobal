@@ -1,4 +1,13 @@
 .SocialFeed {
+	h3 {
+		margin: 4rem 60px -53px 0;
+		line-height: 1;
+		color: $color-pink;
+		@media screen and (max-width: 600px){
+			font-size: 1.5rem;
+			
+		}
+	}
 	.headline{
 		text-align: center;
 	}
@@ -55,12 +64,8 @@
 		margin-top: auto;
 		padding-top: 1rem;
 	}
-	.slider-tray-wrap {
-		
-		
-	}
 	.slider-tray{
-		padding: 40px 0 20px;
+		padding: 20px 0 20px;
 		
 	}
 	@media screen and (max-width: 600px){
@@ -82,7 +87,7 @@
 
 	.btn-next{
 		margin-left: auto;
-		margin-right: 20px;
+		margin-right: 10px;
 		background: $color-pink;
 		color: white;
 		width: 53px;
