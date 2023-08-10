@@ -15,13 +15,10 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { useWindowWidth } from '@react-hook/window-size/throttled'
-import useInstagramData from "../utils/useInstagramData"
-import useMediumData from "../utils/useMediumData"
 
-export const SocialFeed = ({ slice }) => {
-  const allNodes = useInstagramData() || [];
-  const instaNodes = allNodes.allInstaNode?.nodes
-  const mediumNodes = allNodes.allFeedTakingItGlobal?.nodes
+export const SocialFeed = ({ slice, context }) => {
+  const instaNodes = context.insta.nodes
+  const mediumNodes = context.medium.nodes
   const socials = Socials().data;
 
   function getImageUrl(str) {
