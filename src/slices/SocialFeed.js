@@ -82,7 +82,7 @@ export const SocialFeed = ({ slice }) => {
                     <div className="copy">
                       {/* <p><strong>{item.likes} likes</strong></p> */}
                       <p className="caption">{item.title}</p>
-                      <Moment fromNow className="date" parse="">{item.isoDate}</Moment>
+                      <Moment className="date" format='MMMM Do, YYYY'>{item.isoDate}</Moment>
                     </div>
                   </div>
                 </Slide>
