@@ -62,11 +62,6 @@ module.exports = {
       options: {
         url: `https://stories.tigweb.org/feed`,
         name: `TakingITGlobal`,
-        parserOption: {
-          customFields: {
-            item: ['title', 'link', 'content:encoded']
-          }
-        }
       }
     },
     {

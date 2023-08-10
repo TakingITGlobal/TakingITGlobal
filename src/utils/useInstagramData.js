@@ -14,10 +14,20 @@ const useInstagramData = () => {
           }
         }
       }
+      allFeedTakingItGlobal(sort: {order: DESC, fields: isoDate}, limit: 8) {
+        nodes {
+          title
+          link
+          isoDate
+          content {
+            encoded
+          }
+        }
+      }
     }
   `)
 
-  return data.allInstaNode.nodes
+  return data
 }
 
 export default useInstagramData

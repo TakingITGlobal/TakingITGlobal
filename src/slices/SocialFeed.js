@@ -19,8 +19,9 @@ import useInstagramData from "../utils/useInstagramData"
 import useMediumData from "../utils/useMediumData"
 
 export const SocialFeed = ({ slice }) => {
-  const instaNodes = useInstagramData() || [];
-  const mediumNodes = useMediumData() || [];
+  const allNodes = useInstagramData() || [];
+  const instaNodes = allNodes.allInstaNode?.nodes
+  const mediumNodes = allNodes.allFeedTakingItGlobal?.nodes
   const socials = Socials().data;
 
   function getImageUrl(str) {
