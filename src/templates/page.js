@@ -50,6 +50,7 @@ export const query = graphql`
             slice_label
           }
           ...PageDataBodyTextImage
+          ...PageDataBodyFeaturedProgram
           ...PageDataBodyFeatureGrid
           ...PageDataBodyFeatureSlider
           ...PageDataBodyProgramCarousel
