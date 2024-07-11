@@ -9,7 +9,7 @@ import { components } from '../slices'
 const FlexPageTemplate = ({ data }) => {
   if (!data) return null
 
-  const flex_pageContent = data.prismicPage || {}
+  const flex_pageContent = data.prismicFlexPage || {}
   const flex_page = flex_pageContent.data || {}
   const menu = data.prismicMenu || {}
 
