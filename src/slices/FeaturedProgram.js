@@ -9,16 +9,17 @@ export const FeaturedProgram = ({ slice }) => {
       <div className="copy">
         <h4>{slice.primary.subtitle}</h4>
         <PrismicRichText field={slice.primary.description?.richText}/>
-        {slice.items.map((item,index) => (
+          {slice.items.map((item,index) => (
             <div className="accordian" key={`accordion:${index}`}>
-              <h3>{item.accordian_title}</h3>
+              <h3>{item.accordion_title}</h3>
+              <PrismicRichText field={item.accordion_content?.richText}/>
             </div>
           ))}
            <PrismicLink
               className="btn-c"
               href={slice.primary.section_link?.url}
             >
-              {item.section_link_label}
+              {slice.primary.section_link_label}
             </PrismicLink>
       </div>
     </div>
@@ -26,15 +27,16 @@ export const FeaturedProgram = ({ slice }) => {
   const image = (
     <>        
       <h2>{slice.primary.section_title.text}</h2>
-      <div className="image-wrap">
+      {/* <div className="image-wrap">
         <GatsbyImage
           image={slice.primary.image?.gatsbyImageData}
           alt={slice.primary.image?.alt || ""}
           className="image"
         />
-      </div>
+      </div> */}
     </>
   )
+  console.log(slice.items[0])
   return (
     <section className="FeaturedProgram">
       <div className="Container">
