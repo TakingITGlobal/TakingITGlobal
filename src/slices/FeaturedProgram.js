@@ -47,9 +47,6 @@ export const query = graphql`
         text
       }
       subtitle
-      description {
-        richtText
-      }
       image {
         gatsbyImageData
         alt 
