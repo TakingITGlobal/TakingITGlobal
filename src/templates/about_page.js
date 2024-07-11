@@ -10,7 +10,7 @@ const AboutPageTemplate = ({ data }) => {
   if (!data) return null
 
   const about_pageContent = data.prismicPage || {}
-  const about_page = pageContent.data || {}
+  const about_page = about_pageContent.data || {}
   const menu = data.prismicMenu || {}
 
   const { lang, type, url } = about_pageContent || {}
@@ -31,7 +31,7 @@ const AboutPageTemplate = ({ data }) => {
 
 export const query = graphql`
   query about_pageQuery($id: String, $lang: String) {
-    prismicPage(id: { eq: $id }, lang: { eq: $lang }) {
+    prismicAboutPage(id: { eq: $id }, lang: { eq: $lang }) {
       _previewable
       alternate_languages {
         uid
