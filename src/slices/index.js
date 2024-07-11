@@ -35,5 +35,5 @@ export const components = {
   quote: Quote,
   stat_listing: StatListing,
   text_cards: TextCards,
-  featured_program: FeaturedProgram,
+  featured_program: FeaturedProgram
 }

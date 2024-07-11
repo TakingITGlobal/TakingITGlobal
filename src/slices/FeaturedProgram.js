@@ -9,12 +9,23 @@ export const FeaturedProgram = ({ slice }) => {
       <div className="copy">
         <h4>{slice.primary.subtitle}</h4>
         <PrismicRichText field={slice.primary.description?.richText}/>
+        {slice.items.map((item,index) => (
+            <div className="accordian" key={`accordion:${index}`}>
+              <h3>{item.accordian_title}</h3>
+            </div>
+          ))}
+           <PrismicLink
+              className="btn-c"
+              href={slice.primary.section_link?.url}
+            >
+              {item.section_link_label}
+            </PrismicLink>
       </div>
     </div>
   )
   const image = (
     <>        
-      {slice.primary.section_title}
+      <h2>{slice.primary.section_title.text}</h2>
       <div className="image-wrap">
         <GatsbyImage
           image={slice.primary.image?.gatsbyImageData}
@@ -46,11 +57,18 @@ export const query = graphql`
       section_title {
         text
       }
+      description {
+        richText
+      }
       subtitle
       image {
         gatsbyImageData
         alt 
       }
+      section_link {
+        url
+      }
+      section_link_label
     }
     items {
       accordion_title
