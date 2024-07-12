@@ -42,6 +42,16 @@ export const query = graphql`
       url
       type
       id
+      data {
+        body {
+          ... on PrismicSliceType {
+            id
+            slice_type
+            slice_label
+          }
+          ...FlexPageDataBodyReportsCarousel
+        }
+      }
     }
     prismicMenu(lang: { eq: $lang }) {
       ...TopMenuFragment
