@@ -24,12 +24,6 @@ export const ReportsCarousel = ({ slice }) => {
 
   return (
     <section>
-      <div className="copy-wrap">
-        <PrismicRichText
-          field={slice.primary.report_carousel_title?.richText}
-        />
-      </div>
-
       <CarouselProvider
         naturalSlideWidth={slide_width + 20}
         totalSlides={total_slides}
@@ -38,6 +32,13 @@ export const ReportsCarousel = ({ slice }) => {
         step={1}
         isIntrinsicHeight={true}
       >
+        <div className="copy-wrap">
+          <PrismicRichText
+            field={slice.primary.report_carousel_title?.richText}
+          />
+          <ButtonBack className="btn-back">Back</ButtonBack>
+          <ButtonNext className="btn-next">Next</ButtonNext>
+        </div>
         <Slider
           classNameTray="slider-tray"
           classNameTrayWrap="slider-tray-wrap"
@@ -59,8 +60,6 @@ export const ReportsCarousel = ({ slice }) => {
             </Slide>
           ))}
         </Slider>
-        <ButtonBack className="btn-back">Back</ButtonBack>
-        <ButtonNext className="btn-next">Next</ButtonNext>
       </CarouselProvider>
     </section>
   )
