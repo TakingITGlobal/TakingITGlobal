@@ -5,7 +5,7 @@
   max-width: 350px;
   align-items: center;
   justify-content: center;
-  border: 1px solid #eacf60;
+  border: 1px solid #eacf60; // CHANGE to var when figure out the stylesheet thing
   border-radius: 5px;
   padding: 30px;
 }
@@ -14,6 +14,7 @@
   width: 100%;
   height: auto;
   overflow: hidden;
+  position: relative; // Ensure the pseudo-element is positioned relative to the imgWrap
 }
 
 .imgWrap img {
@@ -21,4 +22,14 @@
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+.imgWrap::after {
+  content: 'test tag text';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #6eade7; // CHANGE to var when figure out the stylesheet thing
+  margin: 5px 0px;
+  padding: 5px;
 }
