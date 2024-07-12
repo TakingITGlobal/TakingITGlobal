@@ -12,6 +12,7 @@ import { linkResolver } from './linkResolver'
 
 import HomepageTemplate from '../templates/homepage'
 import PageTemplate from '../templates/page'
+import FlexPageTemplate from '../templates/flex_page'
 /**
  * Prismic preview configuration for each repository in your app. This set of
  * configuration objects will be used with the `PrismicPreviewProvider`
@@ -28,6 +29,7 @@ export const repositoryConfigs = [
     componentResolver: componentResolverFromMap({
       homepage: HomepageTemplate,
       page: PageTemplate,
+      flex_page: FlexPageTemplate,
     }),
   },
 ]
