@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import './_card.scss'
 
 export const Card = ({}) => {
   return (
     <div className="cardContainer">
       <div className="imgWrap">
-        <img src="https://placehold.co/400" />
+        <img src="https://placehold.co/350" />
       </div>
       <div className="cardText">
         <h4>title</h4>
