@@ -1,34 +1,22 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
-import { PrismicRichText, PrismicLink } from '@prismicio/react'
-import { FaArrowRight } from 'react-icons/fa'
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-  Image,
-} from 'pure-react-carousel'
-import 'pure-react-carousel/dist/react-carousel.es.css'
-import { useWindowWidth } from '@react-hook/window-size'
+import { PrismicRichText } from '@prismicio/react'
 import { Card } from '../components/Card'
 
 export const ReportsCarousel = ({ slice }) => {
-  //   const total_slides = slice.items.length
-
-  //   const width = useWindowWidth()
-  //   const slide_width = Math.min(446, width)
-  //   const l_margin = Math.max((width - 1440) / 2, 0)
-  //   const slider_width = Math.min(
-  //     Math.floor((width - l_margin) / slide_width),
-  //     total_slides,
-  //   )
   return (
     <section>
-      <p>testttttttttt</p>
-      <Card />
+      <PrismicRichText field={slice.items.report_card_title?.richText} />
+      {slice.items.map((item, index) => (
+        <Card
+          key={index}
+          title={item.report_card_title}
+          image={item.report_card_image}
+          tagText={item.report_card_tag_text}
+          description={item.report_card_description}
+          linkText={item.report_card_link_text}
+        />
+      ))}
     </section>
   )
 }
@@ -45,7 +33,6 @@ export const query = graphql`
       report_card_image {
         gatsbyImageData
         alt
-        url
       }
       report_card_tag_text {
         richText

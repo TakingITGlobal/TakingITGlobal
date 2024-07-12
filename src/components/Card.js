@@ -1,20 +1,20 @@
 import * as React from 'react'
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import './_card.scss'
+import { PrismicRichText } from '@prismicio/react'
 
-export const Card = ({}) => {
+export const Card = ({ title, description, linkText, image }) => {
+  const cardImage = getImage(image.gatsbyImageData)
+
   return (
     <div className="cardContainer">
       <div className="imgWrap">
-        <img src="https://placehold.co/350" />
+        {cardImage && <GatsbyImage image={cardImage} alt={image.alt} />}
       </div>
       <div className="cardText">
-        <h4>title</h4>
-        <p>
-          description fioeshoisefjo fiej foisj oi fosf so fnoise fnoesifn
-          esonfeoi fnoin osen
-        </p>
-        <a>link text</a>
+        {title && <PrismicRichText field={title} />}
+        <PrismicRichText field={description} />
+        <PrismicRichText field={linkText} />
       </div>
     </div>
   )
