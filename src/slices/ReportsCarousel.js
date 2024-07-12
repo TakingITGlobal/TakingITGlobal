@@ -13,6 +13,7 @@ import {
 } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
 import { useWindowWidth } from '@react-hook/window-size'
+import { Card } from '../components/Card'
 
 export const ReportsCarousel = ({ slice }) => {
   //   const total_slides = slice.items.length
@@ -27,6 +28,7 @@ export const ReportsCarousel = ({ slice }) => {
   return (
     <section>
       <p>testttttttttt</p>
+      <Card />
     </section>
   )
 }
