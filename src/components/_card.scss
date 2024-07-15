@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 350px;
+  max-width: 400px;
   align-items: center;
   justify-content: center;
   border: 1px solid #eacf60; // CHANGE to var when figure out the stylesheet thing
@@ -33,4 +33,16 @@
   background-color: #6eade7; // CHANGE to var when figure out the stylesheet thing
   margin: 5px 0px;
   padding: 5px;
+}
+
+.cardText .titleText p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 15px 0px 10px 0px;
+}
+
+.cardText p {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0px;
 }

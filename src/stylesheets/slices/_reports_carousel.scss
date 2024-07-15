@@ -1,3 +1,94 @@
-.btn-back {
-  font-size: 20rem;
+.ReportsCarousel {
+  padding: 160px 0;
+  .copy-wrap {
+    max-width: 732px;
+  }
+  .carousel {
+    margin-right: calc(calc((100vw - 100%) - 60px) / -2);
+    max-width: calc(1400px + calc(calc(100vw - 1440px) / 2));
+    position: relative;
+  }
+  .slider-tray {
+    padding-top: 20px;
+    padding-bottom: 60px;
+    margin-left: -20px;
+    align-items: stretch;
+  }
+  .carousel__slide {
+    margin: 0 20px;
+  }
+  .card {
+    background: #ffffff;
+    box-shadow: 6px 6px 12px rgba(2, 0, 103, 0.13);
+    border-radius: 5px;
+    height: 100%;
+    .copy {
+      padding: 32px 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .card {
+      margin: 0 auto 0 0;
+    }
+
+    .hidden-slide {
+      margin-left: 5px;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    .slider-tray-wrap {
+      padding-right: 200px;
+    }
+  }
+  .image-wrap {
+    width: 100%;
+    aspect-ratio: 5/3;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    // .image{
+    // 	position:absolute;
+    // 	object-fit: cover;
+    // 	width: 100%;
+    // 	height: 100%;
+    // }
+    .featured-label {
+      position: absolute;
+      left: 0;
+      top: 0;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      padding: 16px 20px 15px;
+      background: $color-yellow;
+      border-radius: 4px;
+      line-height: 1;
+      color: $color-black;
+      font-weight: bold;
+    }
+  }
+
+  .btn-next {
+    margin-left: auto;
+    margin-right: 20px;
+    background: $color-pink;
+    color: white;
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bottom-wrap {
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+  }
 }

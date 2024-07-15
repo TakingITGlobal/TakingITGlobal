@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { PrismicRichText } from '@prismicio/react'
 import { Card } from '../components/Card'
+
 import {
   CarouselProvider,
   Slider,
