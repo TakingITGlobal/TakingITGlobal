@@ -63,6 +63,7 @@ export const ReportsCarousel = ({ slice }) => {
           </Slider>
         </div>
       </CarouselProvider>
+
       <PrismicRichText
         field={slice.primary.report_carousel_cta_text?.richText}
       />
@@ -79,6 +80,9 @@ export const query = graphql`
       }
       report_carousel_cta_text {
         richText
+      }
+      report_carousel_cta_link {
+        url
       }
     }
     items {
@@ -97,6 +101,9 @@ export const query = graphql`
       }
       report_card_link_text {
         richText
+      }
+      report_card_link {
+        url
       }
     }
   }
