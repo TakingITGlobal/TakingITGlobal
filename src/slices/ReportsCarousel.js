@@ -61,6 +61,9 @@ export const ReportsCarousel = ({ slice }) => {
           ))}
         </Slider>
       </CarouselProvider>
+      <PrismicRichText
+        field={slice.primary.report_carousel_cta_text?.richText}
+      />
     </section>
   )
 }

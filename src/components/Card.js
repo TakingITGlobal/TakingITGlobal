@@ -12,9 +12,9 @@ export const Card = ({ title, description, linkText, image }) => {
         {cardImage && <GatsbyImage image={cardImage} alt={image.alt} />}
       </div>
       <div className="cardText">
-        {title && <PrismicRichText field={title} />}
-        <PrismicRichText field={description} />
-        <PrismicRichText field={linkText} />
+        <PrismicRichText field={title.richText} />
+        <PrismicRichText field={description.richText} />
+        <PrismicRichText field={linkText.richText} />
       </div>
     </div>
   )
