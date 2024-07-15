@@ -12,7 +12,6 @@ import {
   ButtonNext,
 } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
-import '../stylesheets/slices/_reports_carousel.scss'
 
 export const ReportsCarousel = ({ slice }) => {
   const totalSlides = slice.items.length
