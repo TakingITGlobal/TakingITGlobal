@@ -1,0 +1,45 @@
+.FeaturedProgram {
+  .flex-wrap {
+		gap: 20px;
+	}
+	.text-wrap {
+		max-width: 600px;
+		flex: 1 1 400px;
+	}
+	.image-wrap {
+		max-width: 720px;
+		flex: 1 1 600px;
+	}
+	p {
+		margin-bottom: 30px;
+	}
+
+  .accordion {
+    background: rgba(#FFFFFF, 0.4);
+		border: 1px solid rgba($color-purple, 0.4);
+		box-shadow: 6px 6px 12px rgba(2, 0, 103, 0.13);
+		border-radius: 5px;
+    margin-bottom: 10px;
+
+    button {
+      background: none;
+      padding: 20px;
+      text-align: left;
+      width: 100%;
+    }
+  }
+  
+  .accordion-panel {
+    max-height: 0;
+    transition: max-height 0.3s ease-in;
+    overflow: hidden;
+    padding: 0;
+
+    .accordion-content {
+      padding: 20px;
+    }
+  }
+  .accordion-panel:not([aria-hidden="true"]) {
+    max-height: 99em;
+  }
+}

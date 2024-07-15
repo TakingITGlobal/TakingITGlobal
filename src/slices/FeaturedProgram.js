@@ -4,16 +4,42 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { PrismicRichText,PrismicLink } from '@prismicio/react'
 
 export const FeaturedProgram = ({ slice }) => {
+  function Accordion({id, children, title}) {
+    const [isExpanded, setIsExpanded] = React.useState(false);
+    const toggleAccordion = () => setIsExpanded(!isExpanded)
+
+    return (
+      <div className="accordion">
+        <button
+          id={`${id}-header`}
+          aria-controls={`${id}-panel`}
+          aria-expanded={isExpanded}
+          onClick={toggleAccordion}
+        >  
+          <h4>{title}</h4>
+        </button>
+        <div
+          className="accordion-panel"
+          id={`${id}-panel`}
+          aria-labelledby={`${id}-header`}
+          aria-hidden={!isExpanded}
+        >
+          {children}
+        </div>
+      </div>
+    )
+  }
   const text = (
     <div className="text-wrap">
       <div className="copy">
         <h4>{slice.primary.subtitle}</h4>
         <PrismicRichText field={slice.primary.description?.richText}/>
           {slice.items.map((item,index) => (
-            <div className="accordian" key={`accordion:${index}`}>
-              <h3>{item.accordion_title}</h3>
-              <PrismicRichText field={item.accordion_content?.richText}/>
-            </div>
+            <Accordion id={`accordion-${index}`} title={item.accordion_title} key={`accordion:${index}`}>
+              <div className="accordion-content">
+                <PrismicRichText field={item.accordion_content?.richText}/>
+              </div>
+            </Accordion>
           ))}
            <PrismicLink
               className="btn-c"
@@ -26,21 +52,21 @@ export const FeaturedProgram = ({ slice }) => {
   )
   const image = (
     <>        
-      <h2>{slice.primary.section_title.text}</h2>
-      {/* <div className="image-wrap">
+      <div className="image-wrap">
+        <h2>{slice.primary.section_title.text}</h2>
         <GatsbyImage
           image={slice.primary.image?.gatsbyImageData}
           alt={slice.primary.image?.alt || ""}
           className="image"
         />
-      </div> */}
+      </div>
     </>
   )
   console.log(slice.items[0])
   return (
     <section className="FeaturedProgram">
       <div className="Container">
-        <div className={slice.primary.image_side ? 'flex-wrap' : 'flex-wrap'}>
+        <div className="flex-wrap">
           {slice.primary.image_side? 
             <>{text}{image}</> : 
             <>{image}{text}</>
