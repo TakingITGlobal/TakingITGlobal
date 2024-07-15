@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { PrismicRichText } from '@prismicio/react'
+import { PrismicRichText, PrismicLink } from '@prismicio/react'
 import { Card } from '../components/Card'
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi'
 
@@ -40,33 +40,27 @@ export const ReportsCarousel = ({ slice }) => {
           </div>
         </div>
         <div className="slider">
-          <Slider
-            classNameTray="slider-tray"
-            classNameTrayWrap="slider-tray-wrap"
-          >
+          <Slider>
             {slice.items.map((item, index) => (
-              <Slide
-                index={index}
-                key={`carousel-${index}`}
-                tabIndex={-1}
-                classNameHidden="hidden-slide"
-              >
+              <Slide index={index} key={`carousel-${index}`} tabIndex={-1}>
                 <Card
                   title={item.report_card_title}
                   image={item.report_card_image}
                   tagText={item.report_card_tag_text}
                   description={item.report_card_description}
                   linkText={item.report_card_link_text}
+                  linkUrl={item.report_card_link}
                 />
               </Slide>
             ))}
           </Slider>
         </div>
       </CarouselProvider>
-
-      <PrismicRichText
-        field={slice.primary.report_carousel_cta_text?.richText}
-      />
+      <PrismicLink href={slice.primary.report_carousel_cta_link?.url}>
+        <PrismicRichText
+          field={slice.primary.report_carousel_cta_text?.richText}
+        />
+      </PrismicLink>
     </section>
   )
 }

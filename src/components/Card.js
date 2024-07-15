@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import './_card.scss'
-import { PrismicRichText } from '@prismicio/react'
+import { PrismicRichText, PrismicLink } from '@prismicio/react'
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi'
 
-export const Card = ({ title, description, linkText, image }) => {
+export const Card = ({ title, description, linkText, linkUrl, image }) => {
   const cardImage = getImage(image.gatsbyImageData)
 
   return (
@@ -19,10 +19,12 @@ export const Card = ({ title, description, linkText, image }) => {
 
         <PrismicRichText field={description.richText} />
 
-        <span className="links">
-          <PrismicRichText field={linkText.richText} />
+        <div className="links">
+          <PrismicLink href={linkUrl.url}>
+            <PrismicRichText field={linkText.richText} />
+          </PrismicLink>
           <HiArrowRight />
-        </span>
+        </div>
       </div>
     </div>
   )
