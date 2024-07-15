@@ -31,7 +31,7 @@
   left: 0;
   background-color: #6eade7; // CHANGE to var when figure out the stylesheet thing
   margin: 5px 0px 0px 0px;
-  padding: 5px;
+  padding: 7px;
 }
 
 .cardText .titleText p {
@@ -51,4 +51,9 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.links p {
+  font-weight: 700;
+  font-size: 1.15em;
 }
