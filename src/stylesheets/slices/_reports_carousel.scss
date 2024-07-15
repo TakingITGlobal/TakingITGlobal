@@ -1,21 +1,35 @@
 .reportsCarousel {
-  // currently breaking mobile layout
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  width: 100%;
+  margin: 0 20px;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+  }
 }
 
 .buttons {
   display: flex;
   gap: 10px;
+
+  @media (max-width: 600px) {
+    margin-top: 10px;
+  }
 }
 
 .btn-back,
@@ -25,14 +39,29 @@
   align-items: center;
   width: 53px;
   height: 53px;
-  background-color: #c6425f;
+  background-color: $color-pink;
   border-radius: 50%;
   color: white;
   padding: 5px;
+  &:hover {
+    background-color: $color-black;
+  }
+}
+
+.slider {
+  // this wasnt from the programs carousel i stole this from stack overflow but didnt solve problem
+  width: 100%;
+  overflow: hidden;
+
+  @media (max-width: $tablet) {
+    .carousel__slider-tray-wrapper {
+      max-width: 70vw;
+    }
+  }
 }
 
 .seeOtherBtn {
-  background: #ffffff;
+  background: white;
   margin-bottom: 13px;
   margin-right: 13px;
   color: $color-pink;
@@ -42,13 +71,17 @@
   border-right: 7px solid $color-pink;
   border-radius: 100px;
   margin-top: 20px;
-  padding: 10px;
+  padding: 10px 15px;
 }
 
 .seeOtherBtn:hover {
-  background: #000;
+  background: $color-black;
 }
 
 .seeOtherBtn p {
   font-weight: 700;
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
 }

@@ -5,9 +5,12 @@
   max-width: 400px;
   align-items: center;
   justify-content: center;
-  border: 1px solid #eacf60; // CHANGE to var when figure out the stylesheet thing
+  border: 1px solid $color-yellow;
   border-radius: 5px;
   padding: 30px;
+  @media screen and (max-width: $mobile) {
+    max-width: 300px;
+  }
 }
 
 .imgWrap {
@@ -29,7 +32,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: #6eade7; // CHANGE to var when figure out the stylesheet thing
+  background-color: $color-blue_light;
   margin: 5px 0px 0px 0px;
   padding: 7px;
 }

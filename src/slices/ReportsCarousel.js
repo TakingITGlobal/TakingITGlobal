@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { PrismicRichText, PrismicLink } from '@prismicio/react'
 import { Card } from '../components/Card'
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi'
+import { useWindowWidth } from '@react-hook/window-size'
 
 import {
   CarouselProvider,
@@ -14,13 +15,22 @@ import {
 import 'pure-react-carousel/dist/react-carousel.es.css'
 
 export const ReportsCarousel = ({ slice }) => {
-  const totalSlides = slice.items.length
+  const total_slides = slice.items.length
+
+  const width = useWindowWidth()
+  const slide_width = Math.min(446, width)
+  const l_margin = Math.max((width - 1440) / 2, 0)
+  const slider_width = Math.min(
+    Math.floor((width - l_margin) / slide_width),
+    total_slides,
+  )
 
   return (
     <section className="reportsCarousel">
       <CarouselProvider
-        totalSlides={totalSlides}
-        visibleSlides={3}
+        naturalSlideWidth={slide_width}
+        totalSlides={total_slides}
+        visibleSlides={slider_width}
         infinite={true}
         step={1}
         isIntrinsicHeight={true}
@@ -49,12 +59,15 @@ export const ReportsCarousel = ({ slice }) => {
                   description={item.report_card_description}
                   linkText={item.report_card_link_text}
                   linkUrl={item.report_card_link}
+                  auditLinkText={item.report_card_audit_link_text?.richText}
+                  auditLinkUrl={item.report_card_audit_link?.url}
                 />
               </Slide>
             ))}
           </Slider>
         </div>
       </CarouselProvider>
+
       <div className="seeOtherBtn">
         <PrismicLink href={slice.primary.report_carousel_cta_link?.url}>
           <PrismicRichText
@@ -98,6 +111,12 @@ export const query = graphql`
         richText
       }
       report_card_link {
+        url
+      }
+      report_card_audit_link_text {
+        richText
+      }
+      report_card_audit_link {
         url
       }
     }
