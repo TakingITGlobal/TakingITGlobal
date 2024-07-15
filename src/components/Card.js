@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import './_card.scss'
 import { PrismicRichText, PrismicLink } from '@prismicio/react'
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi'
 
