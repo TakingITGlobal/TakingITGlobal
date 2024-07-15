@@ -30,3 +30,25 @@
   color: white;
   padding: 5px;
 }
+
+.seeOtherBtn {
+  background: #ffffff;
+  margin-bottom: 13px;
+  margin-right: 13px;
+  color: $color-pink;
+  border-top: 2px solid $color-pink;
+  border-left: 2px solid $color-pink;
+  border-bottom: 9px solid $color-pink;
+  border-right: 7px solid $color-pink;
+  border-radius: 100px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.seeOtherBtn:hover {
+  background: #000;
+}
+
+.seeOtherBtn p {
+  font-weight: 700;
+}

@@ -55,11 +55,13 @@ export const ReportsCarousel = ({ slice }) => {
           </Slider>
         </div>
       </CarouselProvider>
-      <PrismicLink href={slice.primary.report_carousel_cta_link?.url}>
-        <PrismicRichText
-          field={slice.primary.report_carousel_cta_text?.richText}
-        />
-      </PrismicLink>
+      <div className="seeOtherBtn">
+        <PrismicLink href={slice.primary.report_carousel_cta_link?.url}>
+          <PrismicRichText
+            field={slice.primary.report_carousel_cta_text?.richText}
+          />
+        </PrismicLink>
+      </div>
     </section>
   )
 }
