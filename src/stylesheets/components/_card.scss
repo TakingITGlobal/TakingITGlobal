@@ -2,19 +2,16 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 400px;
   align-items: center;
   justify-content: center;
   border: 1px solid $color-yellow;
   border-radius: 5px;
   padding: 30px;
-  @media screen and (max-width: $mobile) {
-    max-width: 300px;
-  }
+  width: 100%;
 }
 
 .imgWrap {
-  width: 100%;
+  width: fit-content;
   height: auto;
   overflow: hidden;
   position: relative;
