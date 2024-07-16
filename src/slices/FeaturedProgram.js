@@ -2,7 +2,8 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { PrismicRichText,PrismicLink } from '@prismicio/react'
-
+import { FaChevronDown } from 'react-icons/fa'
+  
 export const FeaturedProgram = ({ slice }) => {
   function Accordion({id, children, title}) {
     const [isExpanded, setIsExpanded] = React.useState(false);
@@ -15,8 +16,9 @@ export const FeaturedProgram = ({ slice }) => {
           aria-controls={`${id}-panel`}
           aria-expanded={isExpanded}
           onClick={toggleAccordion}
+          className={isExpanded ? 'open' : ''}
         >  
-          <h4>{title}</h4>
+          <span className="title">{title}</span> <FaChevronDown/>
         </button>
         <div
           className="accordion-panel"
@@ -42,7 +44,7 @@ export const FeaturedProgram = ({ slice }) => {
             </Accordion>
           ))}
            <PrismicLink
-              className="btn-c"
+              className="btn-primary"
               href={slice.primary.section_link?.url}
             >
               {slice.primary.section_link_label}
