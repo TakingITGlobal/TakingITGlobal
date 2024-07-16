@@ -1,4 +1,24 @@
 .reportsCarousel {
+  .copy-wrap {
+    max-width: 732px;
+  }
+  .carousel {
+    margin-right: calc(calc((100vw - 100%) - 60px) / -2);
+    max-width: calc(1400px + calc(calc(100vw - 1440px) / 2));
+    position: relative;
+  }
+  .slider-tray {
+    padding-top: 20px;
+    padding-bottom: 60px;
+    margin-left: -20px;
+    align-items: stretch;
+  }
+  .carousel__slide {
+    margin: 0 20px;
+  }
+}
+
+.reportsCarousel {
   display: flex;
   flex-direction: column;
   justify-content: center;
