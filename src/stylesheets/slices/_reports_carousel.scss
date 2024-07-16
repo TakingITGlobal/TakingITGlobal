@@ -56,6 +56,13 @@
   display: flex;
   gap: 10px;
   opacity: 0.2;
+  .btn-back,
+  .btn-next {
+    background-color: $color-inactive-grey;
+    &:hover {
+      background-color: $color-inactive-grey;
+    }
+  }
 }
 
 .btn-back,

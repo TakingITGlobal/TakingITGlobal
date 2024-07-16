@@ -6,28 +6,32 @@ $width: 1440px;
 
 /* Colors */
 $box-shadow: 6px 6px 12px rgba(2, 0, 103, 0.13);
-$color-text: #18181E;
+$color-text: #18181e;
 $color-text-alt: #ffffff;
 $color-bg: #ffffff;
 $color-hl: #fff7c7;
+$color-inactive-grey: #999999c9;
 
-$color-black: #18181E;
-$color-yellow: #EACF60;
-$color-pink: #C6425F;
-$color-blue_dark: #2C5B86;
-$color-blue_light: #6EADE7;
-$color-purple: #D594CF;
-$color-blue_original: #5E9DD6;
-$color-purple_original: #AB7BA7;
+$color-black: #18181e;
+$color-yellow: #eacf60;
+$color-pink: #c6425f;
+$color-blue_dark: #2c5b86;
+$color-blue_light: #6eade7;
+$color-purple: #d594cf;
+$color-blue_original: #5e9dd6;
+$color-purple_original: #ab7ba7;
 
 $slices: 24;
 
 @function width($num) {
-	@return ($width / $slices * $num);
+  @return ($width / $slices * $num);
 }
 @mixin w-x-list {
   @for $i from 1 through $slices {
-      .w-#{$i} { width: width($i); max-width: 100%;}
+    .w-#{$i} {
+      width: width($i);
+      max-width: 100%;
+    }
   }
 }
 @include w-x-list;

@@ -44,10 +44,18 @@ export const ReportsCarousel = ({ slice }) => {
               total_slides === slider_width ? 'buttonsFaded' : 'buttons'
             }
           >
-            <ButtonBack className="btn-back">
+            <ButtonBack
+              className={
+                total_slides === slider_width ? 'btn-back fade' : 'btn-back'
+              }
+            >
               <HiArrowLeft size={40.5} />
             </ButtonBack>
-            <ButtonNext className="btn-next">
+            <ButtonNext
+              className={
+                total_slides === slider_width ? 'btn-next fade' : 'btn-next'
+              }
+            >
               <HiArrowRight size={40.5} />
             </ButtonNext>
           </div>
