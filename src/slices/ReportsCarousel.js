@@ -39,7 +39,11 @@ export const ReportsCarousel = ({ slice }) => {
           <PrismicRichText
             field={slice.primary.report_carousel_title?.richText}
           />
-          <div className="buttons">
+          <div
+            className={
+              total_slides === slider_width ? 'buttonsFaded' : 'buttons'
+            }
+          >
             <ButtonBack className="btn-back">
               <HiArrowLeft size={40.5} />
             </ButtonBack>

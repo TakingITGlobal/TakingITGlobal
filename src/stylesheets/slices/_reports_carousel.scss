@@ -52,6 +52,12 @@
   }
 }
 
+.buttonsFaded {
+  display: flex;
+  gap: 10px;
+  opacity: 0.2;
+}
+
 .btn-back,
 .btn-next {
   display: flex;
