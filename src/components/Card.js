@@ -9,6 +9,7 @@ export const Card = ({
   linkText,
   linkUrl,
   image,
+  tagText,
   auditLinkText,
   auditLinkUrl,
 }) => {
@@ -18,6 +19,7 @@ export const Card = ({
     <div className="cardContainer">
       <div className="imgWrap">
         {cardImage && <GatsbyImage image={cardImage} alt={image.alt} />}
+        <PrismicRichText field={tagText.richText} />
       </div>
       <div className="cardText">
         <div className="titleText">

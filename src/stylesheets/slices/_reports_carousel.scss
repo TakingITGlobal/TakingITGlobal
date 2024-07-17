@@ -1,7 +1,4 @@
 .reportsCarousel {
-  .copy-wrap {
-    max-width: 732px;
-  }
   .carousel {
     margin-right: calc(calc((100vw - 100%) - 60px) / -2);
     max-width: calc(1400px + calc(calc(100vw - 1440px) / 2));
@@ -47,7 +44,7 @@
   display: flex;
   gap: 10px;
 
-  @media (max-width: 600px) {
+  @media (max-width: $mobile) {
     margin-top: 10px;
   }
 }
