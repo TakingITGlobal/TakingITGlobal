@@ -18,7 +18,7 @@ export const ReportsCarousel = ({ slice }) => {
   const total_slides = slice.items.length
 
   const width = useWindowWidth()
-  const slide_width = Math.min(446, width)
+  const slide_width = Math.min(350, width)
   const l_margin = Math.max((width - 1440) / 2, 0)
   const slider_width = Math.min(
     Math.floor((width - l_margin) / slide_width),
