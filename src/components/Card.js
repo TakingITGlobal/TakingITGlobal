@@ -27,9 +27,7 @@ export const Card = ({
         <PrismicRichText field={description.richText} />
 
         <div className="links">
-          <PrismicLink href={linkUrl.url}>
-            <PrismicRichText field={linkText.richText} />
-          </PrismicLink>
+          <PrismicLink href={linkUrl.url}>{linkText}</PrismicLink>
           <HiArrowRight />
           {auditLinkText && auditLinkUrl?.url && (
             <div className="auditLink">

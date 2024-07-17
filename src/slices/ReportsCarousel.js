@@ -119,9 +119,7 @@ export const query = graphql`
       report_card_description {
         richText
       }
-      report_card_link_text {
-        richText
-      }
+      report_card_link_text
       report_card_link {
         url
       }
