@@ -4,7 +4,7 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { PrismicRichText, PrismicLink } from '@prismicio/react'
 
 export const StatListing = ({ slice }) => {
-  const isHorizontal = true // just hard coded for styling atm***
+  const isHorizontal = slice.primary.horizontal
   console.log('Is Horizontal:', isHorizontal)
   return (
     <section className={isHorizontal ? 'horizontalStatListing' : 'StatListing'}>

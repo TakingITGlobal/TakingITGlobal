@@ -8,7 +8,7 @@ export const TextImage = ({ slice }) => {
     <div className="text-wrap">
       {slice.primary.text_image_title && (
         <div className="title">
-          <PrismicRichText field={slice.primary.text_image_title} />
+          <PrismicRichText field={slice.primary.text_image_title?.richText} />
         </div>
       )}
       <div className="copy">
