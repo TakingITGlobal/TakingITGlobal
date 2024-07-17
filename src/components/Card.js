@@ -31,10 +31,10 @@ export const Card = ({
             <PrismicRichText field={linkText.richText} />
           </PrismicLink>
           <HiArrowRight />
-          {auditLinkText?.richText && auditLinkUrl?.url && (
+          {auditLinkText && auditLinkUrl?.url && (
             <div className="auditLink">
               <PrismicLink href={auditLinkUrl?.url}>
-                <PrismicRichText field={auditLinkText?.richText} />
+                {auditLinkText}
               </PrismicLink>
             </div>
           )}

@@ -71,7 +71,7 @@ export const ReportsCarousel = ({ slice }) => {
                   description={item.report_card_description}
                   linkText={item.report_card_link_text}
                   linkUrl={item.report_card_link}
-                  auditLinkText={item.report_card_audit_link_text?.richText}
+                  auditLinkText={item.report_card_audit_link_text}
                   auditLinkUrl={item.report_card_audit_link?.url}
                 />
               </Slide>
@@ -125,9 +125,7 @@ export const query = graphql`
       report_card_link {
         url
       }
-      report_card_audit_link_text {
-        richText
-      }
+      report_card_audit_link_text
       report_card_audit_link {
         url
       }
