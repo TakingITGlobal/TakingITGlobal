@@ -15,6 +15,8 @@ import {ProgramCarousel} from "./ProgramCarousel"
 import {Quote} from "./Quote"
 import {StatListing} from "./StatListing"
 import {TextCards} from "./TextCards"
+import {FeaturedProgram} from "./FeaturedProgram"
+
 export const components = {
   acknowledgements : Acknowledgements,
   discover : Discover,
@@ -33,4 +35,5 @@ export const components = {
   quote: Quote,
   stat_listing: StatListing,
   text_cards: TextCards,
+  featured_program: FeaturedProgram
 }
