@@ -1,5 +1,5 @@
 .btn-primary {
-  background: #fff;
+  background: $color-white;
   border-color: #c6425f;
   border-style: solid;
   border-width: 2px 7px 9px 2px;
@@ -12,6 +12,6 @@
   font-weight: 700;
 
   &:hover {
-    background: #000;
+    background: $color-black;
   }
 }
