@@ -4,8 +4,10 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { PrismicRichText, PrismicLink } from '@prismicio/react'
 
 export const StatListing = ({ slice }) => {
+  const isHorizontal = true // should be coming from horizontal bool prismic value ***
+  console.log('Is Horizontal:', isHorizontal)
   return (
-    <section className="StatListing">
+    <section className={isHorizontal ? 'horizontalStatListing' : 'StatListing'}>
       <div className="bg-blob" />
       <div className="Container">
         <div className="flex-wrap">
@@ -42,6 +44,7 @@ export const query = graphql`
   fragment FlexPageDataBodyStatListing on PrismicFlexPageDataBodyStatListing {
     id
     primary {
+      horizontal
       copy_richtext {
         richText
       }

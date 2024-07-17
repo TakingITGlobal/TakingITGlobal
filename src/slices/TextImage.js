@@ -6,9 +6,11 @@ import { PrismicRichText } from '@prismicio/react'
 export const TextImage = ({ slice }) => {
   const text = (
     <div className="text-wrap">
-      {/* {slice.primary.text_image_title && (
-        <div className="title">{slice.primary.text_image_title}</div>
-      )} */}
+      {slice.primary.text_image_title && (
+        <div className="title">
+          <PrismicRichText field={slice.primary.text_image_title} />
+        </div>
+      )}
       <div className="copy">
         <PrismicRichText field={slice.primary.copy_richtext?.richText} />
       </div>
