@@ -1,16 +1,30 @@
 .TextImage {
-	.flex-wrap{
-		gap: 20px;
-	}
-	.text-wrap{
-		max-width: 600px;
-		flex: 1 1 400px;
-	}
-	.image-wrap{
-		max-width: 720px;
-		flex: 1 1 600px;
-	}
-	p {
-		margin-bottom: 30px;
-	}
+  .flex-wrap {
+    gap: 20px;
+  }
+  .text-wrap {
+    max-width: 600px;
+    flex: 1 1 400px;
+  }
+
+  .image-wrap {
+    max-width: 720px;
+    flex: 1 1 600px;
+  }
+  .title {
+    position: relative;
+    width: fit-content;
+  }
+  .title::first-line {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: $color-yellow;
+  }
+  p {
+    margin-bottom: 30px;
+  }
 }
