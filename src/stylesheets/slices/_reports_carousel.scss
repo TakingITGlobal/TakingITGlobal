@@ -91,7 +91,7 @@
   }
 }
 
-.seeOtherBtn {
+.seeOtherBtn a {
   background: white;
   margin-bottom: 13px;
   margin-right: 13px;
@@ -103,13 +103,15 @@
   border-radius: 100px;
   margin-top: 20px;
   padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+
+  &:hover {
+    background: $color-black;
+  }
 }
 
-.seeOtherBtn:hover {
-  background: $color-black;
-}
-
-.seeOtherBtn p {
+.seeOtherBtn a p {
   font-weight: 700;
 
   @media (max-width: $mobile) {
