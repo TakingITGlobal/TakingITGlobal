@@ -50,6 +50,10 @@ export const query = graphql`
             slice_label
           }
           ...FlexPageDataBodyReportsCarousel
+          ...FlexPageDataBodyTextImage
+          ...FlexPageDataBodyTextCards
+          ...FlexPageDataBodyQuote
+          ...FlexPageDataBodyStatListing
         }
       }
     }
