@@ -18,6 +18,7 @@ import { TextCards } from './TextCards'
 import { FeaturedProgram } from './FeaturedProgram'
 import { ReportsCarousel } from './ReportsCarousel'
 import { TextCallout } from './TextCallout'
+import { DataBars } from './DataBars'
 
 export const components = {
   acknowledgements: Acknowledgements,
@@ -40,4 +41,5 @@ export const components = {
   reports_carousel: ReportsCarousel,
   featured_program: FeaturedProgram,
   text_callout_: TextCallout,
+  data_bars: DataBars
 }
