@@ -26,7 +26,11 @@ export const TextImage = ({ slice }) => {
     </div>
   )
   return (
-    <section className="TextImage">
+    <section
+      className={
+        slice.primary.text_image_title ? 'CenteredTextImage' : 'TextImage'
+      }
+    >
       <div className="Container">
         <div className={slice.primary.image_side ? 'flex-wrap' : 'flex-wrap'}>
           {slice.primary.image_side ? (

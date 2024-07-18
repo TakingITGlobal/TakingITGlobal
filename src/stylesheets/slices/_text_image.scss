@@ -11,11 +11,31 @@
     max-width: 720px;
     flex: 1 1 600px;
   }
+
+  p {
+    margin-bottom: 30px;
+  }
+}
+
+.CenteredTextImage {
+  .flex-wrap {
+    gap: 20px;
+    align-items: center;
+  }
+  .text-wrap {
+    max-width: 600px;
+    flex: 1 1 400px;
+  }
+
+  .image-wrap {
+    max-width: 720px;
+    flex: 1 1 600px;
+  }
   .title {
     position: relative;
     width: fit-content;
   }
-  .title::first-line {
+  .title h1::first-line {
     content: '';
     position: absolute;
     bottom: 15px;

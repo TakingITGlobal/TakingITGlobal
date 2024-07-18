@@ -64,10 +64,10 @@
   .list-wrap {
     display: flex;
     margin-top: 30px;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center;
-    gap: 140px;
+
     background-color: $color-blue_light;
     padding: 35px;
     font-weight: 900;
