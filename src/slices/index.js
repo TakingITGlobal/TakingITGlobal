@@ -16,24 +16,26 @@ import {Quote} from "./Quote"
 import {StatListing} from "./StatListing"
 import {TextCards} from "./TextCards"
 import {FeaturedProgram} from "./FeaturedProgram"
+import {ReportsCarousel} from './ReportsCarousel'
 
 export const components = {
-  acknowledgements : Acknowledgements,
-  discover : Discover,
-  event : Event,
-  gallery : Gallery,
-  hero : Hero,
-  projects : Projects,
-  social_feed : SocialFeed,
-  support : Support,
-  text_image : TextImage,
-  youth_resources : YouthResources,
-  teachers : Teachers,
+  acknowledgements: Acknowledgements,
+  discover: Discover,
+  event: Event,
+  gallery: Gallery,
+  hero: Hero,
+  projects: Projects,
+  social_feed: SocialFeed,
+  support: Support,
+  text_image: TextImage,
+  youth_resources: YouthResources,
+  teachers: Teachers,
   feature_grid: FeatureGrid,
   feature_slider: FeatureSlider,
   program_carousel: ProgramCarousel,
   quote: Quote,
   stat_listing: StatListing,
   text_cards: TextCards,
+  reports_carousel: ReportsCarousel,
   featured_program: FeaturedProgram
 }

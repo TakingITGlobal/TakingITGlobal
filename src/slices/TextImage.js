@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
-import { PrismicRichText,PrismicLink } from '@prismicio/react'
+import { PrismicRichText, PrismicLink } from '@prismicio/react'
 
 export const TextImage = ({ slice }) => {
   const text = (
     <div className="text-wrap">
       <div className="copy">
-        <PrismicRichText field={slice.primary.copy_richtext?.richText}/>
+        <PrismicRichText field={slice.primary.copy_richtext?.richText} />
       </div>
     </div>
   )
@@ -15,7 +15,7 @@ export const TextImage = ({ slice }) => {
     <div className="image-wrap">
       <GatsbyImage
         image={slice.primary.featured_image?.gatsbyImageData}
-        alt={slice.primary.featured_image?.alt || ""}
+        alt={slice.primary.featured_image?.alt || ''}
         className="image"
       />
     </div>
@@ -24,10 +24,17 @@ export const TextImage = ({ slice }) => {
     <section className="TextImage">
       <div className="Container">
         <div className={slice.primary.image_side ? 'flex-wrap' : 'flex-wrap'}>
-          {slice.primary.image_side? 
-            <>{text}{image}</> : 
-            <>{image}{text}</>
-          }
+          {slice.primary.image_side ? (
+            <>
+              {text}
+              {image}
+            </>
+          ) : (
+            <>
+              {image}
+              {text}
+            </>
+          )}
         </div>
       </div>
     </section>
@@ -41,7 +48,7 @@ export const query = graphql`
       image_side
       featured_image {
         gatsbyImageData
-        alt 
+        alt
       }
       copy_richtext {
         richText
@@ -54,7 +61,20 @@ export const query = graphql`
       image_side
       featured_image {
         gatsbyImageData
-        alt 
+        alt
+      }
+      copy_richtext {
+        richText
+      }
+    }
+  }
+  fragment FlexPageDataBodyTextImage on PrismicFlexPageDataBodyTextImage {
+    id
+    primary {
+      image_side
+      featured_image {
+        gatsbyImageData
+        alt
       }
       copy_richtext {
         richText
