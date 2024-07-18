@@ -20,11 +20,12 @@ $color-blue_light: #6eade7;
 $color-purple: #d594cf;
 $color-blue_original: #5e9dd6;
 $color-purple_original: #ab7ba7;
+$color-white: #fff;
 
 $slices: 24;
 
 @function width($num) {
-  @return ($width / $slices * $num);
+  @return (calc($width / $slices) * $num);
 }
 @mixin w-x-list {
   @for $i from 1 through $slices {
