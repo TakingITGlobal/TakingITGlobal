@@ -120,6 +120,7 @@
   }
   .slider {
     flex: 1;
+    max-width: 550px;
     @media screen and (max-width: $desktop) {
       text-align: center;
     }
