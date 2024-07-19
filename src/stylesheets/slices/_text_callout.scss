@@ -8,7 +8,7 @@
 .text {
   background-color: $color-purple;
   max-width: 50%;
-  padding: 50px;
+  padding: 50px 100px;
   text-align: center;
   @media screen and (max-width: $tablet) {
     max-width: 70%;
