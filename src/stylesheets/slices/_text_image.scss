@@ -31,19 +31,21 @@
     max-width: 720px;
     flex: 1 1 600px;
   }
-  .title {
+  .title h1::first-line,
+  .title h2::first-line {
     position: relative;
     width: fit-content;
+    position: relative;
+    z-index: 2;
+    border-radius: 10px;
+    padding: 0 5px;
+    margin: 0 0;
+    background: linear-gradient(to bottom, transparent 50%, $color-yellow 50%);
+    background-position-y: 45%;
+    background-size: 100% 95%;
+    background-repeat: no-repeat;
   }
-  .title h1::first-line {
-    content: '';
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    background-color: $color-yellow;
-  }
+
   p {
     margin-bottom: 30px;
   }
