@@ -107,18 +107,25 @@
   }
 }
 
-////////////////////////////
-
 .AlternateFeatureSlider {
   .flex-wrap {
     display: flex;
     gap: 50px;
+    flex-wrap: wrap;
+    @media screen and (max-width: $desktop) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
   .slider {
     flex: 1;
+    @media screen and (max-width: $desktop) {
+      text-align: center;
+    }
   }
   .card-grid {
-    max-width: 800px;
+    max-width: 750px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;

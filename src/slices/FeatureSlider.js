@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { PrismicRichText, PrismicLink } from '@prismicio/react'
+import BgBlob from '../images/blob-hero.svg'
 
 export const FeatureSlider = ({ slice }) => {
   return (
