@@ -16,8 +16,9 @@ export const FeatureSlider = ({ slice }) => {
           ? 'AlternateFeatureSlider'
           : 'FeatureSlider'
       }
+      style={styles}
     >
-      <div className="Container" style={styles}>
+      <div className="Container">
         <div className="flex-wrap">
           <div className="slider">
             <div className="copy-wrap">
