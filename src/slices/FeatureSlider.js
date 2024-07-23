@@ -2,9 +2,13 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { PrismicRichText, PrismicLink } from '@prismicio/react'
-import BgBlob from '../images/blob-hero.svg'
 
 export const FeatureSlider = ({ slice }) => {
+  const styles = {
+    backgroundImage: `url(${slice.primary.background_image?.url})`,
+    backgroundSize: `100% 100%`,
+    backgroundRepeat: `no-repeat`,
+  }
   return (
     <section
       className={
@@ -13,8 +17,7 @@ export const FeatureSlider = ({ slice }) => {
           : 'FeatureSlider'
       }
     >
-      <div className="bg-blob"></div>
-      <div className="Container">
+      <div className="Container" style={styles}>
         <div className="flex-wrap">
           <div className="slider">
             <div className="copy-wrap">
@@ -116,6 +119,9 @@ export const query = graphql`
       }
       copy_title {
         richText
+      }
+      background_image {
+        url
       }
       featured_label
       alternate_layout

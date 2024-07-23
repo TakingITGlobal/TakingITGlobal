@@ -108,21 +108,6 @@
 }
 
 .AlternateFeatureSlider {
-  position: relative;
-  .bg-blob {
-    background: url(./../images/blub-3.svg);
-    max-width: 100%;
-    background-size: cover;
-    background-position: center;
-    aspect-ratio: 1/2;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: -1;
-  }
   .flex-wrap {
     display: flex;
     gap: 50px;
