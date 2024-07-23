@@ -1,16 +1,52 @@
 .TextImage {
-	.flex-wrap{
-		gap: 20px;
-	}
-	.text-wrap{
-		max-width: 600px;
-		flex: 1 1 400px;
-	}
-	.image-wrap{
-		max-width: 720px;
-		flex: 1 1 600px;
-	}
-	p {
-		margin-bottom: 30px;
-	}
+  .flex-wrap {
+    gap: 20px;
+  }
+  .text-wrap {
+    max-width: 600px;
+    flex: 1 1 400px;
+  }
+
+  .image-wrap {
+    max-width: 720px;
+    flex: 1 1 600px;
+  }
+
+  p {
+    margin-bottom: 30px;
+  }
+}
+
+.CenteredTextImage {
+  .flex-wrap {
+    gap: 20px;
+    align-items: center;
+  }
+  .text-wrap {
+    max-width: 600px;
+    flex: 1 1 400px;
+  }
+
+  .image-wrap {
+    max-width: 720px;
+    flex: 1 1 600px;
+  }
+  .title h1::first-line,
+  .title h2::first-line {
+    position: relative;
+    width: fit-content;
+    position: relative;
+    z-index: 2;
+    border-radius: 10px;
+    padding: 0 5px;
+    margin: 0 0;
+    background: linear-gradient(to bottom, transparent 50%, $color-yellow 50%);
+    background-position-y: 45%;
+    background-size: 100% 95%;
+    background-repeat: no-repeat;
+  }
+
+  p {
+    margin-bottom: 30px;
+  }
 }

@@ -1,11 +1,16 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
-import { PrismicRichText, PrismicLink } from '@prismicio/react'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { PrismicRichText } from '@prismicio/react'
 
 export const TextImage = ({ slice }) => {
   const text = (
     <div className="text-wrap">
+      {slice.primary.text_image_title && (
+        <div className="title">
+          <PrismicRichText field={slice.primary.text_image_title?.richText} />
+        </div>
+      )}
       <div className="copy">
         <PrismicRichText field={slice.primary.copy_richtext?.richText} />
       </div>
@@ -21,7 +26,11 @@ export const TextImage = ({ slice }) => {
     </div>
   )
   return (
-    <section className="TextImage">
+    <section
+      className={
+        slice.primary.text_image_title ? 'CenteredTextImage' : 'TextImage'
+      }
+    >
       <div className="Container">
         <div className={slice.primary.image_side ? 'flex-wrap' : 'flex-wrap'}>
           {slice.primary.image_side ? (
@@ -71,6 +80,9 @@ export const query = graphql`
   fragment FlexPageDataBodyTextImage on PrismicFlexPageDataBodyTextImage {
     id
     primary {
+      text_image_title {
+        richText
+      }
       image_side
       featured_image {
         gatsbyImageData
