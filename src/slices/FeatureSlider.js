@@ -13,6 +13,7 @@ export const FeatureSlider = ({ slice }) => {
           : 'FeatureSlider'
       }
     >
+      <div className="bg-blob"></div>
       <div className="Container">
         <div className="flex-wrap">
           <div className="slider">
