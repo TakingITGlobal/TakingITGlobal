@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
-import { PrismicRichText,PrismicLink } from '@prismicio/react'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { PrismicRichText, PrismicLink } from '@prismicio/react'
 import { FaArrowRight } from 'react-icons/fa'
 import {
   CarouselProvider,
@@ -9,60 +9,75 @@ import {
   Slide,
   ButtonBack,
   ButtonNext,
-  Image
-} from "pure-react-carousel";
-import "pure-react-carousel/dist/react-carousel.es.css";
+  Image,
+} from 'pure-react-carousel'
+import 'pure-react-carousel/dist/react-carousel.es.css'
 import { useWindowWidth } from '@react-hook/window-size'
 
-
 export const ProgramCarousel = ({ slice }) => {
-  const total_slides = slice.items.length;
-  
-  
-  const width = useWindowWidth();
-  const slide_width = Math.min(446, width);
-  const l_margin = Math.max(((width - 1440) / 2), 0);
-  const slider_width = Math.min(Math.floor( (width - l_margin) / slide_width ), total_slides);
+  const total_slides = slice.items.length
+
+  const width = useWindowWidth()
+  const slide_width = Math.min(446, width)
+  const l_margin = Math.max((width - 1440) / 2, 0)
+  const slider_width = Math.min(
+    Math.floor((width - l_margin) / slide_width),
+    total_slides,
+  )
   return (
     <section className="ProgramCarousel">
       <div className="Container">
         <div className="copy-wrap">
-          <PrismicRichText field={slice.primary.copy_richtext?.richText}/>
+          <PrismicRichText field={slice.primary.copy_richtext?.richText} />
         </div>
         <div className="carousel">
           <CarouselProvider
             naturalSlideWidth={slide_width + 20}
-            
             totalSlides={total_slides}
             visibleSlides={slider_width}
             infinite={true}
             step={1}
             isIntrinsicHeight={true}
           >
-            <ButtonNext className="btn-next" ><FaArrowRight aria-label="right arrow" /></ButtonNext>
-            <Slider classNameTray="slider-tray" classNameTrayWrap="slider-tray-wrap">
-              {slice.items.map((item,index) => (
-                <Slide index={index} key={`carousel: ${index}`} tabIndex={-1} classNameHidden="hidden-slide">
+            <ButtonNext className="btn-next">
+              <FaArrowRight aria-label="right arrow" />
+            </ButtonNext>
+            <Slider
+              classNameTray="slider-tray"
+              classNameTrayWrap="slider-tray-wrap"
+            >
+              {slice.items.map((item, index) => (
+                <Slide
+                  index={index}
+                  key={`carousel: ${index}`}
+                  tabIndex={-1}
+                  classNameHidden="hidden-slide"
+                >
                   <div className="card">
-                    <PrismicLink className="image-box" href={item.card_link?.url} id={`child-${index}`} tabIndex={0} >
-              
-                        <GatsbyImage
-                          image={item.card_image?.gatsbyImageData}
-                          alt={item.card_image?.alt || ""}
-                          className="image-wrap"
-                          imgClassName='image'
-                        />
-       
+                    <PrismicLink
+                      className="image-box"
+                      href={item.card_link?.url}
+                      id={`child-${index}`}
+                      tabIndex={0}
+                    >
+                      <GatsbyImage
+                        image={item.card_image?.gatsbyImageData}
+                        alt={item.card_image?.alt || ''}
+                        className="image-wrap"
+                        imgClassName="image"
+                      />
                     </PrismicLink>
                     <div className="copy">
                       <h4>{item.card_title}</h4>
-                      <p><b>{item.card_subtitle}</b></p>
+                      <p>
+                        <b>{item.card_subtitle}</b>
+                      </p>
                       <p>{item.card_description}</p>
                     </div>
                   </div>
                 </Slide>
               ))}
-            </Slider>   
+            </Slider>
           </CarouselProvider>
         </div>
         <div className="bottom-wrap btn-b">
@@ -80,7 +95,7 @@ export const query = graphql`
     id
     primary {
       copy_richtext {
-        richText 
+        richText
       }
       closed_label
       view_all_label
@@ -93,14 +108,14 @@ export const query = graphql`
       card_image {
         gatsbyImageData
         alt
-        url 
+        url
       }
       card_title
       card_subtitle
       card_description
       card_link_label
       card_link {
-        url 
+        url
       }
     }
   }

@@ -49,10 +49,11 @@ export const query = graphql`
             slice_type
             slice_label
           }
+          ...FlexPageDataBodyReportsCarousel
           ...FlexPageDataBodyTextImage
-          ...FlexPageDataBodyStatListing
-          ...FlexPageDataBodyQuote
           ...FlexPageDataBodyTextCards
+          ...FlexPageDataBodyQuote
+          ...FlexPageDataBodyStatListing
         }
       }
     }
