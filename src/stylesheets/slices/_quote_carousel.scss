@@ -59,4 +59,37 @@
     gap: 10px;
     text-align: left;
   }
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .button-next,
+  .button-back {
+    font-size: 25px;
+    background-color: $color-white;
+  }
+
+  .dot-group {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  .dot-group button {
+    background-color: $color-inactive-grey;
+    border: none;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .dot-group button.carousel__dot--selected {
+    background-color: $color-blue_light;
+  }
 }
