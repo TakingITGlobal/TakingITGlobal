@@ -49,7 +49,11 @@ export const FeatureSlider = ({ slice }) => {
                 </div>
 
                 <h3>{slice.items[0].card_title}</h3>
-                <p>{slice.items[0].card_description}</p>
+                <p>
+                  {slice.primary.alternate_layout
+                    ? slice.items[0].alternate_layout_card_description
+                    : slice.items[0].card_description}
+                </p>
                 {!slice.primary.alternate_layout && (
                   <PrismicLink
                     href={slice.items[0].card_link?.url}
@@ -71,7 +75,11 @@ export const FeatureSlider = ({ slice }) => {
                     />
                   </div>
                   <h3>{item.card_title}</h3>
-                  <p>{item.card_description}</p>
+                  <p>
+                    {slice.primary.alternate_layout
+                      ? slice.items[0].alternate_layout_card_description
+                      : slice.items[0].card_description}
+                  </p>
                   {!slice.primary.alternate_layout && (
                     <PrismicLink
                       href={item.card_link?.url}
@@ -133,7 +141,7 @@ export const query = graphql`
         alt
       }
       card_title
-      card_description
+      alternate_layout_card_description
       card_link_label
       card_link {
         url
