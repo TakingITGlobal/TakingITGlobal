@@ -15,3 +15,91 @@
     background: $color-black;
   }
 }
+
+.btn-a a,.btn-b a, .btn-c {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+
+  position: relative;
+  width: max-content;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  padding: 12px 32px 12px;
+  cursor: pointer;
+  @media screen and (max-width: $mobile){
+    font-size: 16px;
+  }
+  &:focus {
+    outline: 3px solid blue;
+  }
+  &:focus,
+  &:hover {
+    background: #000;
+  }
+}
+
+.btn-a a{
+  background: #FFFFFF;
+  margin-bottom: 13px;
+  margin-right: 13px;
+  color: $color-pink;
+  border-top: 2px solid $color-pink;
+  border-left: 2px solid $color-pink;
+  border-bottom: 9px solid $color-pink;
+  border-right: 7px solid $color-pink;
+  border-radius: 100px;
+  margin-top: 20px;
+}
+.btn-b a{
+  background: $color-yellow;
+  color: $color-text;
+  border-radius: 100px;
+  &:focus,
+  &:hover {
+    color: #fff;
+  }
+}
+.btn-c {
+  background: #FFFFFF;
+  border-radius: 5px;
+  &:focus,
+  &:hover {
+    color: #fff;
+  }
+}
+select:focus,
+textarea:focus,
+input:focus,
+button:focus,
+a:focus {
+  outline: 2px solid blue;
+}
+.btn-arrow {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+
+  /* or 156% */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &:after {
+    content: url(./../images/rightArrow.svg);
+  }
+  &:focus {
+    outline: 2px solid blue;
+  }
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+}

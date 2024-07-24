@@ -1,47 +1,105 @@
 .TextCards {
-	.copy-wrap{
-		max-width: 452px;
-	}
-	.card-row{
-		display: flex;
-		justify-content: space-around;
-		flex-wrap: wrap;
-		text-align: center;
-		padding-bottom: 60px;
-		gap: 20px;
-		@media screen and (max-width: $desktop){
-				gap: 20px;
-		}
-	}
-	.card{
-		max-width: 374px;
-		min-height: 421px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-between;
+  .copy-wrap {
+    max-width: 452px;
+  }
+  .card-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-bottom: 60px;
+    gap: 20px;
+    @media screen and (max-width: $desktop) {
+      gap: 20px;
+    }
+  }
+  .card {
+    max-width: 374px;
+    min-height: 421px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 
-		box-shadow: $box-shadow;
-		border-radius: 5px;
-		padding: 58px 23px 26px;
+    box-shadow: $box-shadow;
+    border-radius: 5px;
+    padding: 58px 23px 26px;
 
-		.btn-c{
-			width: 100%;
-		}
-		h3 {
-			line-height: 1.4;
-		}
-		@media screen and (max-width: $mobile){
-			padding: 58px 18px 26px;
-		}
-	}
-	.card:nth-of-type(3n-2){
-		background: $color-blue-light;
-	}
-	.card:nth-of-type(3n-1){
-		background: $color-purple;
-	}
-	.card:nth-of-type(3n){
-		background: $color-yellow;
-	}
+    .btn-c {
+      width: 100%;
+    }
+    h3 {
+      line-height: 1.4;
+    }
+    @media screen and (max-width: $mobile) {
+      padding: 58px 18px 26px;
+    }
+  }
+  .card:nth-of-type(3n-2) {
+    background: $color-blue-light;
+  }
+  .card:nth-of-type(3n-1) {
+    background: $color-purple;
+  }
+  .card:nth-of-type(3n) {
+    background: $color-yellow;
+  }
+}
+
+.StaggeredTextCards {
+  .copy-wrap {
+    text-align: center;
+    margin-bottom: 60px;
+    p {
+      padding: 0px 270px;
+      @media screen and (max-width: $tablet) {
+        padding: 0px;
+      }
+    }
+  }
+  .card-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    text-align: center;
+    padding-bottom: 60px;
+    gap: 20px;
+  }
+  .card {
+    max-width: 374px;
+    height: 421px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-shadow: $box-shadow;
+    border-radius: 5px;
+    padding: 58px 23px 26px;
+    .btn-c {
+      width: 100%;
+    }
+    h3 {
+      line-height: 1.4;
+      font-size: 30px;
+      padding: 0px 18px;
+    }
+    @media screen and (max-width: $mobile) {
+      padding: 58px 18px 26px;
+    }
+  }
+  .card:nth-of-type(3n-2) {
+    background: $color-yellow;
+  }
+  .card:nth-of-type(3n-1) {
+    background: $color-blue-light;
+    margin-top: 80px;
+    @media screen and (max-width: $desktop) {
+      margin: 0px;
+    }
+  }
+  .card:nth-of-type(3n) {
+    background: $color-purple;
+  }
 }
