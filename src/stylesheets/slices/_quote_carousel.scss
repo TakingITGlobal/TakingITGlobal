@@ -1,5 +1,10 @@
 .QuoteCarousel {
   overflow: hidden;
+  .Container {
+    width: 100%;
+    padding: 10px;
+  }
+
   .quote-box {
     max-width: 995px;
     text-align: center;
@@ -63,6 +68,7 @@
   .button-group {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 15px;
   }
 
@@ -82,8 +88,8 @@
     background-color: $color-inactive-grey;
     border: none;
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     margin: 0 5px;
     cursor: pointer;
     outline: none;

@@ -13,12 +13,13 @@ import { FaArrowRight, FaArrowLeft } from 'react-icons/fa'
 
 export const QuoteCarousel = ({ slice }) => {
   const total_slides = slice.items.length
+
   return (
     <section className="QuoteCarousel">
       <div className="Container">
         <CarouselProvider
           naturalSlideWidth={300}
-          naturalSlideHeight={125}
+          naturalSlideHeight={100}
           totalSlides={total_slides}
           visibleSlides={1}
         >
