@@ -11,7 +11,7 @@ const HomepageTemplate = ({ data }) => {
 
   const homepage = data.prismicHomepage || {}
   const menu = data.prismicMenu || {}
-  // const instaNodes = data.allInstaNode
+  const instaNodes = data.allInstaNode
   const mediumNodes = data.allFeedTakingItGlobal
   const { lang, type, url } = homepage || {}
   const alternateLanguages = homepage.alternate_languages || []
@@ -25,7 +25,7 @@ const HomepageTemplate = ({ data }) => {
   return (
     <Layout menu={menu.data} activeDocMeta={activeDoc}>
       <div className="Homepage">
-        <SliceZone slices={homepage.data?.body} components={components} context={{medium: mediumNodes}}/>
+        <SliceZone slices={homepage.data?.body} components={components} context={{medium: mediumNodes, insta: instaNodes}}/>
       </div>
     </Layout>
   )
@@ -75,6 +75,17 @@ export const query = graphql`
         isoDate
         content {
           encoded
+        }
+      }
+    }
+    allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 12) {
+      nodes {
+        caption
+        likes
+        timestamp
+        permalink
+        localFile {
+          url
         }
       }
     }
