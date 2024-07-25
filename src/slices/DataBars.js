@@ -25,10 +25,12 @@ export const DataBars = ({ slice }) => {
     <section className="DataBars">
       <div className="Container">
         <h2>
-          {/* {title} */}
-          Foo - Data Bars
+          {slice.primary.title}
         </h2>
         <div className='progressColumns'>
+          {/* {slice.items.map([column]) => (
+              {column}
+          ))} */}
           <div className='column'>
             <h3>Donations 
             $10,000,000</h3>
@@ -53,7 +55,25 @@ export const DataBars = ({ slice }) => {
 }
 
 export const query = graphql`
-  fragment PageDataBodyDataBars on PrismicPageDataBodyDataBars {
-    id
+  fragment FlexPageDataBodyDataBars on PrismicFlexPageDataBodyDataBars {
+    id 
+    primary {
+      title
+    }
+    items {
+      data_column {
+        document {
+          ...on PrismicFinancialData {
+            data {
+              title
+              progress_bars {
+                bar_title
+                progress_percentage
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `
