@@ -22,9 +22,15 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    align-items: center;
 
     @media (max-width: $tablet) {
       flex-direction: column;
+      align-items: center;
+    }
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 
@@ -35,6 +41,11 @@
     @media (max-width: $tablet) {
       flex: 1 1 auto;
       order: 2;
+      text-align: center;
+    }
+
+    @media (max-width: $mobile) {
+      text-align: left;
     }
   }
 
@@ -69,5 +80,10 @@ p {
 
   @media (max-width: $tablet) {
     margin-bottom: 0px;
+    text-align: center;
+  }
+  @media (max-width: $mobile) {
+    margin-bottom: 0px;
+    text-align: left;
   }
 }
