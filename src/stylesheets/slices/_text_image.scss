@@ -31,6 +31,9 @@
 .text-wrap {
   max-width: 600px;
   flex: 1 1 400px;
+  @media (max-width: $tablet) {
+    flex: 1 1 100px;
+  }
 }
 
 .image-wrap {
@@ -38,6 +41,7 @@
   flex: 1 1 600px;
   @media (max-width: $tablet) {
     max-width: 100%;
+    flex: 1 1 100px;
   }
 }
 .title h1::first-line,
@@ -57,4 +61,7 @@
 
 p {
   margin-bottom: 30px;
+  @media (max-width: $tablet) {
+    margin-bottom: 0px;
+  }
 }
