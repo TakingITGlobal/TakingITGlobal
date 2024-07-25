@@ -4,6 +4,14 @@
     width: 100%;
     padding: 10px;
   }
+  .carousel__slider {
+    @media screen and (max-width: $tablet) {
+      min-height: 500px;
+    }
+    @media screen and (max-width: $desktop) {
+      min-height: 350px;
+    }
+  }
 
   .quote-box {
     max-width: 995px;
@@ -14,7 +22,6 @@
     flex-direction: column;
     align-items: center;
     gap: 16px;
-
     background: rgba(#ffffff, 0.4);
     border: 1px solid rgba($color-purple, 0.4);
     box-shadow: 6px 6px 12px rgba(2, 0, 103, 0.13);
