@@ -23,31 +23,20 @@ const ProgressBar = ({progress, label, id}) => {
 export const DataBars = ({ slice }) => {
   return (
     <section className="DataBars">
+      <div className="bg-blob" />
       <div className="Container">
         <h2>
           {slice.primary.title}
         </h2>
         <div className='progressColumns'>
-          {/* {slice.items.map([column]) => (
-              {column}
-          ))} */}
-          <div className='column'>
-            <h3>Donations 
-            $10,000,000</h3>
-            <ProgressBar id='1' progress='50' label='Personal'/>
-            <ProgressBar id='2' progress='75' label='Corporate'/>
-          </div>
-          <div className='column'>
-            <h3>Expense by program area</h3>
-            <ProgressBar id='1' progress='50' label='Personal'/>
-            <ProgressBar id='2' progress='75' label='Corporate'/>
-          </div>
-          <div className='column'>
-            <h3>Program Investment
-            $9,000,000</h3>
-            <ProgressBar id='1' progress='50' label='Personal'/>
-            <ProgressBar id='2' progress='75' label='Corporate'/>
-          </div>
+          {slice.items.map((item, index) => (
+              <div className='column' key={index}>
+              <h3>{item.data_column.document.data.title}</h3>
+              {item.data_column.document.data.progress_bars.map((bar, index) => (
+                <ProgressBar id={bar.bar_title.toLowerCase().replace(/\s/g,'')} progress={bar.progress_percentage} label={bar.bar_title} key={index}/>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>
