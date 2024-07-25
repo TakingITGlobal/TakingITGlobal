@@ -19,40 +19,45 @@
 
 .CenteredTextImage {
   .flex-wrap {
+    display: flex;
     gap: 20px;
-    align-items: center;
+    flex-wrap: wrap;
+
     @media (max-width: $tablet) {
-      display: flex;
-      flex-direction: column-reverse;
-      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  .text-wrap {
+    max-width: 600px;
+    flex: 1 1 400px;
+
+    @media (max-width: $tablet) {
+      flex: 1 1 auto;
+      order: 2;
+    }
+  }
+
+  .image-wrap {
+    max-width: 720px;
+    flex: 1 1 600px;
+
+    @media (max-width: $tablet) {
+      max-width: 100%;
+      flex: 1 1 auto;
+      order: 1;
     }
   }
 }
-.text-wrap {
-  max-width: 600px;
-  flex: 1 1 400px;
-  @media (max-width: $tablet) {
-    flex: 1 1 100px;
-  }
-}
 
-.image-wrap {
-  max-width: 720px;
-  flex: 1 1 600px;
-  @media (max-width: $tablet) {
-    max-width: 100%;
-    flex: 1 1 100px;
-  }
-}
 .title h1::first-line,
 .title h2::first-line {
   position: relative;
   width: fit-content;
-  position: relative;
   z-index: 2;
   border-radius: 10px;
   padding: 0 5px;
-  margin: 0 0;
+  margin: 0;
   background: linear-gradient(to bottom, transparent 50%, $color-yellow 50%);
   background-position-y: 45%;
   background-size: 100% 95%;
@@ -61,6 +66,7 @@
 
 p {
   margin-bottom: 30px;
+
   @media (max-width: $tablet) {
     margin-bottom: 0px;
   }
