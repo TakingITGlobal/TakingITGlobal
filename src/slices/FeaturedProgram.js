@@ -64,7 +64,6 @@ export const FeaturedProgram = ({ slice }) => {
       </div>
     </>
   )
-  console.log(slice.items[0])
   return (
     <section className="FeaturedProgram">
       <div className="Container">
