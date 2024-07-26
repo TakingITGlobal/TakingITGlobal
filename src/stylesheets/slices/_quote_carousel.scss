@@ -5,11 +5,15 @@
     padding: 10px;
   }
   .carousel__slider {
-    @media screen and (max-width: $tablet) {
+    @media screen and (max-width: $mobile) {
       min-height: 500px;
+      max-width: 95%;
+      margin-left: 0;
     }
-    @media screen and (max-width: $desktop) {
-      min-height: 350px;
+    @media screen and (max-width: $tablet) {
+      min-height: 600px;
+      max-width: 90%;
+      margin-left: 25px;
     }
   }
 
@@ -26,7 +30,6 @@
     border: 1px solid rgba($color-purple, 0.4);
     box-shadow: 6px 6px 12px rgba(2, 0, 103, 0.13);
     border-radius: 5px;
-
     position: relative;
     h2 {
       margin: 0;
@@ -44,6 +47,9 @@
     color: $color-purple;
     opacity: 0.62;
     transform: rotate(15deg);
+    @media screen and (max-width: $mobile) {
+      display: none;
+    }
   }
   .quote-box:after {
     content: '”';
@@ -57,6 +63,9 @@
     color: $color-purple;
     opacity: 0.62;
     transform: rotate(15deg);
+    @media screen and (max-width: $mobile) {
+      display: none;
+    }
   }
   .quote-content {
     padding: 0 60px;
