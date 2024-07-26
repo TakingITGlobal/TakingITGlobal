@@ -57,6 +57,7 @@ export const query = graphql`
           ...FlexPageDataBodyFeatureSlider
           ...FlexPageDataBodyTextCallout
           ...FlexPageDataBodyQuoteCarousel
+          ...FlexPageDataBodyDataBars
         }
       }
     }

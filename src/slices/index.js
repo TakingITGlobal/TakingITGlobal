@@ -19,6 +19,7 @@ import { FeaturedProgram } from './FeaturedProgram'
 import { ReportsCarousel } from './ReportsCarousel'
 import { TextCallout } from './TextCallout'
 import { QuoteCarousel } from './QuoteCarousel'
+import { DataBars } from './DataBars'
 
 export const components = {
   acknowledgements: Acknowledgements,
@@ -42,4 +43,5 @@ export const components = {
   featured_program: FeaturedProgram,
   text_callout_: TextCallout,
   quote_carousel: QuoteCarousel,
+  data_bars: DataBars
 }
