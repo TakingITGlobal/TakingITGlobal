@@ -18,7 +18,7 @@ export const QuoteCarousel = ({ slice }) => {
     <section className="QuoteCarousel">
       <div className="Container">
         <CarouselProvider
-          naturalSlideWidth={3}
+          naturalSlideWidth={2.5}
           naturalSlideHeight={1}
           totalSlides={total_slides}
           visibleSlides={1}

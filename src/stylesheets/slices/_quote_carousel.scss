@@ -1,27 +1,37 @@
 .QuoteCarousel {
-  overflow: hidden;
   .Container {
     width: 100%;
     padding: 10px;
   }
   .carousel__slider {
-    @media screen and (max-width: $mobile) {
+    min-height: 580px;
+    @media screen and (min-width: 400px) {
       min-height: 500px;
       max-width: 95%;
       margin-left: 0;
     }
-    @media screen and (max-width: $tablet) {
-      min-height: 600px;
-      max-width: 90%;
+    @media screen and (min-width: $mobile) {
+      min-height: 500px;
+      max-width: 95%;
+      margin-left: 0;
+    }
+    @media screen and (min-width: $tablet) {
+      min-height: 400px;
+      max-width: 95%;
+      margin-left: 25px;
+    }
+    @media screen and (min-width: $desktop) {
+      min-height: 300px;
+      max-width: 95%;
       margin-left: 25px;
     }
   }
 
   .quote-box {
-    max-width: 995px;
+    max-width: 88%;
     text-align: center;
     padding: 90px 45px 30px;
-    margin: 0 auto;
+    margin: 1em auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,46 +41,54 @@
     box-shadow: 6px 6px 12px rgba(2, 0, 103, 0.13);
     border-radius: 5px;
     position: relative;
+    @media screen and (max-width: $mobile) {
+      padding: 40px 25px 10px;
+    }
     h2 {
       margin: 0;
     }
-  }
-  .quote-box:before {
-    content: '“';
-    font-size: 300px;
-    position: absolute;
-    left: -40px;
-    top: -40px;
-    height: 70px;
-    line-height: 1;
-    font-family: 'Helvetica';
-    color: $color-purple;
-    opacity: 0.62;
-    transform: rotate(15deg);
-    @media screen and (max-width: $mobile) {
-      display: none;
+    &:before {
+      content: '“';
+      font-size: 300px;
+      position: absolute;
+      left: -30px;
+      top: -40px;
+      height: 70px;
+      line-height: 1;
+      font-family: 'Helvetica';
+      color: $color-purple;
+      opacity: 0.62;
+      transform: rotate(15deg);
+      @media screen and (max-width: $mobile) {
+        display: none;
+      }
     }
-  }
-  .quote-box:after {
-    content: '”';
-    font-size: 300px;
-    position: absolute;
-    right: -60px;
-    bottom: 60px;
-    height: 70px;
-    line-height: 1;
-    font-family: 'Helvetica';
-    color: $color-purple;
-    opacity: 0.62;
-    transform: rotate(15deg);
-    @media screen and (max-width: $mobile) {
-      display: none;
+    &:after {
+      content: '”';
+      font-size: 300px;
+      position: absolute;
+      right: -50px;
+      bottom: 60px;
+      height: 70px;
+      line-height: 1;
+      font-family: 'Helvetica';
+      color: $color-purple;
+      opacity: 0.62;
+      transform: rotate(15deg);
+      @media screen and (max-width: $mobile) {
+        display: none;
+      }
     }
   }
   .quote-content {
-    padding: 0 60px;
-    @media screen and (max-width: $desktop) {
+    padding: 0 0px;
+    font-size: 1em;
+    @media screen and (min-width: $mobile) {
       padding: 0 20px;
+    }
+    @media screen and (min-width: $desktop) {
+      padding: 0 60px;
+      font-size: 1.2em;
     }
   }
   .author-box {
