@@ -5,6 +5,7 @@
   align-items: center;
   gap: 20px;
   margin: 0 20px;
+  padding: 0 0 35px 0;
   max-width: 100%;
   overflow: hidden;
   .carousel {
@@ -78,10 +79,16 @@
   .slider {
     width: 100%;
     overflow: hidden;
+    margin-left: 5px;
 
     @media (max-width: $tablet) {
       .carousel__slider-tray-wrapper {
-        max-width: 70vw;
+        max-width: 80vw;
+      }
+    }
+    @media (max-width: $mobile) {
+      .carousel__slider-tray-wrapper {
+        max-width: 95vw;
       }
     }
   }
