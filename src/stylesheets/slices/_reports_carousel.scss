@@ -81,7 +81,12 @@
 
     @media (max-width: $tablet) {
       .carousel__slider-tray-wrapper {
-        max-width: 70vw;
+        max-width: 80vw;
+      }
+    }
+    @media (max-width: $mobile) {
+      .carousel__slider-tray-wrapper {
+        max-width: 95vw;
       }
     }
   }
