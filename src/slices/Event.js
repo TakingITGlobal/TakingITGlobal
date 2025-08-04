@@ -45,7 +45,7 @@ export const query = graphql`
         alt 
       }
       image_tag
-      date(formatString:"MMMM Do, YYYY" )
+      date(formatString:"MMMM Do" )
       event_name 
       link_label
       link {
