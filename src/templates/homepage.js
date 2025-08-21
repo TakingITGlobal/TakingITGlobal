@@ -25,7 +25,7 @@ const HomepageTemplate = ({ data }) => {
   return (
     <Layout menu={menu.data} activeDocMeta={activeDoc}>
       <div className="Homepage">
-        <SliceZone slices={homepage.data?.body} components={components} context={{insta: instaNodes, medium: mediumNodes}}/>
+        <SliceZone slices={homepage.data?.body} components={components} context={{medium: mediumNodes, insta: instaNodes}}/>
       </div>
     </Layout>
   )
@@ -68,6 +68,16 @@ export const query = graphql`
       ...TopMenuFragment
       ...BottomMenuFragment
     }
+    allFeedTakingItGlobal(sort: {order: DESC, fields: isoDate}, limit: 8) {
+      nodes {
+        title
+        link
+        isoDate
+        content {
+          encoded
+        }
+      }
+    }
     allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 12) {
       nodes {
         caption
@@ -76,16 +86,6 @@ export const query = graphql`
         permalink
         localFile {
           url
-        }
-      }
-    }
-    allFeedTakingItGlobal(sort: {order: DESC, fields: isoDate}, limit: 8) {
-      nodes {
-        title
-        link
-        isoDate
-        content {
-          encoded
         }
       }
     }

@@ -6,15 +6,15 @@ import { SliceZone } from '@prismicio/react'
 import { Layout } from '../components/Layout'
 import { components } from '../slices'
 
-const PageTemplate = ({ data }) => {
+const FlexPageTemplate = ({ data }) => {
   if (!data) return null
 
-  const pageContent = data.prismicPage || {}
-  const page = pageContent.data || {}
+  const flex_pageContent = data.prismicFlexPage || {}
+  const flex_page = flex_pageContent.data || {}
   const menu = data.prismicMenu || {}
 
-  const { lang, type, url } = pageContent || {}
-  const alternateLanguages = pageContent.alternate_languages || []
+  const { lang, type, url } = flex_pageContent || {}
+  const alternateLanguages = flex_pageContent.alternate_languages || []
   const activeDoc = {
     lang,
     type,
@@ -24,14 +24,14 @@ const PageTemplate = ({ data }) => {
 
   return (
     <Layout menu={menu.data} activeDocMeta={activeDoc}>
-      <SliceZone slices={page.body} components={components} />
+      <SliceZone slices={flex_page.body} components={components} />
     </Layout>
   )
 }
 
 export const query = graphql`
-  query pageQuery($id: String, $lang: String) {
-    prismicPage(id: { eq: $id },lang: { eq: $lang }) {
+  query flex_pageQuery($id: String, $lang: String) {
+    prismicFlexPage(id: { eq: $id }, lang: { eq: $lang }) {
       _previewable
       alternate_languages {
         uid
@@ -49,14 +49,15 @@ export const query = graphql`
             slice_type
             slice_label
           }
-          ...PageDataBodyTextImage
-          ...PageDataBodyFeaturedProgram
-          ...PageDataBodyFeatureGrid
-          ...PageDataBodyFeatureSlider
-          ...PageDataBodyProgramCarousel
-          ...PageDataBodyQuote
-          ...PageDataBodyStatListing
-          ...PageDataBodyTextCards
+          ...FlexPageDataBodyReportsCarousel
+          ...FlexPageDataBodyTextImage
+          ...FlexPageDataBodyTextCards
+          ...FlexPageDataBodyQuote
+          ...FlexPageDataBodyStatListing
+          ...FlexPageDataBodyFeatureSlider
+          ...FlexPageDataBodyTextCallout
+          ...FlexPageDataBodyQuoteCarousel
+          ...FlexPageDataBodyDataBars
         }
       }
     }
@@ -67,4 +68,4 @@ export const query = graphql`
   }
 `
 
-export default withPrismicPreview(PageTemplate)
+export default withPrismicPreview(FlexPageTemplate)

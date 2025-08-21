@@ -4,7 +4,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const { createRedirect } = actions
   createRedirect({ fromPath: '/*', toPath: '/en/:splat', isPermanent: true })
-  
+
   const queryData = await graphql(`
     {
       allPrismicHomepage {
@@ -15,6 +15,13 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
       allPrismicPage {
+        nodes {
+          id
+          lang
+          url
+        }
+      }
+      allPrismicFlexPage {
         nodes {
           id
           lang
@@ -35,10 +42,20 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-   queryData.data.allPrismicPage.nodes.forEach((page) => {
+  queryData.data.allPrismicPage.nodes.forEach((page) => {
     createPage({
       path: page.url,
       component: path.resolve(__dirname, 'src/templates/page.js'),
+      context: {
+        id: page.id,
+        lang: page.lang,
+      },
+    })
+  })
+  queryData.data.allPrismicFlexPage.nodes.forEach((page) => {
+    createPage({
+      path: page.url,
+      component: path.resolve(__dirname, 'src/templates/flex_page.js'),
       context: {
         id: page.id,
         lang: page.lang,

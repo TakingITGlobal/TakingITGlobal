@@ -17,7 +17,7 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 import { useWindowWidth } from '@react-hook/window-size/throttled'
 
 export const SocialFeed = ({ slice, context }) => {
-  const instaNodes = context.insta.nodes
+  const instaNodes = context.insta?.nodes || []
   const mediumNodes = context.medium.nodes
   const socials = Socials().data;
 
