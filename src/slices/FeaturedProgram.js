@@ -111,12 +111,7 @@ export const query = graphql`
       description { richText }
 
       # Embed field (API ID: video)
-      video {
-        html
-        embed_url
-        provider_name
-        title
-      }
+      video
 
       image {
         gatsbyImageData
