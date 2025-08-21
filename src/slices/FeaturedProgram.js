@@ -62,10 +62,14 @@ export const FeaturedProgram = ({ slice }) => {
       <h2>{slice.primary.section_title?.text}</h2>
 
       {/* Prefer video embed field (API ID: video) */}
-      {slice.primary.video?.html ? (
-        <div
+      {slice.primary.video?.embed_url ? (
+        <iframe 
           className="video-embed responsive-16x9"
-          dangerouslySetInnerHTML={{ __html: slice.primary.video.html }}
+          src={slice.primary.video.embed_url}
+          title="Embedded video"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
         />
       ) : (
         // Fallback to image when no video embed
@@ -113,18 +117,6 @@ export const query = graphql`
       # Embed field (API ID: video)
       video {
         embed_url
-        type
-        version
-        title
-        author_name
-        author_url
-        provider_name
-        provider_url
-        cache_age
-        thumbnail_url
-        thumbnail_width
-        thumbnail_height
-        html
       }
 
       image {
