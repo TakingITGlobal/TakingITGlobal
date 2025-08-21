@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
-import { PrismicRichText,PrismicLink } from '@prismicio/react'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { PrismicRichText, PrismicLink } from '@prismicio/react'
 import { FaChevronDown } from 'react-icons/fa'
-  
+
 export const FeaturedProgram = ({ slice }) => {
-  function Accordion({id, children, title}) {
-    const [isExpanded, setIsExpanded] = React.useState(false);
+  function Accordion({ id, children, title }) {
+    const [isExpanded, setIsExpanded] = React.useState(false)
     const toggleAccordion = () => setIsExpanded(!isExpanded)
 
     return (
@@ -17,8 +17,8 @@ export const FeaturedProgram = ({ slice }) => {
           aria-expanded={isExpanded}
           onClick={toggleAccordion}
           className={isExpanded ? 'open' : ''}
-        >  
-          <span className="title">{title}</span> <FaChevronDown/>
+        >
+          <span className="title">{title}</span> <FaChevronDown />
         </button>
         <div
           className="accordion-panel"
@@ -31,47 +31,70 @@ export const FeaturedProgram = ({ slice }) => {
       </div>
     )
   }
+
   const text = (
     <div className="text-wrap">
       <div className="copy">
         <h4>{slice.primary.subtitle}</h4>
-        <PrismicRichText field={slice.primary.description?.richText}/>
-          {slice.items.map((item,index) => (
-            <Accordion id={`accordion-${index}`} title={item.accordion_title} key={`accordion:${index}`}>
-              <div className="accordion-content">
-                <PrismicRichText field={item.accordion_content?.richText}/>
-              </div>
-            </Accordion>
-          ))}
-           <PrismicLink
-              className="btn-primary"
-              href={slice.primary.section_link?.url}
-            >
-              {slice.primary.section_link_label}
-            </PrismicLink>
+        <PrismicRichText field={slice.primary.description?.richText} />
+        {slice.items.map((item, index) => (
+          <Accordion
+            id={`accordion-${index}`}
+            title={item.accordion_title}
+            key={`accordion:${index}`}
+          >
+            <div className="accordion-content">
+              <PrismicRichText field={item.accordion_content?.richText} />
+            </div>
+          </Accordion>
+        ))}
+        {slice.primary.section_link?.url && (
+          <PrismicLink className="btn-primary" href={slice.primary.section_link.url}>
+            {slice.primary.section_link_label}
+          </PrismicLink>
+        )}
       </div>
     </div>
   )
-  const image = (
-    <>        
-      <div className="image-wrap">
-        <h2>{slice.primary.section_title.text}</h2>
-        <GatsbyImage
-          image={slice.primary.image?.gatsbyImageData}
-          alt={slice.primary.image?.alt || ""}
-          className="image"
+
+  const media = (
+    <div className="image-wrap">
+      <h2>{slice.primary.section_title?.text}</h2>
+
+      {/* 1) Prefer video embed field */}
+      {slice.primary.video?.html ? (
+        <div
+          className="video-embed responsive-16x9"
+          dangerouslySetInnerHTML={{ __html: slice.primary.video.html }}
         />
-      </div>
-    </>
+      ) : (
+        // 2) Fallback to image
+        slice.primary.image?.gatsbyImageData && (
+          <GatsbyImage
+            image={slice.primary.image.gatsbyImageData}
+            alt={slice.primary.image?.alt || ''}
+            className="image"
+          />
+        )
+      )}
+    </div>
   )
+
   return (
     <section className="FeaturedProgram">
       <div className="Container">
         <div className="flex-wrap">
-          {slice.primary.image_side? 
-            <>{text}{image}</> : 
-            <>{image}{text}</>
-          }
+          {slice.primary.image_side ? (
+            <>
+              {text}
+              {media}
+            </>
+          ) : (
+            <>
+              {media}
+              {text}
+            </>
+          )}
         </div>
       </div>
     </section>
@@ -86,14 +109,25 @@ export const query = graphql`
       section_title {
         text
       }
+      subtitle
       description {
         richText
       }
-      subtitle
+
+      # 👇 Embed field (API ID: video)
+      video {
+        html
+        embed_url
+        provider_name
+        title
+      }
+
+      # Fallback image
       image {
         gatsbyImageData
-        alt 
+        alt
       }
+
       section_link {
         url
       }
@@ -107,3 +141,4 @@ export const query = graphql`
     }
   }
 `
+
