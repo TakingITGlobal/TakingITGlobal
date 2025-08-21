@@ -110,9 +110,12 @@ export const query = graphql`
       subtitle
       description { richText }
 
-      # Use the official fragment so Gatsby knows all subfields on the embed type
+      # Embed field (API ID: video)
       video {
-        ...PrismicEmbedField
+        html
+        embed_url
+        provider_name
+        title
       }
 
       image {
