@@ -61,14 +61,14 @@ export const FeaturedProgram = ({ slice }) => {
     <div className="image-wrap">
       <h2>{slice.primary.section_title?.text}</h2>
 
-      {/* 1) Prefer video embed field */}
+      {/* Prefer video embed field (API ID: video) */}
       {slice.primary.video?.html ? (
         <div
           className="video-embed responsive-16x9"
           dangerouslySetInnerHTML={{ __html: slice.primary.video.html }}
         />
       ) : (
-        // 2) Fallback to image
+        // Fallback to image when no video embed
         slice.primary.image?.gatsbyImageData && (
           <GatsbyImage
             image={slice.primary.image.gatsbyImageData}
@@ -106,39 +106,26 @@ export const query = graphql`
     id
     primary {
       image_side
-      section_title {
-        text
-      }
+      section_title { text }
       subtitle
-      description {
-        richText
-      }
+      description { richText }
 
-      # 👇 Embed field (API ID: video)
+      # Use the official fragment so Gatsby knows all subfields on the embed type
       video {
-        html
-        embed_url
-        provider_name
-        title
+        ...PrismicEmbedField
       }
 
-      # Fallback image
       image {
         gatsbyImageData
         alt
       }
 
-      section_link {
-        url
-      }
+      section_link { url }
       section_link_label
     }
     items {
       accordion_title
-      accordion_content {
-        richText
-      }
+      accordion_content { richText }
     }
   }
 `
-
